@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
         growSnake();
         growSnake();
         growSnake();
+        growSnake();
+        growSnake();
         tailMove();
     }
     public void FixedUpdate()
