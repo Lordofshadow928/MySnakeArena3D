@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7807165932407145249}
   - component: {fileID: 622963087577505467}
-  - component: {fileID: 253300538503567815}
   - component: {fileID: 3576766929925799177}
   - component: {fileID: 5616487528964008753}
   - component: {fileID: 7793391255372095927}
   - component: {fileID: 5400058251195703005}
+  - component: {fileID: 9175680319878935650}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3756969816445178947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.67, y: -0.35, z: 7.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,26 +45,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3756969816445178947}
   m_Mesh: {fileID: 4300000, guid: 629498b623911654f99f99eb85d4e5bf, type: 2}
---- !u!114 &253300538503567815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3756969816445178947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfef445aec866b3499b3ae90a93d2589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  steerSpeed: 180
-  bodySpeed: 5
-  gap: 5
-  bodyPrefab: {fileID: 4830601173484057131, guid: 06c0ff1bcf5a7b34fb586e718bff4a8d,
-    type: 3}
-  tailPrefab: {fileID: 5063481960189129817, guid: 1369e2f61f7ef6143ba4447dc7bec4ef,
-    type: 3}
 --- !u!65 &3576766929925799177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -188,3 +168,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9175680319878935650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756969816445178947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfef445aec866b3499b3ae90a93d2589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  steerSpeed: 180
+  bodySpeed: 5
+  gap: 9
+  bodyPrefab: {fileID: 4830601173484057131, guid: 06c0ff1bcf5a7b34fb586e718bff4a8d,
+    type: 3}
+  tailPrefab: {fileID: 5063481960189129817, guid: 1369e2f61f7ef6143ba4447dc7bec4ef,
+    type: 3}

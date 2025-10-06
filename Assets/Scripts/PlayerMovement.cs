@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5.0f;
     public float steerSpeed = 180.0f;
     public float bodySpeed = 5.0f;
-    [SerializeField]private int gap = 9;
+    [SerializeField]private int gap = 3;
 
     private Rigidbody rb;
     private BoxCollider boxCollider;
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     public GameObject bodyPrefab;
     public GameObject tailPrefab;
-
+    //private GameObject tail;
     private List<GameObject> bodyParts = new List<GameObject>();
     private List<Vector3> positionHistory = new List<Vector3>();
     public void Awake()
@@ -28,51 +28,49 @@ public class PlayerMovement : MonoBehaviour
     public void Start()
     {
         growSnake();
-        growSnake();
-        growSnake();
-        growSnake();
-        growSnake();
-        growSnake();
         tailMove();
     }
     public void FixedUpdate()
     {
-        transform.position +=transform.forward * moveSpeed * Time.deltaTime;
+        // Move the snake head forward
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+
+        // Turn based on input
         float steerDirection = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
 
+        // Save head position
         positionHistory.Insert(0, transform.position);
 
-        int index = 0;
-        foreach (var body in bodyParts)
+        // Move each body part to follow the previous segment
+        for (int i = 0; i < bodyParts.Count; i++)
         {
-            Vector3 point = positionHistory[Mathf.Min(index * gap, positionHistory.Count - 1)];
-            Vector3 moveDirection = point - body.transform.position;
-            body.transform.position += moveDirection * bodySpeed * Time.deltaTime;
-            body.transform.LookAt(point);
-            index++;
+            Vector3 point = positionHistory[Mathf.Min(i * gap, positionHistory.Count - 1)];
+            Vector3 moveDirection = point - bodyParts[i].transform.position;
+            bodyParts[i].transform.position += moveDirection * bodySpeed * Time.deltaTime;
+            bodyParts[i].transform.LookAt(point);
         }
-
-        foreach (var tail in bodyParts)
-        {
-            Vector3 point = positionHistory[Mathf.Min(index * gap, positionHistory.Count - 1)];
-            Vector3 moveDirection = point - tail.transform.position;
-            tail.transform.position += moveDirection * bodySpeed * Time.deltaTime;
-            tail.transform.LookAt(point);
-            index++;
-        }
-    }
+}
 
     private void growSnake()
     {
-        GameObject body = Instantiate(bodyPrefab);
-        bodyParts.Add(body);
+        Vector3 spawnPosition = bodyParts.Count > 0
+            ? bodyParts[bodyParts.Count - 1].transform.position
+            : transform.position;
 
+        GameObject body = Instantiate(bodyPrefab, spawnPosition, Quaternion.identity);
+        bodyParts.Add(body);
     }
+
+
     private void tailMove()
     {
-        GameObject tail = Instantiate(tailPrefab);
-        bodyParts.Add(tail);
+        Vector3 spawnPosition = bodyParts.Count > 0
+            ? bodyParts[bodyParts.Count - 1].transform.position
+            : transform.position;
 
+        GameObject tail = Instantiate(tailPrefab, spawnPosition, Quaternion.identity);
+        bodyParts.Add(tail);
     }
+
 }
