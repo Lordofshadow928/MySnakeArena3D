@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Body Settings")]
     public float bodySpeed = 5.0f;
-    [SerializeField] private int gap = 10;
+    [SerializeField] private int gap = 5;
 
     [Header("Prefabs")]
     public GameObject bodyPrefab;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         PrefillPositionHistory();
         SpawnSnake();
-        Debug.LogError("Spawn");
+        //Debug.LogError("Spawn");
     }
 
     private void SpawnSnake()
@@ -69,8 +69,8 @@ public class PlayerMovement : MonoBehaviour
     {
         MoveHead();
         RecordHeadPosition();
-        //PrunePositionHistory();
-        MoveBodyParts2();
+        PrunePositionHistory();
+        MoveBodyParts();
     }
 
     private void MoveHead()
@@ -79,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
         // Turn based on input
-        //float steerDirection = Input.GetAxis("Horizontal");
-        //transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
+        float steerDirection = Input.GetAxis("Horizontal");
+        transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
     }
 
     private void RecordHeadPosition()
@@ -99,15 +99,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void MoveBodyParts2()
-    {
-        for (int i = 0; i < bodyParts.Count; i++)
-        {
-            Vector3 targetPosition = positionHistory[i];
-            bodyParts[i].transform.position = targetPosition;
-            return;
-        }
-    }
+    //private void MoveBodyParts2()
+    //{
+    //    for (int i = 0; i < bodyParts.Count; i++)
+    //    {
+    //        Vector3 targetPosition = positionHistory[i];
+    //        bodyParts[i].transform.position = targetPosition;
+    //        return;
+    //    }
+    //}
 
     private void MoveBodyParts()
     {
