@@ -99,16 +99,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //private void MoveBodyParts2()
-    //{
-    //    for (int i = 0; i < bodyParts.Count; i++)
-    //    {
-    //        Vector3 targetPosition = positionHistory[i];
-    //        bodyParts[i].transform.position = targetPosition;
-    //        return;
-    //    }
-    //}
-
     private void MoveBodyParts()
     {
         // Move each body part
@@ -147,6 +137,15 @@ public class PlayerMovement : MonoBehaviour
         bodyParts.Add(tail);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Food"))
+        {
+            GrowSnake();
+            other.gameObject.SetActive(false);
+        }
+            
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
