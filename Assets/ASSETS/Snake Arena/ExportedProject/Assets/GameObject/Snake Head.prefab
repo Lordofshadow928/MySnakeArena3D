@@ -44,10 +44,7 @@ GameObject:
   - component: {fileID: 4412404952700065}
   - component: {fileID: 137133162125040085}
   - component: {fileID: 95033609911272007}
-  - component: {fileID: 789897863807611727}
-  - component: {fileID: 882578580511913728}
   - component: {fileID: 149432173069322449}
-  - component: {fileID: 6430182750041869170}
   m_Layer: 0
   m_Name: Snake Head
   m_TagString: Untagged
@@ -145,45 +142,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &789897863807611727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528106561490435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfef445aec866b3499b3ae90a93d2589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  steerSpeed: 180
-  bodySpeed: 5
-  gap: 9
-  bodyPrefab: {fileID: 1434056427143006, guid: b1ea474b15895ce4a934c67713a8ba5d, type: 3}
-  tailPrefab: {fileID: 1647949850882185, guid: e1ff5332912b6d7458c275c4a9362330, type: 3}
---- !u!65 &882578580511913728
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528106561490435}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.1349771, y: 1.4546828, z: 1.446136}
-  m_Center: {x: 0.00012663007, y: 0.34944192, z: 0.7230588}
 --- !u!64 &149432173069322449
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -206,24 +164,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 629498b623911654f99f99eb85d4e5bf, type: 2}
---- !u!114 &6430182750041869170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528106561490435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfef445aec866b3499b3ae90a93d2589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  steerSpeed: 180
-  bodySpeed: 5
-  gap: 3
-  bodyPrefab: {fileID: 0}
-  tailPrefab: {fileID: 0}
 --- !u!1 &1595479323204245
 GameObject:
   m_ObjectHideFlags: 0
