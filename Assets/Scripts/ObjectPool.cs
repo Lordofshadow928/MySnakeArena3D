@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     public int poolSize = 15;
     public bool expandPool = true;
 
-
+    
     private List<GameObject> pool = new List<GameObject>();
 
     private void Start()
@@ -42,6 +42,11 @@ public class ObjectPool : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void ReturnObject(GameObject obj)
+    {
+        obj.SetActive(false);
     }
 
     public int ActiveCount()
