@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Pooling")]
     public ObjectPool bodyPool;
-    public ObjectPool tailPool;
-
+    [Header("Tail Settings")]
+    public GameObject tailPrefab;
     // Internal components
     private List<GameObject> bodyParts = new List<GameObject>();
     [SerializeField]
@@ -161,14 +161,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void AddTail()
     {
-        GameObject tail = tailPool.GetObject();
-        if (tail == null) return;
-
-        tail.transform.position = GetLastPosition();
-        tail.transform.rotation = Quaternion.identity;
-        tail.SetActive(true);
-
-        bodyParts.Add(tail);
+        tailPrefab = Instantiate(tailPrefab, GetLastPosition(), Quaternion.identity);
+        bodyParts.Add(tailPrefab);
     }
 
     private Vector3 GetLastPosition()
