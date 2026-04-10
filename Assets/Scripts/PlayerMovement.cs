@@ -7,11 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5.0f;
-    public float steerSpeed = 180.0f;
+    public float steerSpeed = 360.0f;
 
     [Header("Body Settings")]
-    public float bodySpeed = 5.0f;
-    [SerializeField] private int gap = 5;
+    public float bodySpeed = 8.0f;
+    [SerializeField] private int gap = 8;
 
     [Header("Pooling")]
     public ObjectPool bodyPool;
