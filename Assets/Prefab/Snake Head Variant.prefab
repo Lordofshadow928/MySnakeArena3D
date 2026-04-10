@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46,16 +46,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 149432173069322449, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6430182750041869170, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
@@ -114,7 +114,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &61215102392781396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,9 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   steerSpeed: 180
-  bodySpeed: 5
+  followSpeed: 10
   gap: 5
-  bodyPrefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7,
-    type: 3}
+  bodyPool: {fileID: 0}
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
