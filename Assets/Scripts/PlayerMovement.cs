@@ -84,18 +84,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveHead()
     {
-        // Move the head forward
-        transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        float steer = Input.GetAxis("Horizontal");
 
-        // Turn based on input
-        float steerDirection = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
+        //Smooth rotation
+        Quaternion targetRot = transform.rotation * Quaternion.Euler(0, steer * steerSpeed * Time.deltaTime, 0);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, 180f * Time.deltaTime);
+
+        //Forward movement
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
     }
 
+    private float minDistance = 0.05f;
     private void RecordHeadPosition()
     {
-        // Record head position
-        positionHistory.Insert(0, transform.position);
+        if (positionHistory.Count == 0 ||
+            Vector3.Distance(positionHistory[0], transform.position) > minDistance)
+        {
+            positionHistory.Insert(0, transform.position);
+        }
     }
 
     private void PrunePositionHistory()
@@ -112,18 +118,32 @@ public class PlayerMovement : MonoBehaviour
     {
         for (int i = 0; i < bodyParts.Count; i++)
         {
-            int index = Mathf.Min(i * gap, positionHistory.Count - 1);
+            float index = i * gap;
 
-            Vector3 targetPos = positionHistory[index];
+            int indexA = Mathf.FloorToInt(index);
+            int indexB = Mathf.Min(indexA + 1, positionHistory.Count - 1);
+            float t = index - indexA;
+
+            if (indexA >= positionHistory.Count) continue;
+
+            Vector3 pointA = positionHistory[indexA];
+            Vector3 pointB = positionHistory[indexB];
+
+            //Smooth interpolation
+            Vector3 targetPos = Vector3.Lerp(pointA, pointB, t);
+
             Transform part = bodyParts[i].transform;
 
             Vector3 dir = targetPos - part.position;
 
-            part.position += dir * bodySpeed * Time.deltaTime;
+            //Smooth follow
+            float followSpeed = bodySpeed * (1f + i * 0.05f);
+            part.position += dir * followSpeed * Time.deltaTime;
 
-            if (dir.sqrMagnitude > 0.001f)
+            if (dir.sqrMagnitude > 0.0001f)
             {
-                part.rotation = Quaternion.LookRotation(dir);
+                Quaternion targetRot = Quaternion.LookRotation(dir);
+                part.rotation = Quaternion.Slerp(part.rotation, targetRot, 10f * Time.deltaTime);
             }
         }
     }
@@ -151,12 +171,7 @@ public class PlayerMovement : MonoBehaviour
         if (positionHistory == null || positionHistory.Count == 0)
             return transform.position;
 
-        int index = Mathf.Clamp(
-            (bodyParts.Count - 1) * gap,
-            0,
-            positionHistory.Count - 1
-        );
-
+        int index = Mathf.Clamp((bodyParts.Count - 1) * gap,0,positionHistory.Count - 1);
         return positionHistory[index];
     }
     private void AddTail()
