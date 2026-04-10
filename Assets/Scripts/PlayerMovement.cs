@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Body Settings")]
     public float bodySpeed = 5.0f;
     [SerializeField] private int gap = 5;
+    private GameObject tail;
 
     [Header("Pooling")]
     public ObjectPool bodyPool;
@@ -80,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
         RecordHeadPosition();
         PrunePositionHistory();
         MoveBodyParts();
+        MoveTail();
     }
 
     private void MoveHead()
@@ -114,36 +116,67 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //private void MoveBodyParts()
+    //{
+    //    for (int i = 0; i < bodyParts.Count; i++)
+    //    {
+    //        float index = i * gap;
+
+    //        int indexA = Mathf.FloorToInt(index);
+    //        int indexB = Mathf.Min(indexA + 1, positionHistory.Count - 1);
+    //        float t = index - indexA;
+
+    //        if (indexA >= positionHistory.Count) continue;
+
+    //        Vector3 pointA = positionHistory[indexA];
+    //        Vector3 pointB = positionHistory[indexB];
+
+    //        //Smooth interpolation
+    //        Vector3 targetPos = Vector3.Lerp(pointA, pointB, t);
+
+    //        Transform part = bodyParts[i].transform;
+
+    //        Vector3 dir = targetPos - part.position;
+
+    //        //Smooth follow
+    //        float followSpeed = bodySpeed * (1f + i * 0.05f);
+    //        part.position += dir * followSpeed * Time.deltaTime;
+
+    //        if (dir.sqrMagnitude > 0.0001f)
+    //        {
+    //            Quaternion targetRot = Quaternion.LookRotation(dir);
+    //            part.rotation = Quaternion.Slerp(part.rotation, targetRot, 10f * Time.deltaTime);
+    //        }
+    //    }
+    //}
     private void MoveBodyParts()
     {
         for (int i = 0; i < bodyParts.Count; i++)
         {
             float index = i * gap;
 
-            int indexA = Mathf.FloorToInt(index);
-            int indexB = Mathf.Min(indexA + 1, positionHistory.Count - 1);
-            float t = index - indexA;
+            if (index >= positionHistory.Count - 1) continue;
 
-            if (indexA >= positionHistory.Count) continue;
+            int indexA = Mathf.FloorToInt(index);
+            int indexB = indexA + 1;
+            float t = index - indexA;
 
             Vector3 pointA = positionHistory[indexA];
             Vector3 pointB = positionHistory[indexB];
 
-            //Smooth interpolation
-            Vector3 targetPos = Vector3.Lerp(pointA, pointB, t);
+            //LOCK to path (no follow)
+            Vector3 targetPos = Vector3.Slerp(pointA, pointB, t);
 
             Transform part = bodyParts[i].transform;
 
-            Vector3 dir = targetPos - part.position;
+            part.position = targetPos;
 
-            //Smooth follow
-            float followSpeed = bodySpeed * (1f + i * 0.05f);
-            part.position += dir * followSpeed * Time.deltaTime;
+            //Use path direction (NOT current pos)
+            Vector3 dir = pointA - pointB;
 
             if (dir.sqrMagnitude > 0.0001f)
             {
-                Quaternion targetRot = Quaternion.LookRotation(dir);
-                part.rotation = Quaternion.Slerp(part.rotation, targetRot, 10f * Time.deltaTime);
+                part.rotation = Quaternion.LookRotation(dir);
             }
         }
     }
@@ -176,8 +209,31 @@ public class PlayerMovement : MonoBehaviour
     }
     private void AddTail()
     {
-        tailPrefab = Instantiate(tailPrefab, GetLastPosition(), Quaternion.identity);
-        bodyParts.Add(tailPrefab);
+        tail = Instantiate(tailPrefab, GetLastPosition(), Quaternion.identity);
+    }
+
+    private void MoveTail()
+    {
+        if (tail == null) return;
+
+        float index = bodyParts.Count * gap;
+
+        if (index >= positionHistory.Count - 1) return;
+
+        int indexA = Mathf.FloorToInt(index);
+        int indexB = indexA + 1;
+        float t = index - indexA;
+
+        Vector3 pos = Vector3.Lerp(positionHistory[indexA], positionHistory[indexB], t);
+
+        tail.transform.position = pos;
+
+        Vector3 dir = positionHistory[indexA] - positionHistory[indexB];
+
+        if (dir.sqrMagnitude > 0.0001f)
+        {
+            tail.transform.rotation = Quaternion.LookRotation(dir);
+        }
     }
 
     private Vector3 GetLastPosition()
