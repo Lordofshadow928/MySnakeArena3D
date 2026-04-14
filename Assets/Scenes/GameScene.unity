@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ac623831034c14bb2940df4b3b21d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 6039175902240351188}
   poolSize: 15
   expandPool: 1
 --- !u!4 &219967476
@@ -491,12 +491,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!4 &1241349068 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5202483054221623996, guid: ff4efc22c3bf453418239f615f3434bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1459900935}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1367320378
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +628,8 @@ PrefabInstance:
         type: 3}
       propertyPath: snakeHead
       value: 
-      objectReference: {fileID: 1241349068}
+      objectReference: {fileID: 5202483054221623996, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
     - target: {fileID: 2086470221141134545, guid: bdb53e5c343a4f840a445b77152f5012,
         type: 3}
       propertyPath: spawnArea.x
@@ -705,6 +700,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdb53e5c343a4f840a445b77152f5012, type: 3}
+--- !u!1 &6039175902240351188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
+    type: 3}
+  m_PrefabInstance: {fileID: 6039175902240351187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

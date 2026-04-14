@@ -11,7 +11,7 @@ public class ObjectPool : MonoBehaviour
     
     private List<GameObject> pool = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         CreatePool();
     }
@@ -35,12 +35,18 @@ public class ObjectPool : MonoBehaviour
 
         if (expandPool)
         {
+            if (prefab == null)
+            {
+                Debug.LogError("Prefab is NULL in ObjectPool!");
+                return null;
+            }
+
             GameObject newObj = Instantiate(prefab);
             newObj.SetActive(false);
             pool.Add(newObj);
             return newObj;
         }
-
+        Debug.LogWarning("Pool empty and cannot expand!");
         return null;
     }
 
