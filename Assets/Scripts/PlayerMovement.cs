@@ -303,14 +303,14 @@ public class PlayerMovement : MonoBehaviour
     //    tail.transform.rotation = locationHistory[index].rotation;
     //}
 
-    //private Vector3 GetLastPosition()
-    //{
-    //    if (bodyParts.Count == 0)
-    //        return transform.position - transform.forward;
+    private Vector3 GetLastPosition()
+    {
+        if (bodyParts.Count == 0)
+            return transform.position - transform.forward;
 
-    //    Transform last = bodyParts[bodyParts.Count - 1].transform;
-    //    return last.position - last.forward;
-    //}
+        Transform last = bodyParts[bodyParts.Count - 1].transform;
+        return last.position - last.forward;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
