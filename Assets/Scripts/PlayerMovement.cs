@@ -7,13 +7,8 @@ using static UnityEngine.Rendering.HableCurve;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 100f;
+    public float moveSpeed = 10f;
     public float steerSpeed = 180.0f;
-
-    [Header("Body Settings")]
-    public float bodySpeed = 5.0f;
-    [SerializeField] private int gap = 5;
-
     [Header("Pooling")]
     public ObjectPool bodyPool;
     [Header("Tail Settings")]
@@ -23,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<Vector3> directions = new List<Vector3>();
     [SerializeField] private float segmentDistance = 0.5f;
     private Transform tail;
-    private List<GameObject> bodyParts = new List<GameObject>();
     private int growPending = 0;
 
     private void Start()
@@ -82,11 +76,11 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 dir = (prev.position - current.position).normalized;
 
-            //Maintain distance
+            ////Maintain distance
             current.position = prev.position - dir * segmentDistance;
 
             //Rotate forward
-            if (dir.sqrMagnitude > 0.0001f)
+            if (dir.sqrMagnitude > 0.001f)
             {
                 current.rotation = Quaternion.LookRotation(dir);
             }

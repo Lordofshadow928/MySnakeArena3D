@@ -16,7 +16,8 @@ public class FoodSpawner : MonoBehaviour
 
     [Header("Smart Spawn")]
     public float minDistanceFromSnake = 3f;
-    public int maxSpawnAttempts = 10;
+    public int maxSpawnAttempts = 3;
+    private int spawnedFood;
 
     void Start()
     {
@@ -40,9 +41,9 @@ public class FoodSpawner : MonoBehaviour
     {
         if (pool == null) return;
 
-        if (pool.ActiveCount() >= maxActiveFood)
+        if (spawnedFood >= maxActiveFood)
             return;
-
+        Debug.Log($"Currently active: {spawnedFood}");
         GameObject food = pool.GetObject();
         if (food == null) return;
 
@@ -69,6 +70,10 @@ public class FoodSpawner : MonoBehaviour
 
     void ActivateFood(GameObject food, Vector3 position)
     {
+        if (spawnedFood >= maxActiveFood)
+            return;
+        spawnedFood++;
+        Debug.Log($"Total active: {spawnedFood}");
         food.transform.position = position;
         food.SetActive(true);
     }

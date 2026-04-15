@@ -19,7 +19,7 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(prefab);
+            GameObject obj = Instantiate(prefab, transform);
             obj.SetActive(false);
             pool.Add(obj);
         }
@@ -30,7 +30,10 @@ public class ObjectPool : MonoBehaviour
         foreach (GameObject obj in pool)
         {
             if (!obj.activeInHierarchy)
-            return obj;
+            {
+                obj.SetActive(true);
+                return obj;
+            }
         }
 
         if (expandPool)
@@ -41,7 +44,7 @@ public class ObjectPool : MonoBehaviour
                 return null;
             }
 
-            GameObject newObj = Instantiate(prefab);
+            GameObject newObj = Instantiate(prefab, transform);
             newObj.SetActive(false);
             pool.Add(newObj);
             return newObj;
