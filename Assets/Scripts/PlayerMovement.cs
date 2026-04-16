@@ -86,6 +86,32 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    
+
+        //private void MoveSegments()
+        //{
+        //    for (int i = 1; i < segments.Count; i++)
+        //    {
+        //        Transform prev = segments[i - 1];
+        //        Transform current = segments[i];
+
+        //        Vector3 targetPos = prev.position - prev.forward * segmentDistance;
+
+        //        // Move smoothly instead of snapping
+        //        current.position = Vector3.MoveTowards(
+        //            current.position,
+        //            targetPos,
+        //            moveSpeed * Time.deltaTime
+        //        );
+
+        //        // Rotate toward movement direction
+        //        Vector3 dir = (prev.position - current.position);
+        //        if (dir.sqrMagnitude > 0.001f)
+        //        {
+        //            current.rotation = Quaternion.LookRotation(dir);
+        //        }
+        //    }
+        //}
 
     private void GrowSnake()
     {
