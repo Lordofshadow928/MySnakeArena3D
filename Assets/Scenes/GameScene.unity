@@ -553,8 +553,28 @@ PrefabInstance:
       objectReference: {fileID: 1367320379}
     - target: {fileID: 61215102392781396, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
+      propertyPath: headSpeed
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 61215102392781396, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 61215102392781396, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: steerSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 61215102392781396, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: minDistance
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61215102392781396, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: segmentLenght
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 61215102392781396, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
