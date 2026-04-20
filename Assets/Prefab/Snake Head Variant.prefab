@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snake Head Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4412404952700065, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -80,7 +84,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 61215102392781396}
+      addedObject: {fileID: 5806677376611225571}
   m_SourcePrefab: {fileID: 100100000, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
 --- !u!1 &5198856020018882843 stripped
 GameObject:
@@ -115,7 +119,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!114 &61215102392781396
+--- !u!114 &5806677376611225571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,13 +128,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5198856020018882843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfef445aec866b3499b3ae90a93d2589, type: 3}
+  m_Script: {fileID: 11500000, guid: 81d1a2313f7422e4eb8a5ac2888ebf5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
   steerSpeed: 180
-  followSpeed: 10
-  gap: 5
+  headSpeed: 240
   bodyPool: {fileID: 0}
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
+  positionHistory: []
+  segments: []
+  directions: []
+  segmentDistance: 0.5
+  segmentLenght: 1
+  distanceBetweenPoints: 0.15
