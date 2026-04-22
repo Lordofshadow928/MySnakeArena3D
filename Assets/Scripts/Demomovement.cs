@@ -183,16 +183,25 @@ public class Demomovement : MonoBehaviour
 
 
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Food"))
+    //    {
+    //        growPending++;
+    //        other.gameObject.SetActive(false);
+    //    }
+
+    //}
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Food"))
+        if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
         {
             growPending++;
             other.gameObject.SetActive(false);
+            GetComponent<FoodMagnet>().ActivateMagnet();
         }
-
     }
-
 
 
 }
