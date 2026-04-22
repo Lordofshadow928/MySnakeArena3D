@@ -27,11 +27,11 @@ public class Demomovement : MonoBehaviour
     private float deltaTime;
     [SerializeField] private int preHisotry = 15;
     [SerializeField] private Transform headPoint;
+
+    private Transform root;
     private void Start()
     {
-        {
-            SpawnSnake();
-        }
+        SpawnSnake();
     }
 
     private void OnDrawGizmos()
@@ -48,7 +48,7 @@ public class Demomovement : MonoBehaviour
         CleanLists();
         // Head
         InitHead();
-        
+
         // Spawn body
         InitBody();
 
@@ -60,12 +60,13 @@ public class Demomovement : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-           GrowSnake();
+            GrowSnake();
         }
     }
 
     private void InitHead()
     {
+        root = transform.parent;
         segments.Add(transform);
         directions.Add(transform.forward);
     }
@@ -86,7 +87,7 @@ public class Demomovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
         positionHistory.Insert(0, headPoint.position);
         MoveHead();
         MoveSegments();
@@ -100,8 +101,8 @@ public class Demomovement : MonoBehaviour
     private void MoveHead()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * horizontal * headSpeed * deltaTime);
-        transform.position += transform.forward * moveSpeed * deltaTime;
+        root.Rotate(Vector3.up * horizontal * headSpeed * deltaTime);
+        root.position += transform.forward * moveSpeed * deltaTime;
         Debug.Log($"Head Position: {transform.position}");
     }
 
