@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012, type: 3}
-  poolSize: 15
+  poolSize: 20
   expandPool: 1
 --- !u!4 &219967476
 Transform:
@@ -485,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0.8, y: 26.1, z: -22.8}
+  m_LocalPosition: {x: 0.8, y: 18.34, z: -14.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7, type: 3}
   poolSize: 20
-  expandPool: 0
+  expandPool: 1
 --- !u!4 &1367320380
 Transform:
   m_ObjectHideFlags: 0
@@ -636,6 +636,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5806677376611225571, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: bodyPool
+      value: 
+      objectReference: {fileID: 1367320379}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -675,7 +680,7 @@ MonoBehaviour:
     type: 3}
   foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
     type: 3}
-  maxActiveFood: 15
+  maxActiveFood: 25
   spawnArea: {x: 5, y: 1, z: 5}
   spawnInterval: 1
   minDistanceFromSnake: 3
