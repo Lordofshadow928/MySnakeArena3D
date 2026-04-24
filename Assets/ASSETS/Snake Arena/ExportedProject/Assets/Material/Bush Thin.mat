@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _EMISSION
   m_InvalidKeywords:
   - TCP2_DISABLE_WRAPPED_LIGHT
@@ -23,10 +24,11 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _SmoothnessTextureChannel
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -89,7 +91,7 @@ Material:
     - _MatCapMaskChannel: 0
     - _MatCapType: 0
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 1
     - _NormalsSource: 0
     - _NormalsUVType: 0
     - _OcclusionChannel: 0

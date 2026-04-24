@@ -5,13 +5,20 @@ using UnityEngine.UIElements;
 
 public class FoodMagnet : MonoBehaviour
 {
-    float magnetRadius = 1.5f;
-    float magnetForce = 6f;
+    float magnetRadius = 2f;
+    float magnetForce = 7f;
     float magnetDuration = 3f;
     bool isMagnetActive = false;
     [SerializeField] private Transform mouthPoint;
 
+    private Animator animator;
     public LayerMask foodLayer;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     public void OnEatFood()
     {
         StartCoroutine(MagnetEffect());
@@ -24,6 +31,7 @@ public class FoodMagnet : MonoBehaviour
         isMagnetActive = false;
     }
 
+   
     void Update()
     {
         if (!isMagnetActive) return;

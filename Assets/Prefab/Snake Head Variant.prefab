@@ -78,6 +78,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4412404952700065, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -158,7 +162,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3445061113502256111}
+      addedObject: {fileID: 7432498217183217730}
   m_SourcePrefab: {fileID: 100100000, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
 --- !u!1 &5198856020018882843 stripped
 GameObject:
@@ -219,7 +223,7 @@ MonoBehaviour:
   distanceBetweenPoints: 0.15
   preHisotry: 50
   headPoint: {fileID: 1317098655145831972}
---- !u!114 &3445061113502256111
+--- !u!114 &7432498217183217730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,13 +232,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5198856020018882843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d74e6b9922767d43bc3f4b4cba74d8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dc7355f48b7ac14389c513c72abb374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouthPoint: {fileID: 983891367825626772}
+  magnetRadius: 5
+  magnetForce: 10
+  eatDistance: 0.5
   foodLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
+  mouthPoint: {fileID: 0}
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,

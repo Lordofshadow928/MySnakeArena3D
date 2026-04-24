@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1120919420067152, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1177380606221218, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_IsActive
@@ -185,32 +185,44 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.519
+      value: -1.196
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.131
+      value: 2.158
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.6959385
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.12271278
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.122862875
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalRotation.z
+      value: 0.6967897
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4735572393089970, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 269.93
       objectReference: {fileID: 0}
     - target: {fileID: 4770932464994385, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -248,11 +260,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4920797075652107, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 23316781185764825, guid: 3d67ae90d45cd7445b7c19df189207de,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 405b9ff318b139d478492b258cc6f606, type: 2}
+      objectReference: {fileID: 2100000, guid: a214cd04a052c044fa71585d1f2acd76, type: 2}
     - target: {fileID: 23854799254693169, guid: 3d67ae90d45cd7445b7c19df189207de,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -292,11 +308,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 2532d22dd52b5854189d40a50540b705, type: 2}
+      objectReference: {fileID: 4300000, guid: 30ba2555d6cb5b844a17414415a2146a, type: 2}
     - target: {fileID: 64026507941640578, guid: 3d67ae90d45cd7445b7c19df189207de,
         type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136216017719836921, guid: 3d67ae90d45cd7445b7c19df189207de,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114191225391129618, guid: 3d67ae90d45cd7445b7c19df189207de, type: 3}
