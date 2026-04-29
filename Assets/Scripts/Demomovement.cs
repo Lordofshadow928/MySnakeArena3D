@@ -199,7 +199,7 @@ public class Demomovement : MonoBehaviour
         {
             growPending++;
             other.gameObject.SetActive(false);
-            GetComponent<DemoMagnet>().ActivateMagnet();
+            GetComponent<DemoMagnet2>().ActivateMagnet();
         }
     }
 
