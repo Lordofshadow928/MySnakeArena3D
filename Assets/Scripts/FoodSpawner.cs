@@ -44,7 +44,7 @@ public class FoodSpawner : MonoBehaviour
         if (spawnedFood >= maxActiveFood)
             return;
         Debug.Log($"Currently active: {spawnedFood}");
-        GameObject food = pool.GetObject();
+        GameObject food = pool.GetObject(Vector3.zero, Quaternion.identity);
         if (food == null) return;
 
         Vector3 spawnPos;

@@ -145,7 +145,7 @@ public class Demomovement : MonoBehaviour
 
     private GameObject GrowSnake()
     {
-        GameObject body = bodyPool.GetObject();
+        GameObject body = bodyPool.GetObject(Vector3.zero, Quaternion.identity);
         if (body == null) return null;
 
         //If tail exists last body is BEFORE tail
@@ -199,7 +199,7 @@ public class Demomovement : MonoBehaviour
         {
             growPending++;
             other.gameObject.SetActive(false);
-            GetComponent<DemoMagnet2>().ActivateMagnet();
+            GetComponent<DemoMagnet3>()/*.ActivateMagnet()*/;
         }
     }
 

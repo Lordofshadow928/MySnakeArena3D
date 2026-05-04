@@ -156,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void GrowSnake()
     {
-        GameObject body = bodyPool.GetObject();
+        GameObject body = bodyPool.GetObject(Vector3.zero, Quaternion.identity);
         if (body == null) return;
 
         //If tail exists last body is BEFORE tail

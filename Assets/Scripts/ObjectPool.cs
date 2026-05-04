@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +7,13 @@ public class ObjectPool : MonoBehaviour
     public int poolSize = 15;
     public bool expandPool = true;
 
-    
     private List<GameObject> pool = new List<GameObject>();
 
     private void Awake()
     {
         CreatePool();
     }
+
     void CreatePool()
     {
         for (int i = 0; i < poolSize; i++)
@@ -25,13 +24,13 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetObject()
+    public GameObject GetObject(Vector3 position, Quaternion rotation)
     {
         foreach (GameObject obj in pool)
         {
             if (!obj.activeInHierarchy)
             {
-                obj.SetActive(true);
+                PrepareObject(obj, position, rotation);
                 return obj;
             }
         }
@@ -45,16 +44,42 @@ public class ObjectPool : MonoBehaviour
             }
 
             GameObject newObj = Instantiate(prefab, transform);
-            newObj.SetActive(false);
             pool.Add(newObj);
+
+            PrepareObject(newObj, position, rotation);
             return newObj;
         }
+
         Debug.LogWarning("Pool empty and cannot expand!");
         return null;
     }
 
+    private void PrepareObject(GameObject obj, Vector3 position, Quaternion rotation)
+    {
+        obj.transform.position = position;
+        obj.transform.rotation = rotation;
+
+        // Reset physics BEFORE enabling
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        obj.SetActive(true);
+    }
+
     public void ReturnObject(GameObject obj)
     {
+        // Reset physics immediately
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
         obj.SetActive(false);
     }
 
