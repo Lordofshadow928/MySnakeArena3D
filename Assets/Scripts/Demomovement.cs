@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.Rendering.HableCurve;
 
 public class Demomovement : MonoBehaviour
 {
@@ -111,9 +109,6 @@ public class Demomovement : MonoBehaviour
         for (int i = 1; i < segments.Count; i++)
         {
             Transform segment = segments[i];
-            //Transform current = segments[i];
-            //Transform target = (i == 0) ? transform : segments[i - 1];
-
             int index = Mathf.RoundToInt(i * segmentLenght / distanceBetweenPoints);
             if (index < positionHistory.Count)
             {
@@ -181,27 +176,14 @@ public class Demomovement : MonoBehaviour
         directions.Add(last.forward);
     }
 
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Food"))
-    //    {
-    //        growPending++;
-    //        other.gameObject.SetActive(false);
-    //    }
-
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
         {
             growPending++;
             other.gameObject.SetActive(false);
-            GetComponent<DemoMagnet3>()/*.ActivateMagnet()*/;
+            GetComponent<DemoMagnet4>();
         }
     }
-
 
 }
