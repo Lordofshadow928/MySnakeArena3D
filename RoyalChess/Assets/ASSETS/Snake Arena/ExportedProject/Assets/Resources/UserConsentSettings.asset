@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 430244776, guid: feccdeebf05f70affe9fbec8b2360f90, type: 3}
+  m_Name: UserConsentSettings
+  m_EditorClassIdentifier:
+  usercentricsId: YHrvpJK7ldL4ki
+  termsLink: https://aigames.ae/policy#terms
+  privacyLink: https://aigames.ae/policy#privacy
+  termsLinkIos:
+  privacyLinkIos:
+  companyName: Azur Games
+  companyLogo: {fileID: 21300000, guid: 76c7d35b71e710e47ba5d1d56b37d313, type: 2}
+  sharkLogo: {fileID: 21300000, guid: f387b4c23230be443888a353a3ce3041, type: 2}
+  popupPrefab: {fileID: 1273906348361341, guid: 38c69924022086d45bbb620f3f8e0602, type: 2}
+  initStep: {fileID: 11400000, guid: 8acd984c2b8631c4a89e34d867188ac1, type: 2}
+  prewarmedAttUcmStep: {fileID: 11400000, guid: 8a76b32c082f8cb4a98727d78f24b0ba, type: 2}
+  settingsCmpStep: {fileID: 11400000, guid: b534fb0d347592f4a8fc6760a59382cf, type: 2}
+  steps:
+  - {fileID: 11400000, guid: a3beb3802d7910c4ab9c697eae7956fc, type: 2}
+  - {fileID: 11400000, guid: 15c3643a888e00144b115cbffe802d04, type: 2}
+  - {fileID: 11400000, guid: 5c473c4af9e24c443a964c2e797707bb, type: 2}

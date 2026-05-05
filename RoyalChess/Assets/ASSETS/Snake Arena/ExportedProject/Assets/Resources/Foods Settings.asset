@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059fd3bd93bb5dbbbf8bba81206cf39f, type: 3}
+  m_Name: Foods Settings
+  m_EditorClassIdentifier:
+  foods:
+  - foodGameObject: {fileID: 1579912603867824, guid: 80c3103e79177bd448ce4ddfb4c617fe, type: 2}
+    foodForMenuGameObject: {fileID: 1154957798312137, guid: d0c795427c3e7904ab843d22584cdf10, type: 2}
+    foodType: 0
+    sprite: {fileID: 21300000, guid: fe87eba3bd9c65645b108f8f2dd17b47, type: 2}
+  - foodGameObject: {fileID: 1485062914055208, guid: 21463051988fb924d9c9b30785433dc3, type: 2}
+    foodForMenuGameObject: {fileID: 1031076216565292, guid: 1e8d78230aafbff43b6a8ca9b48b81af, type: 2}
+    foodType: 1
+    sprite: {fileID: 21300000, guid: 9c9e43c9ff72f3345bc169c4eeef1412, type: 2}
+  - foodGameObject: {fileID: 1742949494342165, guid: a603fd7a5fa6c0449b1f5ee3f817af46, type: 2}
+    foodForMenuGameObject: {fileID: 1870232732495662, guid: 71a48cf6d5c272044add3032cc46f1be, type: 2}
+    foodType: 2
+    sprite: {fileID: 21300000, guid: d45a814207a59734c81873b45899a673, type: 2}
+  - foodGameObject: {fileID: 1293451252852293, guid: 305fff71443159c479ab86a204d52c2e, type: 2}
+    foodForMenuGameObject: {fileID: 1577922981838563, guid: 31a30b267f0e1de4f91c8fd0f0709ed2, type: 2}
+    foodType: 3
+    sprite: {fileID: 21300000, guid: 51bd9e3fd2b5a8043b0b4374b801a60b, type: 2}
+  - foodGameObject: {fileID: 1235957369242845, guid: 2aa4b3ae8bf7ca84482377fd9c1f8667, type: 2}
+    foodForMenuGameObject: {fileID: 1173905759354901, guid: d4a27174bdbb13741a6daf529b83d1db, type: 2}
+    foodType: 4
+    sprite: {fileID: 21300000, guid: d953292acda0b4f4bb65aae3480fdcb4, type: 2}
+  - foodGameObject: {fileID: 1486283879036075, guid: c1b6c573e2d02f744a19755f0f0f4b2e, type: 2}
+    foodForMenuGameObject: {fileID: 1220029930973248, guid: 9ff51dfc8811a3f489938313744b72a4, type: 2}
+    foodType: 5
+    sprite: {fileID: 21300000, guid: 074f1a331d303f04e940cd8511aba53a, type: 2}
+  - foodGameObject: {fileID: 1693565430880517, guid: 50c80a610f86fdf4ab6146b9aaf01439, type: 2}
+    foodForMenuGameObject: {fileID: 1813193596362439, guid: 611dc4ad5ce5c834f93c3d280550f0ba, type: 2}
+    foodType: 6
+    sprite: {fileID: 21300000, guid: 89bdbeed37062724eb7d3013697c81a2, type: 2}
+  - foodGameObject: {fileID: 1917431080755544, guid: 86987ba9ad67a2241b7cb108ce41f7ee, type: 2}
+    foodForMenuGameObject: {fileID: 1218493086139203, guid: 471d9ac61f5fdb744b8d96f780664f8a, type: 2}
+    foodType: 7
+    sprite: {fileID: 21300000, guid: d1f975a0647ec2146bfe64477baf9edf, type: 2}
+  - foodGameObject: {fileID: 1003821366701304, guid: 14715cafd16c9de4d885dee6ed2f4a85, type: 2}
+    foodForMenuGameObject: {fileID: 1047952700794387, guid: 11bbcaa5d4cf8f14581a7d422de2b236, type: 2}
+    foodType: 8
+    sprite: {fileID: 21300000, guid: 57bee6eb7937e4b45bce379530824f93, type: 2}
+  - foodGameObject: {fileID: 1797652279129328, guid: 3d00338d18a339e4cb8aefb406802592, type: 2}
+    foodForMenuGameObject: {fileID: 1620929162114354, guid: 9429193b4e060964797645f111384c33, type: 2}
+    foodType: 9
+    sprite: {fileID: 21300000, guid: 29d8d0340068bd044a3870fab2c572fd, type: 2}
+  - foodGameObject: {fileID: 1243168841881149, guid: 51ed5182478eb9542b64a8ac3c107f5f, type: 2}
+    foodForMenuGameObject: {fileID: 1707616155553855, guid: 475a00c175318054fa14aece8f0ddeca, type: 2}
+    foodType: 10
+    sprite: {fileID: 21300000, guid: a2cc944fad8e951488910f7e94f6b743, type: 2}
+  - foodGameObject: {fileID: 1622177267375192, guid: 3cd49c3997fd8314caac0016bb9b0621, type: 2}
+    foodForMenuGameObject: {fileID: 1424186123945797, guid: 032982f60a859264286c80e51ae99550, type: 2}
+    foodType: 11
+    sprite: {fileID: 21300000, guid: 387407f813056f2468c85f5a6f33370a, type: 2}
+  - foodGameObject: {fileID: 1407877964068012, guid: fb6440282ab2e964eb6164b042687082, type: 2}
+    foodForMenuGameObject: {fileID: 1383033659941565, guid: f9e5d78b16e13e246b572fbe55562cf0, type: 2}
+    foodType: 12
+    sprite: {fileID: 21300000, guid: 074a2dc9dde331e4c9a9a118ac64aa8f, type: 2}
+  - foodGameObject: {fileID: 1126958727125146, guid: 7716a4de1e45086438b6a4c4bf5917ac, type: 2}
+    foodForMenuGameObject: {fileID: 1851373010451162, guid: 086080fd16fd7184396986dcc52bf5c6, type: 2}
+    foodType: 13
+    sprite: {fileID: 21300000, guid: 25ed82f103bd0d1448ddf0b1e47ace96, type: 2}
+  - foodGameObject: {fileID: 1470922815453404, guid: 5fa22fb71333dbb48a6ee5c6bc9b2d03, type: 2}
+    foodForMenuGameObject: {fileID: 1527528567126304, guid: 752ffcafae72e874db37acca83b6860d, type: 2}
+    foodType: 14
+    sprite: {fileID: 21300000, guid: c8cc20e2842adf6488ee9e66a0b928f5, type: 2}
+  - foodGameObject: {fileID: 1889602243585051, guid: 70f04c06032f21543a6a735fa9a9289d, type: 2}
+    foodForMenuGameObject: {fileID: 1742566804514877, guid: 0ecb873cba9094940a4fc07ccba3bc17, type: 2}
+    foodType: 15
+    sprite: {fileID: 21300000, guid: 07adb62db137e7d4b98fef1ccd055359, type: 2}
+  - foodGameObject: {fileID: 1533905062263932, guid: 9478aa6176921d74ca7532fc208e8b8d, type: 2}
+    foodForMenuGameObject: {fileID: 1854068596909423, guid: 3483b7682bbd63d40b06218829655198, type: 2}
+    foodType: 16
+    sprite: {fileID: 21300000, guid: 6480d2114bc9061429f3d237739042c7, type: 2}
+  - foodGameObject: {fileID: 1216805181241844, guid: 305557d6852eb144e89404d389722679, type: 2}
+    foodForMenuGameObject: {fileID: 1429033089113818, guid: 16b378e1dd30a73489614939397dd86a, type: 2}
+    foodType: 17
+    sprite: {fileID: 21300000, guid: 63838d6cc0871554b9b98641f899f6aa, type: 2}
+  - foodGameObject: {fileID: 1280027999238721, guid: 30b0d8a3557112a43aa4eff74434b098, type: 2}
+    foodForMenuGameObject: {fileID: 1178442406658811, guid: e993b19770022114ea66e2f4128351d9, type: 2}
+    foodType: 18
+    sprite: {fileID: 21300000, guid: 955cb64a0e872c0438acc4fb67f02927, type: 2}

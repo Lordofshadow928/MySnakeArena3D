@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6caefdc330cfe50ccac133d45b1b47e1, type: 3}
+  m_Name: Locations Settings
+  m_EditorClassIdentifier:
+  locations:
+  - locationGameObject: {fileID: 1414325455289040, guid: 3d67ae90d45cd7445b7c19df189207de, type: 2}
+    locationPreviewGameObject: {fileID: 1142433835957747, guid: 300e7113939f2184f94437ba5914fe30, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 0
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 01_tropical
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1334780738381065, guid: 949e27f8141faa54fbde66f6e1c363dd, type: 2}
+    locationPreviewGameObject: {fileID: 1535614031201537, guid: 67dae1cc288e96d4197cdf29b4d45d85, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 2
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 02_tropical
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1473858069945154, guid: f82b7a28219c3504aa58cb4d6d076048, type: 2}
+    locationPreviewGameObject: {fileID: 1784943839585605, guid: 7a3d5e08341481247ad6b923443c616d, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 4
+      foodCount: 240
+    skinSettings: {fileID: 11400000, guid: 12b7ff2cf37b1764489accfeab45aebe, type: 2}
+    locationName: 03_tropical
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1570624585590146, guid: 51089ff61216bc7489a046c872f159ab, type: 2}
+    locationPreviewGameObject: {fileID: 1120914489940743, guid: 3971b082387544d4994b0594a0418f9e, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 1
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 04_tropical
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1406544672980267, guid: 70968cc25073a1a46a25f479dd38306b, type: 2}
+    locationPreviewGameObject: {fileID: 1630460735141503, guid: 98c5f1f6ba4d7d644bac3e15473083d9, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 5
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 05_tropical
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1158617223620809, guid: bc95512afc6be0547b1f208bad9ddf16, type: 2}
+    locationPreviewGameObject: {fileID: 1877456069849811, guid: ac4c5790977b2f94da4f0a710fa60326, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 6
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 01_desert
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1817704603743875, guid: 4a60dd5b8a1999246b2bc1ec487286c6, type: 2}
+    locationPreviewGameObject: {fileID: 1122927578228368, guid: 0f86976e82a20664a9206fb4bbb9e82d, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 3
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 02_desert
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1867351612637899, guid: c39593ecc6d09b94f97e591ced761e9a, type: 2}
+    locationPreviewGameObject: {fileID: 1062343428758593, guid: 9c67b015002131a41ade67e9a65070ae, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 8
+      foodCount: 240
+    skinSettings: {fileID: 11400000, guid: c268fd382c2845d4485c663845c86d5b, type: 2}
+    locationName: 03_desert
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1640665316832232, guid: 3f118e4343542184f95a65d19b8f2ff0, type: 2}
+    locationPreviewGameObject: {fileID: 1597543359403908, guid: 4d7fd75e9f26ff848aa3aa4685542266, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 7
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 04_desert
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1066591625048532, guid: 4d3efd08a1c37ce43bc3b89bfcd4f53e, type: 2}
+    locationPreviewGameObject: {fileID: 1615676824076066, guid: 8c58ba850b94dab42a05ed4aed773f5f, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 10
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 05_desert
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1029562477590291, guid: e05061c5750320b46a979c0078719c27, type: 2}
+    locationPreviewGameObject: {fileID: 1306290304060183, guid: 51f1f89e416864e488fc4eff67a202f6, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 11
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 01_winter
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1489087424035281, guid: 74c61aa1f8fa16e4a9f85f8de4f512fc, type: 2}
+    locationPreviewGameObject: {fileID: 1769380315462247, guid: eec54aa5a9d49c240bab3d7252998a18, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 12
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 02_winter
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1328135632380904, guid: 8c86e84d4dfef6d4b8508fcdda9391c1, type: 2}
+    locationPreviewGameObject: {fileID: 1751230592465056, guid: 5401dec3dee2e2e43be8e89d847a877e, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 13
+      foodCount: 240
+    skinSettings: {fileID: 11400000, guid: 71bf46ab4aafec947855f500e3eb185b, type: 2}
+    locationName: 03_winter
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1158375698607867, guid: ca1d25a253f2f894abe7403633460aef, type: 2}
+    locationPreviewGameObject: {fileID: 1031624246971669, guid: 1036ed1b01521e04ca8c50660605d8cc, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 15
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 04_winter
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1874211702168095, guid: b18795178ab9bee43b06ea3763e10e7f, type: 2}
+    locationPreviewGameObject: {fileID: 1728823209132434, guid: 8bc42a3201c3af643a57f4a251a60596, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 14
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 05_winter
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1832285947917139, guid: aaadf02b18bd77340a03c61555b854a6, type: 2}
+    locationPreviewGameObject: {fileID: 1304352338809222, guid: 6d38ffcf93ba6fc40a1cd0aaae05bc58, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 9
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 01_moon
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1253799039860551, guid: 227781ce407658843bdb6b8c3ef42b04, type: 2}
+    locationPreviewGameObject: {fileID: 1553667751802640, guid: 91bfd405d381c6b4ea255cfa1a1e34bf, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 18
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 02_moon
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1664195131116698, guid: 9483443e4469cce418b9ffe63c32a473, type: 2}
+    locationPreviewGameObject: {fileID: 1372663898348793, guid: 4bc82455dece2d8449fb686f00aa6fc1, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 17
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 03_moon
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1253696662163985, guid: e6448e05365d3b0488350c21d171b97b, type: 2}
+    locationPreviewGameObject: {fileID: 1691132858135839, guid: c9e392088f6fc19429b19c068a3585bb, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 7
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 04_moon
+    enemiesCount: 7
+  - locationGameObject: {fileID: 1711072484551786, guid: 556e611a93fb001499a7ea9e09da1903, type: 2}
+    locationPreviewGameObject: {fileID: 1650377694120770, guid: ca45625869af57145b497ec24b4df91f, type: 2}
+    foodsSettingsForLocation:
+    - foodType: 6
+      foodCount: 240
+    skinSettings: {fileID: 0}
+    locationName: 05_moon
+    enemiesCount: 7

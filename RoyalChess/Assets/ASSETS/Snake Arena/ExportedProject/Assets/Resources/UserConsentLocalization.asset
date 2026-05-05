@@ -1,0 +1,405 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 550619118, guid: feccdeebf05f70affe9fbec8b2360f90, type: 3}
+  m_Name: UserConsentLocalization
+  m_EditorClassIdentifier:
+  localizations:
+  - languageIso: en
+    GDPRDescription: By using this app I agree to <companyname>' Terms of Use and confirm that I have read Privacy Policy
+    GDPRAcceptButton: Accept
+    GDPRHeader: We've updated our Terms
+    GDPRTermsButton: 'Terms of Use '
+    GDPRPrivacyButton: Privacy Policy
+  - languageIso: en
+    GDPRDescription: By using this app I agree to <companyname>' Terms of Use and confirm that I have read Privacy Policy
+    GDPRAcceptButton: Accept
+    GDPRHeader: We've updated our Terms
+    GDPRTermsButton: 'Terms of Use '
+    GDPRPrivacyButton: Privacy Policy
+  - languageIso: es-ES
+    GDPRDescription: Al usar esta app estoy de acuerdo con los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-US
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-AR
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-BO
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-CL
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-CR
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-DO
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-ec
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-gt
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-HN
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-NI
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-PA
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-PE
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-PR
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-PY
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-SV
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-UY
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-VE
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-CO
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-MX
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: es-419
+    GDPRDescription: Al usar esta aplicación, acepto los Términos de Uso de <companyname> y confirmo haber leído la Política de Privacidad
+    GDPRAcceptButton: Aceptar
+    GDPRHeader: Hemos actualizado nuestras condiciones de uso.
+    GDPRTermsButton: Condiciones de uso
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: fr-FR
+    GDPRDescription: En utilisant cette application, j'accepte les Conditions d'utilisation d'<companyname> et je confirme avoir lu la Politique de confidentialité
+    GDPRAcceptButton: Accepter
+    GDPRHeader: Nous avons mis à jour nos conditions générales.
+    GDPRTermsButton: Conditions d'utilisation
+    GDPRPrivacyButton: Politique de confidentialité
+  - languageIso: de-DE
+    GDPRDescription: Durch die Benutzung dieser App stimme ich den Nutzungsbedingungen von <companyname> zu und bestätige, dass ich die Datenschutzerklärung gelesen habe.
+    GDPRAcceptButton: Annehmen
+    GDPRHeader: Unsere Nutzungsbedingungen haben sich geändert.
+    GDPRTermsButton: Nutzungsbedingungen
+    GDPRPrivacyButton: Datenschutzerklärung
+  - languageIso: ja-JP
+    GDPRDescription: このアプリを使用することで<companyname>の利用規約に同意し、 プライバシーポリシー   を読了したことになります
+    GDPRAcceptButton: 承認
+    GDPRHeader: 当社の利用規約が更新されました。
+    GDPRTermsButton: 利用規約
+    GDPRPrivacyButton: プライバシーポリシー
+  - languageIso: ko-KR
+    GDPRDescription: 이 앱을 사용함으로써 <companyname>의 이용 약관에 동의하고 개인정보 보호정책을 읽었음을 확인합니다
+    GDPRAcceptButton: 수락
+    GDPRHeader: 약관을 업데이트했습니다.
+    GDPRTermsButton: 사용 약관
+    GDPRPrivacyButton: 개인 정보 규정
+  - languageIso: zh-CN
+    GDPRDescription: 使用此应用程序，即表示我已同意<companyname>的使用条款，并确认已阅读隐私政策
+    GDPRAcceptButton: 接受
+    GDPRHeader: 条款和条件已更新。
+    GDPRTermsButton: 使用条款
+    GDPRPrivacyButton: 隐私条款
+  - languageIso: zh-HANS
+    GDPRDescription: 使用此应用程序，即表示我已同意<companyname>的使用条款，并确认已阅读隐私政策
+    GDPRAcceptButton: 接受
+    GDPRHeader: 条款和条件已更新。
+    GDPRTermsButton: 使用条款
+    GDPRPrivacyButton: 隐私条款
+  - languageIso: zh-HANT
+    GDPRDescription: 使用此應用程式，即表示我同意了 <companyname> 的使用條款，並確認已詳讀隱私權政策
+    GDPRAcceptButton: 接受
+    GDPRHeader: 我們更新了我們的合約條款.
+    GDPRTermsButton: 使用條款
+    GDPRPrivacyButton: 隱私條款
+  - languageIso: zh-TW
+    GDPRDescription: 使用此應用程式，即表示我同意了 <companyname> 的使用條款，並確認已詳讀隱私權政策
+    GDPRAcceptButton: 接受
+    GDPRHeader: 我們更新了我們的合約條款.
+    GDPRTermsButton: 使用條款
+    GDPRPrivacyButton: 隱私條款
+  - languageIso: zh-HK
+    GDPRDescription: 使用此應用程式，即表示我同意了 <companyname> 的使用條款，並確認已詳讀隱私權政策
+    GDPRAcceptButton: 接受
+    GDPRHeader: 我們更新了我們的合約條款.
+    GDPRTermsButton: 使用條款
+    GDPRPrivacyButton: 隱私條款
+  - languageIso: pt-PT
+    GDPRDescription: Ao utilizar esta aplicação, fica implícito que concordo com os Termos de Utilização da <companyname> e que li a Política de Privacidade.
+    GDPRAcceptButton: Aceitar
+    GDPRHeader: Atualizámos os nossos termos e condições.
+    GDPRTermsButton: Termos de Utilização
+    GDPRPrivacyButton: Política de privacidad
+  - languageIso: pt-BR
+    GDPRDescription: Ao utilizar este aplicativo, eu concordo com os Termos de Uso da <companyname> e confirmo que li a Política de Privacidade.
+    GDPRAcceptButton: Aceitar
+    GDPRHeader: Atualizamos nossos termos e condições.
+    GDPRTermsButton: Termos de Uso
+    GDPRPrivacyButton: Política de privacidade
+  - languageIso: it-IT
+    GDPRDescription: Utilizzando quest'app acconsento alle Condizioni d'uso di <companyname> e confermo di aver letto l'Informativa sulla privacy.
+    GDPRAcceptButton: Accetta
+    GDPRHeader: Abbiamo aggiornato i nostri termini e condizioni.
+    GDPRTermsButton: Condizioni di utilizzo
+    GDPRPrivacyButton: Informativa sulla privacy
+  - languageIso: pl-PL
+    GDPRDescription: Korzystając z tej aplikacji zgadzam się na obowiązywanie Regulaminu użytkowania <companyname> i potwierdzam przeczytanie Polityki prywatności
+    GDPRAcceptButton: Akceptuj
+    GDPRHeader: Zaktualizowaliśmy nasze warunki
+    GDPRTermsButton: Warunki świadczenia usług
+    GDPRPrivacyButton: Polityka prywatności
+  - languageIso: tr-TR
+    GDPRDescription: Bu uygulamayı kullanmakla <companyname>'in Kullanım Şartlarını kabul ediyor ve Gizlilik Politikasını onaylıyorum.
+    GDPRAcceptButton: Kabul et
+    GDPRHeader: Koşullarımız güncellendi.
+    GDPRTermsButton: Hizmet Koşulları
+    GDPRPrivacyButton: Gizlilik politikası
+  - languageIso: th
+    GDPRDescription: เมื่อใช้งานแอปนี้ ถือว่าฉันยอมรับ ข้อกำหนดการใช้งาน ของ <companyname> และยืนยันว่าฉันได้อ่าน นโยบายความเป็นส่วนตัว แล้ว
+    GDPRAcceptButton: ยอมรับ
+    GDPRHeader: เราได้อัปเดตข้อกำหนดในการให้บริการเกมแล้ว
+    GDPRTermsButton: ข้อกำหนดในการให้บริการ
+    GDPRPrivacyButton: นโยบายความเป็นส่วนตัว
+  - languageIso: hi
+    GDPRDescription: इस ऐप का उपयोग करके मैं <companyname> की Terms of Use से सहमत हूँ और पुष्टि करता हूँ कि मैंने Privacy Policy पढ़ ली है
+    GDPRAcceptButton: स्वीकार करें
+    GDPRHeader: हमने अपनी शर्तों को अपडेट कर दिया है।
+    GDPRTermsButton: सेवा की शर्तें
+    GDPRPrivacyButton: गोपनीयता नीति
+  - languageIso: vi
+    GDPRDescription: Khi sử dụng ứng dụng này, tôi đồng ý với Điều khoản Sử dụng của <companyname> và xác nhận rằng tôi đã đọc Chính sách Quyền riêng tư
+    GDPRAcceptButton: Chấp nhận
+    GDPRHeader: Chúng tôi đã cập nhật các Điều khoản
+    GDPRTermsButton: Điều khoản dịch vụ
+    GDPRPrivacyButton: Chính sách bảo mật
+  - languageIso: in-ID
+    GDPRDescription: Dengan menggunakan aplikasi ini, saya menyetujui Ketentuan Penggunaan <companyname> dan mengonfirmasi bahwa saya sudah membaca Kebijakan Privasi
+    GDPRAcceptButton: Terima
+    GDPRHeader: Kami sudah memperbarui Ketentuan kami
+    GDPRTermsButton: Ketentuan Layanan
+    GDPRPrivacyButton: Kebijakan Privasi
+  - languageIso: id
+    GDPRDescription: Dengan menggunakan aplikasi ini, saya menyetujui Ketentuan Penggunaan <companyname> dan mengonfirmasi bahwa saya sudah membaca Kebijakan Privasi
+    GDPRAcceptButton: Terima
+    GDPRHeader: Kami sudah memperbarui Ketentuan kami
+    GDPRTermsButton: Ketentuan Layanan
+    GDPRPrivacyButton: Kebijakan Privasi
+  - languageIso: iw-IL
+    GDPRDescription: ינא ,וז היצקילפאב שומיש ידי לע שומישה יאנתל יתמכסה תא עיבמ רשאמו <companyname> לש .תויטרפה תוינידמ תא יתארש
+    GDPRAcceptButton: לקבל
+    GDPRHeader: עדכנו את תנאי השימוש שלנו
+    GDPRTermsButton: תנאי השימוש
+    GDPRPrivacyButton: מדיניות הפרטיות
+  - languageIso: he
+    GDPRDescription: על ידי שימוש באפליקציה זו, אני מביע את הסכמתי לתנאי השימוש של <companyname> ומאשר שקראתי את מדיניות הפרטיות.
+    GDPRAcceptButton: לקבל
+    GDPRHeader: עדכנו את תנאי השימוש שלנו
+    GDPRTermsButton: תנאי השימוש
+    GDPRPrivacyButton: מדיניות הפרטיות
+  - languageIso: uk
+    GDPRDescription: Використовуючи цю програму, я погоджуюся на Умови використання <companyname> та підтверджую, що мною прочитано Політику конфіденційності.
+    GDPRAcceptButton: Прийняти
+    GDPRHeader: Ми внесли зміни до наших умов
+    GDPRTermsButton: Умови обслуговування
+    GDPRPrivacyButton: Політика приватності
+  - languageIso: ar
+    GDPRDescription: باستخدام هذا التطبيق، أوافق على شروط الاستخدام التي تفرضها شركة <companyname> وأُقِّر بأنني قرأت سياسة الخصوصية
+    GDPRAcceptButton: قبول
+    GDPRHeader: لقد حدثنا شروطنا
+    GDPRTermsButton: شروط الاستخدام
+    GDPRPrivacyButton: سياسة الخصوصية
+  - languageIso: ru-RU
+    GDPRDescription: Используя это приложение, я принимаю Условия использования <companyname> и подтверждаю, что ознакомился с Политикой конфиденциальности
+    GDPRAcceptButton: Принять
+    GDPRHeader: Мы обновили наши условия
+    GDPRTermsButton: Условия использования
+    GDPRPrivacyButton: Политика конфиденциальности
+  - languageIso: ms
+    GDPRDescription: Dengan menggunakan aplikasi ini saya bersetuju menerima Syarat Penggunaan <companyname> dan mengesahkan bahawa saya telah membaca Dasar Privasi
+    GDPRAcceptButton: Terima
+    GDPRHeader: Kami telah mengemas kini Terma kami
+    GDPRTermsButton: Terma Perkhidmatan
+    GDPRPrivacyButton: Dasar privasi
+  - languageIso: bg-BG
+    GDPRDescription: С използването на това приложение се съгласявам с условията за ползване на <companyname> и потвърждавам, че съм прочел Политиката за поверителност
+    GDPRAcceptButton: Приемам
+    GDPRHeader: Актуализирахме нашите Условия
+    GDPRTermsButton: Условия за ползване
+    GDPRPrivacyButton: Политика за поверителност
+  - languageIso: hr-HR
+    GDPRDescription: Uporabom ove aplikacije slažem se s odredbama Uvjeta uporabe tvrtke <companyname> i potvrđujem da sam pročitao/la Pravila zaštite privatnosti
+    GDPRAcceptButton: Prihvati
+    GDPRHeader: Ažurirali smo Uvjete i odredbe
+    GDPRTermsButton: Uvjeti uporabe
+    GDPRPrivacyButton: Pravila zaštite privatnosti
+  - languageIso: hu-HU
+    GDPRDescription: Az alkalmazás használatával beleegyezem az <companyname> Használati feltételeibe, és megerősítem, hogy elolvastam az Adatvédelmi szabályzatot
+    GDPRAcceptButton: Elfogad
+    GDPRHeader: Frissítettük feltételeinket
+    GDPRTermsButton: Használati feltételek
+    GDPRPrivacyButton: Adatvédelmi szabályzat
+  - languageIso: el-GR
+    GDPRDescription: Αγοράζοντας αυτήν την εφαρμογή, συμφωνώ με τους Όρους χρήσης της <companyname> και επιβεβαιώνω πως έχω διαβάσει την Πολιτική απορρήτου
+    GDPRAcceptButton: Συμφωνώ
+    GDPRHeader: Έχουμε ενημερώσει τους Όρους μας
+    GDPRTermsButton: Όροι χρήσης
+    GDPRPrivacyButton: Πολιτική απορρήτου
+  - languageIso: da-DK
+    GDPRDescription: Ved at bruge denne app accepterer jeg <companyname>’ betingelser for brug og bekræfter, at jeg har læst fortrolighedspolitikken
+    GDPRAcceptButton: Acceptér
+    GDPRHeader: Vi har opdateret vores betingelser
+    GDPRTermsButton: Betingelser for brug
+    GDPRPrivacyButton: Fortrolighedspolitik
+  - languageIso: ga-IE
+    GDPRDescription: Trí úsáid a bhaint as an aip seo aontaím le Téarmaí Úsáide <companyname> agus deimhním go bhfuil an Beartas Príobháideachta léite agam
+    GDPRAcceptButton: Glac
+    GDPRHeader: Tá ár dTéarmaí nuashonraithe againn
+    GDPRTermsButton: Téarmaí Úsáide
+    GDPRPrivacyButton: Beartas Príobháideachta
+  - languageIso: lv-LV
+    GDPRDescription: Izmantojot šo lietotni, es piekrītu <companyname> Lietošanas noteikumiem un apstiprinu, ka esmu izlasījis Privātuma politiku
+    GDPRAcceptButton: Piekrist
+    GDPRHeader: Mēs atjaunojām noteikumus
+    GDPRTermsButton: Lietošanas noteikumi
+    GDPRPrivacyButton: Privātuma politika
+  - languageIso: lt-LT
+    GDPRDescription: Naudodamas šią programėlę sutinku su „<companyname>“ naudojimo sąlygomis ir patvirtinu, kad perskaičiau Privatumo politiką
+    GDPRAcceptButton: Priimti
+    GDPRHeader: Atnaujinome savo Sąlygas
+    GDPRTermsButton: Naudojimo sąlygos
+    GDPRPrivacyButton: Privatumo politika
+  - languageIso: mt-MT
+    GDPRDescription: Bl-użu ta' din l-app qed naqbel mat-termini ta' użu ta '<companyname>' u nikkonferma li qrajt il-politika ta' privatezza
+    GDPRAcceptButton: naċċetta
+    GDPRHeader: aġġornajna t-termini ta' użu
+    GDPRTermsButton: termini ta' użu
+    GDPRPrivacyButton: Politika ta' privatezza
+  - languageIso: nl-NL
+    GDPRDescription: Door deze app te gebruiken ga ik akkoord met de Gebruiksvoorwaarden van <companyname> en bevestig ik dat ik het Privacybeleid heb gelezen
+    GDPRAcceptButton: Accepteren
+    GDPRHeader: We hebben onze voorwaarden bijgewerkt
+    GDPRTermsButton: Gebruiksvoorwaarden
+    GDPRPrivacyButton: Privacybeleid
+  - languageIso: ro-RO
+    GDPRDescription: Prin folosirea acestei aplicații, sunt de acord cu Condițiile de utilizare <companyname> și confirm că am citit Politica de confidențialitate
+    GDPRAcceptButton: Accept
+    GDPRHeader: Am actualizat condițiile noastre
+    GDPRTermsButton: Condiții de utilizare
+    GDPRPrivacyButton: Politica de confidențialitate
+  - languageIso: sk-SK
+    GDPRDescription: Používaním tejto aplikácie súhlasím s Podmienkami služby <companyname> a potvrdzujem, že som si prečítal(a) Zásady ochrany súkromia
+    GDPRAcceptButton: Prijať
+    GDPRHeader: Aktualizovali sme podmienky
+    GDPRTermsButton: Podmienky služby
+    GDPRPrivacyButton: Zásady ochrany súkromia
+  - languageIso: sl-SI
+    GDPRDescription: Z uporabo te aplikacije se strinjam s pogoji uporabe podjetja <companyname> in potrjujem, da sem prebral(-a) pravilnik o varovanju zasebnosti
+    GDPRAcceptButton: Sprejmi
+    GDPRHeader: Posodobili smo pogoje
+    GDPRTermsButton: Pogoji uporabe
+    GDPRPrivacyButton: Pravilnik o varovanju zasebnosti
+  - languageIso: fi-FI
+    GDPRDescription: Hyväksyn tätä sovellusta käyttämällä <companyname>in käyttöehdot ja vahvistan, että olen lukenut yksityisyyskäytännön
+    GDPRAcceptButton: Hyväksy
+    GDPRHeader: Olemme päivittäneet ehtomme
+    GDPRTermsButton: Käyttöehdot
+    GDPRPrivacyButton: Yksityisyyskäytäntö
+  - languageIso: cs-CZ
+    GDPRDescription: Používáním této aplikace souhlasím s Podmínkami služby <companyname> a stvrzuji, že jsem si přečetl(a) Zásady ochrany soukromí
+    GDPRAcceptButton: Přijmout
+    GDPRHeader: Aktualizovali jsme podmínky
+    GDPRTermsButton: Podmínky služby
+    GDPRPrivacyButton: Zásady ochrany soukromí
+  - languageIso: sv-SE
+    GDPRDescription: Genom att använda appen godkänner jag <companyname> användarvillkor och bekräftar att jag har läst integritetspolicyn.
+    GDPRAcceptButton: Godkänn
+    GDPRHeader: Vi har uppdaterat våra villkor
+    GDPRTermsButton: Användarvillkor
+    GDPRPrivacyButton: Integritetspolicy
+  - languageIso: et-EE
+    GDPRDescription: Seda rakendust kasutades nõustun ma ettevõtte <companyname> kasutustingimustega ja kinnitan, et olen tutvunud privaatsuseeskirjadega
+    GDPRAcceptButton: Nõustu
+    GDPRHeader: Oleme uuendanud oma tingimusi
+    GDPRTermsButton: Kasutustingimused
+    GDPRPrivacyButton: Privaatsuseeskirjad

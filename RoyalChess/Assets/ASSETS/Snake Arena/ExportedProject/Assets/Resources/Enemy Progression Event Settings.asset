@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43b83e228518c7a204af4d4696ad250, type: 3}
+  m_Name: Enemy Progression Event Settings
+  m_EditorClassIdentifier:
+  progression:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 2
+      inSlope: 2.59243
+      outSlope: 2.59243
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.5706522
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: -3.6381745
+      outSlope: -3.6381745
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09258834
+      outWeight: 0.06310548
+    - serializedVersion: 3
+      time: 1
+      value: 0.2
+      inSlope: -0.108420335
+      outSlope: -0.108420335
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.23775487
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
