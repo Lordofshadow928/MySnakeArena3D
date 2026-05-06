@@ -6,13 +6,21 @@ using UnityEngine;
 public class Demomovement : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float moveSpeed = 5f;
-    public float steerSpeed = 180.0f;
-    public float headSpeed = 240f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float headSpeed = 240f;
+
+    public void SetSpeed(float newMoveSpeed, float newHeadSpeed)
+    {
+        moveSpeed = newMoveSpeed;
+        headSpeed = newHeadSpeed;
+    }
+
+    public float GetMoveSpeed() => moveSpeed;
+    public float GetHeadSpeed() => headSpeed;
     [Header("Pooling")]
-    public ObjectPool bodyPool;
+    [SerializeField] private ObjectPool bodyPool;
     [Header("Tail Settings")]
-    public GameObject tailPrefab;
+    [SerializeField] private GameObject tailPrefab;
     // Internal components
     [SerializeField] private List<Vector3> positionHistory = new List<Vector3>();
     [SerializeField] private List<Transform> segments = new List<Transform>();
