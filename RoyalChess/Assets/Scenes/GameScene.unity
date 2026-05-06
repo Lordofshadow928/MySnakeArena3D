@@ -844,7 +844,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1459900938}
   m_SourcePrefab: {fileID: 100100000, guid: ff4efc22c3bf453418239f615f3434bd, type: 3}
 --- !u!4 &1459900936 stripped
 Transform:
@@ -852,6 +856,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1459900935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1459900937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1459900935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1459900938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459900937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0b12d6aebb24c4ea27af233025d260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostMultiplier: 1.5
+  boostDuration: 3
 --- !u!4 &1775703272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 983891367825626772, guid: ff4efc22c3bf453418239f615f3434bd,
@@ -907,10 +931,10 @@ MonoBehaviour:
   foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
     type: 3}
   maxActiveFood: 15
-  spawnArea: {x: 20, y: 1, z: 20}
+  spawnArea: {x: 5, y: 1, z: 5}
   spawnInterval: 5
   minDistanceFromSnake: 3
-  maxSpawnAttempts: 3
+  maxSpawnAttempts: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

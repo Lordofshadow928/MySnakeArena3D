@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<Vector3> directions = new List<Vector3>();
     [SerializeField] private float segmentDistance = 0.5f;
     [SerializeField] private float segmentLenght = 1;
-    [SerializeField] private float distanceBetweenPoints = 0.2f;
+    //[SerializeField] private float distanceBetweenPoints = 0.2f;
     private Transform tail;
     private int growPending = 0;
     private float deltaTime;
