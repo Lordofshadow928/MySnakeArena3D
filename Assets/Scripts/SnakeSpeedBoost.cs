@@ -4,34 +4,44 @@ using UnityEngine;
 
 public class SnakeSpeedBoost : MonoBehaviour
 {
-    [Header("Boost Settings")] 
-    public float boostMultiplier = 2f; 
-    public float boostDuration = 2f; 
-    private Demomovement movement; 
-    private bool isBoosting = false;
-    private float normalMoveSpeed;
-    private float normalHeadSpeed;
-    private void Awake() 
-    { 
-        movement = GetComponent<Demomovement>();
-        normalMoveSpeed = movement.GetMoveSpeed();
-        normalHeadSpeed = movement.GetHeadSpeed();
-    }
-    public void ActivateBoost() 
-    { 
-        if (!isBoosting) StartCoroutine(BoostRoutine());
-    }
-    private IEnumerator BoostRoutine() 
+    [Header("Boost Settings")]
+    public float boostMultiplier = 2f;
+    private Demomovement movement;
+    [SerializeField] private float drainInterval = 0.3f;
+
+    private float drainTimer = 0f;
+    private void Awake()
     {
-        isBoosting = true; movement.SetSpeed(normalMoveSpeed * boostMultiplier, normalHeadSpeed * boostMultiplier); yield return new WaitForSeconds(boostDuration); movement.SetSpeed(normalMoveSpeed, normalHeadSpeed); isBoosting = false; 
-    } 
-    private void Update() 
-    { 
-        if (Input.GetKeyDown(KeyCode.Space)) 
-        { 
+        movement = GetComponent<Demomovement>();
+    }
+    public void ActivateBoost()
+    {
+        movement.BoostSpeed(boostMultiplier);
+    }
+
+    public void DeActivateBoost()
+    {
+        movement.ResetSpeed();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
             ActivateBoost();
-        } 
-    } 
+            drainTimer += Time.deltaTime;
+            if (drainTimer >= drainInterval)
+            {
+                movement.ShrinkSnake();
+                drainTimer = 0f;
+            }
+        }
+        else
+        {
+            DeActivateBoost();
+            drainTimer = 0f;
+        }
+    }
 }
 
 

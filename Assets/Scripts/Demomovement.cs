@@ -7,16 +7,25 @@ public class Demomovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float headSpeed = 240f;
+    [SerializeField] private float rotateSpeed = 240f;
 
-    public void SetSpeed(float newMoveSpeed, float newHeadSpeed)
+    private bool isBoosted = false;
+    public void BoostSpeed(float multiplier)
     {
-        moveSpeed = newMoveSpeed;
-        headSpeed = newHeadSpeed;
+        moveSpeed = defaultMoveSpeed * multiplier;
+        rotateSpeed = defaultRotateSpeed * multiplier;
+        isBoosted = true;
+    }
+
+    public void ResetSpeed()
+    {
+        moveSpeed = defaultMoveSpeed;
+        rotateSpeed = defaultRotateSpeed;
+        isBoosted = false;
     }
 
     public float GetMoveSpeed() => moveSpeed;
-    public float GetHeadSpeed() => headSpeed;
+    public float GetHeadSpeed() => rotateSpeed;
     [Header("Pooling")]
     [SerializeField] private ObjectPool bodyPool;
     [Header("Tail Settings")]
@@ -34,10 +43,20 @@ public class Demomovement : MonoBehaviour
     [SerializeField] private int preHisotry = 15;
     [SerializeField] private Transform headPoint;
 
+    private float defaultMoveSpeed;
+    private float defaultRotateSpeed;
     private Transform root;
     private void Start()
     {
+        Init();
         SpawnSnake();
+    }
+
+    private void Init()
+    {
+        defaultMoveSpeed = moveSpeed;
+        defaultRotateSpeed = rotateSpeed;
+        isBoosted = false;
     }
 
     private void OnDrawGizmos()
@@ -93,8 +112,17 @@ public class Demomovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        if (isBoosted)
+        {
+            var lastPos = positionHistory[0];
+            positionHistory.Insert(0, (headPoint.position + lastPos) / 2);
+        }
         positionHistory.Insert(0, headPoint.position);
+        Moving();
+    }
+
+    private void Moving()
+    {
         MoveHead();
         MoveSegments();
         if (growPending > 0)
@@ -104,13 +132,15 @@ public class Demomovement : MonoBehaviour
             growPending--;
         }
     }
+
     private void MoveHead()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        root.Rotate(Vector3.up * horizontal * headSpeed * deltaTime);
+        root.Rotate(Vector3.up * horizontal * rotateSpeed * deltaTime);
         root.position += transform.forward * moveSpeed * deltaTime;
         Debug.Log($"Head Position: {transform.position}");
     }
+
 
     private void MoveSegments()
     {
@@ -172,6 +202,23 @@ public class Demomovement : MonoBehaviour
             directions.Add(last.forward);
         }
         return body;
+    }
+
+    public void ShrinkSnake()
+    {
+        // Need at least head + 2 body + tail
+        if (segments.Count <= 5) return;
+
+        // Remove last body BEFORE tail
+        int removeIndex = segments.Count - 2;
+
+        Transform segmentToRemove = segments[removeIndex];
+
+        segments.RemoveAt(removeIndex);
+        directions.RemoveAt(removeIndex);
+
+        // Return to pool instead of destroying
+        segmentToRemove.gameObject.SetActive(false);
     }
 
     private void AddTail()
