@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 6273819916289912866}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -158,11 +158,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5806677376611225571}
+      addedObject: {fileID: 6458763065665548540}
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7708150038891898034}
+      addedObject: {fileID: 2483845802200295043}
   m_SourcePrefab: {fileID: 100100000, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
 --- !u!1 &5198856020018882843 stripped
 GameObject:
@@ -197,7 +197,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!114 &5806677376611225571
+--- !u!114 &6458763065665548540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,33 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5198856020018882843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d1a2313f7422e4eb8a5ac2888ebf5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  steerSpeed: 180
-  headSpeed: 240
-  bodyPool: {fileID: 0}
-  tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
-    type: 3}
-  positionHistory: []
-  segments: []
-  directions: []
-  segmentDistance: 0.5
-  segmentLenght: 1
-  distanceBetweenPoints: 0.15
-  preHisotry: 50
-  headPoint: {fileID: 1317098655145831972}
---- !u!114 &7708150038891898034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5198856020018882843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2231447ad15d2ad459ce16d966cfb555, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cf8f72783594ad4ebb88209de376fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   magnetRadius: 2
@@ -240,6 +214,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mouthPoint: {fileID: 983891367825626772}
+--- !u!114 &2483845802200295043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198856020018882843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0b12d6aebb24c4ea27af233025d260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostMultiplier: 2
+  progressUI: {fileID: 0}
+  drainInterval: 0.3
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,

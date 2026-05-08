@@ -6,33 +6,39 @@ public class SnakeSpeedBoost : MonoBehaviour
 {
     [Header("Boost Settings")]
     public float boostMultiplier = 2f;
-    private PlayerMovement movement;
+    private OnlyMovement movement;
+    private GrowthShrinkLogic growthShrinkLogic;
+    [SerializeField] private SnakeProgressUI progressUI;
     [SerializeField] private float drainInterval = 0.3f;
 
     private float drainTimer = 0f;
     private void Awake()
     {
-        movement = GetComponent<PlayerMovement>();
+        movement = GetComponent<OnlyMovement>();
+        growthShrinkLogic = GetComponent<GrowthShrinkLogic>();
     }
     public void ActivateBoost()
     {
         movement.BoostSpeed(boostMultiplier);
+        growthShrinkLogic.SetBoost();
     }
 
     public void DeActivateBoost()
     {
         movement.ResetSpeed();
+        growthShrinkLogic.DeBoost();
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && progressUI.HasEnergy())
         {
             ActivateBoost();
             drainTimer += Time.deltaTime;
             if (drainTimer >= drainInterval)
             {
-                movement.ShrinkSnake();
+                growthShrinkLogic.ConsumeBoostEnergy();
+                progressUI.RemoveProgress(1);
                 drainTimer = 0f;
             }
         }

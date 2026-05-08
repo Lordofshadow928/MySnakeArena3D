@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ObjectPool bodyPool;
     [Header("Tail Settings")]
     [SerializeField] private GameObject tailPrefab;
+    [Header("FoodProgressUI")]
+    [SerializeField] private SnakeProgressUI progressUI;
     // Internal components
     [SerializeField] private List<Vector3> positionHistory = new List<Vector3>();
     [SerializeField] private List<Transform> segments = new List<Transform>();
@@ -38,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float segmentLenght = 1;
     [SerializeField] private float distanceBetweenPoints = 0.15f;
     private Transform tail;
+    [SerializeField] private int foodPerGrowth = 4;
+    private int foodCounter = 0;
     private int growPending = 0;
     private float deltaTime;
     [SerializeField] private int preHisotry = 15;
@@ -235,9 +239,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
         {
-            growPending++;
             other.gameObject.SetActive(false);
+            foodCounter++;
+            progressUI?.AddProgress(1);
+
+            if (foodCounter >= foodPerGrowth)
+            {
+                foodCounter = 0;
+                growPending++;
+            }
+            
             GetComponent<SnakeInherentMagnet>();
+            
         }
     }
 
