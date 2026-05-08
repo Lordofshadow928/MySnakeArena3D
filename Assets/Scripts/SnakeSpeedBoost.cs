@@ -6,13 +6,13 @@ public class SnakeSpeedBoost : MonoBehaviour
 {
     [Header("Boost Settings")]
     public float boostMultiplier = 2f;
-    private Demomovement movement;
+    private PlayerMovement movement;
     [SerializeField] private float drainInterval = 0.3f;
 
     private float drainTimer = 0f;
     private void Awake()
     {
-        movement = GetComponent<Demomovement>();
+        movement = GetComponent<PlayerMovement>();
     }
     public void ActivateBoost()
     {

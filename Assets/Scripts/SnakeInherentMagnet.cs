@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DemoMagnet4 : MonoBehaviour
+public class SnakeInherentMagnet : MonoBehaviour
 {
     [Header("Magnet Settings")]
     [SerializeField] private float magnetRadius = 2f;
