@@ -8,13 +8,14 @@ public class FoodDemo : MonoBehaviour
     [SerializeField] private float eatDistance = 0.3f;
 
     private Rigidbody rb;
-
+    private ObjectPool getPool;
     private Transform target;
     private bool isMovingToTarget = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        getPool = GetComponent<ObjectPool>();
     }
 
     void FixedUpdate()
@@ -49,7 +50,7 @@ public class FoodDemo : MonoBehaviour
         //Normalize direction
         direction.Normalize();
 
-        //Optional: slow down when very close (smooth stop)
+        //Slow down when very close (smooth stop)
         float speed = moveSpeed;
 
         if (distance < 1.5f)
@@ -67,13 +68,19 @@ public class FoodDemo : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void OnDisable()
+    {
+        ResetFood();
+    }
+
+    private void ResetFood()
     {
         isMovingToTarget = false;
         target = null;
 
         if (rb != null)
         {
+            Debug.Log("Resetting food velocity.");
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }

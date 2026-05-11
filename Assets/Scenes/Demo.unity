@@ -467,6 +467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snake Head Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5200756796769776569, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5202483054221623996, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -517,6 +522,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6458763065665548540, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: magnetRadius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -558,7 +568,7 @@ MonoBehaviour:
     type: 3}
   foodPerInterval: 4
   maxActiveFood: 100
-  spawnArea: {x: 5, y: 1, z: 5}
+  spawnArea: {x: 10, y: 1, z: 10}
   spawnInterval: 2
   minDistanceFromSnake: 3
   maxSpawnAttempts: 3

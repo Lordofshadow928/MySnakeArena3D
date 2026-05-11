@@ -20,6 +20,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private int maxSpawnAttempts = 3;
     private int spawnedFood;
 
+    private List<GameObject> activeFoods = new List<GameObject>();
     void Start()
     {
         //Auto-assign prefab to pool if missing
@@ -83,6 +84,7 @@ public class FoodSpawner : MonoBehaviour
         //Debug.Log($"Total active: {spawnedFood}");
         food.transform.position = position;
         food.SetActive(true);
+        activeFoods.Add(food);
     }
     Vector3 GetRandomPosition()
     {
@@ -98,5 +100,18 @@ public class FoodSpawner : MonoBehaviour
         if (snakeHead == null) return true;
 
         return Vector3.Distance(pos, snakeHead.position) >= minDistanceFromSnake;
+    }
+
+    public List<GameObject> GetFoodInRange(Transform target, float range)
+    {
+        List<GameObject> foodsInRange = new List<GameObject>();
+        foreach (var food in activeFoods)
+        {
+            if (food != null && Vector3.Distance(food.transform.position, target.position) <= range)
+            {
+                foodsInRange.Add(food);
+            }
+        }
+        return foodsInRange;
     }
 }
