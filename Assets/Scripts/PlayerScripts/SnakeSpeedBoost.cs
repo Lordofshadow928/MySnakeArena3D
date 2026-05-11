@@ -38,7 +38,7 @@ public class SnakeSpeedBoost : MonoBehaviour
             if (drainTimer >= drainInterval)
             {
                 growthShrinkLogic.ConsumeBoostEnergy();
-                progressUI.RemoveProgress(1);
+                progressUI.RemoveProgress(0);
                 drainTimer = 0f;
             }
         }

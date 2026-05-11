@@ -5,18 +5,19 @@ using UnityEngine;
 public class FoodSpawner : MonoBehaviour
 {
     [Header("References")]
-    public ObjectPool pool;
-    public Transform snakeHead;
+    [SerializeField] private ObjectPool pool;
+    [SerializeField] private Transform snakeHead;
 
     [Header("Spawner Settings")]
-    public GameObject foodPrefab;
-    public int maxActiveFood = 15;
-    public Vector3 spawnArea = new Vector3(20, 1, 20);
-    public float spawnInterval = 5f;
+    [SerializeField] private GameObject foodPrefab;
+    [SerializeField] private int foodPerInterval = 4;
+    [SerializeField] private int maxActiveFood = 15;
+    [SerializeField] private Vector3 spawnArea = new Vector3(20, 1, 20);
+    [SerializeField] private float spawnInterval = 5f;
 
     [Header("Smart Spawn")]
-    public float minDistanceFromSnake = 3f;
-    public int maxSpawnAttempts = 3;
+    [SerializeField] private float minDistanceFromSnake = 3f;
+    [SerializeField] private int maxSpawnAttempts = 3;
     private int spawnedFood;
 
     void Start()
@@ -33,38 +34,44 @@ public class FoodSpawner : MonoBehaviour
             Debug.LogError("FoodSpawner: Missing pool or prefab!");
             return;
         }
-
+        //First food spawn after 2 seconds, then repeat every spawnInterval seconds
         InvokeRepeating(nameof(SpawnFood), 2f, spawnInterval);
     }
 
     void SpawnFood()
     {
         if (pool == null) return;
-
-        if (spawnedFood >= maxActiveFood)
-            return;
-        Debug.Log($"Currently active: {spawnedFood}");
-        GameObject food = pool.GetObject(Vector3.zero, Quaternion.identity);
-        if (food == null) return;
-
-        Vector3 spawnPos;
-        bool foundValid = false;
-
-        for (int i = 0; i < maxSpawnAttempts; i++)
+        for (int j = 0; j < foodPerInterval; j++)
         {
-            spawnPos = GetRandomPosition();
 
-            if (IsFarFromSnake(spawnPos))
+            if (spawnedFood >= maxActiveFood)
+                return;
+            //Debug.Log($"Currently active: {spawnedFood}");
+            GameObject food = pool.GetObject(Vector3.zero, Quaternion.identity);
+            if (food == null) return;
+
+            Vector3 spawnPos;
+            bool foundValid = false;
+
+
+            //maxSpawnAttempts is how many times we try to find a spawn point far from the snake before giving up
+            for (int i = 0; i < maxSpawnAttempts; i++)
             {
-                ActivateFood(food, spawnPos);
-                foundValid = true;
-                break;
-            }
-        }
+                spawnPos = GetRandomPosition();
 
-        if (!foundValid)
-        {
-            ActivateFood(food, GetRandomPosition());
+                if (IsFarFromSnake(spawnPos))
+                {
+                    ActivateFood(food, spawnPos);
+                    foundValid = true;
+                    break;
+                }
+            }
+
+
+            if (!foundValid)
+            {
+                ActivateFood(food, GetRandomPosition());
+            }
         }
     }
 
@@ -73,7 +80,7 @@ public class FoodSpawner : MonoBehaviour
         if (spawnedFood >= maxActiveFood)
             return;
         spawnedFood++;
-        Debug.Log($"Total active: {spawnedFood}");
+        //Debug.Log($"Total active: {spawnedFood}");
         food.transform.position = position;
         food.SetActive(true);
     }

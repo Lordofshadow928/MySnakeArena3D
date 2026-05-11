@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressText: {fileID: 2099355725}
   fillImage: {fileID: 333391857}
-  maxProgress: 20
+  maxProgress: 100
 --- !u!114 &98729998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7, type: 3}
-  poolSize: 25
+  poolSize: 100
   expandPool: 1
 --- !u!1001 &504673765
 PrefabInstance:
@@ -448,6 +448,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: progressUI
+      value: 
+      objectReference: {fileID: 98729997}
+    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: bodyPool
+      value: 
+      objectReference: {fileID: 419176818}
+    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: progressUI
       value: 
@@ -510,65 +520,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 504673767}
-    - targetCorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 504673769}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4efc22c3bf453418239f615f3434bd, type: 3}
---- !u!1 &504673766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 504673765}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &504673767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504673766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e53801b76759ff499d1e887aa09cc46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyPool: {fileID: 419176818}
-  tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
-    type: 3}
-  progressUI: {fileID: 98729997}
-  foodsPerGrowth: 4
-  foodsPerShrink: 4
-  segmentDistance: 0.5
-  segmentLength: 1
-  distanceBetweenPoints: 0.15
-  preHistory: 15
-  headPoint: {fileID: 504673768}
---- !u!4 &504673768 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1317098655145831972, guid: ff4efc22c3bf453418239f615f3434bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 504673765}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &504673769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504673766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c069879a611ecd41acc737f86bbc3cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotateSpeed: 240
 --- !u!1 &540602855
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,9 +556,10 @@ MonoBehaviour:
     type: 3}
   foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
     type: 3}
-  maxActiveFood: 20
+  foodPerInterval: 4
+  maxActiveFood: 100
   spawnArea: {x: 5, y: 1, z: 5}
-  spawnInterval: 1
+  spawnInterval: 2
   minDistanceFromSnake: 3
   maxSpawnAttempts: 3
 --- !u!4 &540602857

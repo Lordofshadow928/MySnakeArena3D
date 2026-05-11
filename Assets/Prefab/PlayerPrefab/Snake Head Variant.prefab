@@ -163,6 +163,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2483845802200295043}
+    - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4827238707262638034}
+    - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6092836628856733445}
   m_SourcePrefab: {fileID: 100100000, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
 --- !u!1 &5198856020018882843 stripped
 GameObject:
@@ -229,6 +237,43 @@ MonoBehaviour:
   boostMultiplier: 2
   progressUI: {fileID: 0}
   drainInterval: 0.3
+--- !u!114 &4827238707262638034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198856020018882843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e53801b76759ff499d1e887aa09cc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyPool: {fileID: 0}
+  tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
+    type: 3}
+  progressUI: {fileID: 0}
+  foodsPerGrowth: 4
+  foodsPerShrink: 4
+  segmentDistance: 0.5
+  segmentLength: 1
+  distanceBetweenPoints: 0.15
+  preHistory: 15
+  headPoint: {fileID: 1317098655145831972}
+--- !u!114 &6092836628856733445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198856020018882843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c069879a611ecd41acc737f86bbc3cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rotateSpeed: 240
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
