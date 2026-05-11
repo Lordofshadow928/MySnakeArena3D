@@ -2,12 +2,12 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!43 &4300000
 Mesh:
-  serializedVersion: 11
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cylinder:002:003:002
+  m_Name: Cylinder_002_003_002
+  serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -17,7 +17,7 @@ Mesh:
     firstVertex: 0
     vertexCount: 45
     localAABB:
-      m_Center: {x: 0, y: 5.811453E-07, z: 0.49999556}
+      m_Center: {x: 0, y: 0.0000005811453, z: 0.49999556}
       m_Extent: {x: 0.3779, y: 0.3778996, z: 0.50000435}
   m_Shapes:
     vertices: []
@@ -26,81 +26,81 @@ Mesh:
     fullWeights: []
   m_BindPose:
   - e00: 1
-    e01: -2.5590314E-06
-    e02: 3.3477106E-13
-    e03: -1.21828485E-08
-    e10: 3.3477106E-13
-    e11: 3.7490896E-17
+    e01: -0.0000025590314
+    e02: 3.3477106e-13
+    e03: -0.0000000121828485
+    e10: 3.3477106e-13
+    e11: 3.7490896e-17
     e12: -1
     e13: 0.7590027
-    e20: 2.5590314E-06
+    e20: 0.0000025590314
     e21: 1
-    e22: 3.8347584E-17
-    e23: -1.8104874E-06
+    e22: 3.8347584e-17
+    e23: -0.0000018104874
     e30: 0
     e31: 0
     e32: 0
     e33: 1
   - e00: 1
-    e01: -1.0903682E-05
-    e02: 6.8880936E-11
-    e03: 9.497734E-10
-    e10: 6.8880936E-11
-    e11: 2.4623261E-14
+    e01: -0.000010903682
+    e02: 6.8880936e-11
+    e03: 9.497734e-10
+    e10: 6.8880936e-11
+    e11: 2.4623261e-14
     e12: -1
     e13: -0.00060499494
-    e20: 1.0903682E-05
+    e20: 0.000010903682
     e21: 1
-    e22: 2.5374317E-14
-    e23: -1.6912782E-06
+    e22: 2.5374317e-14
+    e23: -0.0000016912782
     e30: 0
     e31: 0
     e32: 0
     e33: 1
   - e00: 1
-    e01: -2.5590314E-06
-    e02: 5.915384E-13
-    e03: -1.2182979E-08
-    e10: 5.915384E-13
-    e11: 2.8176318E-16
+    e01: -0.0000025590314
+    e02: 5.915384e-13
+    e03: -0.000000012182979
+    e10: 5.915384e-13
+    e11: 2.8176318e-16
     e12: -1
     e13: 0.50600207
-    e20: 2.5590314E-06
+    e20: 0.0000025590314
     e21: 1
-    e22: 2.8327693E-16
-    e23: -1.7777008E-06
+    e22: 2.8327693e-16
+    e23: -0.0000017777008
     e30: 0
     e31: 0
     e32: 0
     e33: 1
   - e00: 1
-    e01: -2.861023E-06
-    e02: 3.1595164E-13
-    e03: -1.218239E-08
-    e10: 3.159512E-13
-    e11: -1.4828835E-13
+    e01: -0.000002861023
+    e02: 3.1595164e-13
+    e03: -0.00000001218239
+    e10: 3.159512e-13
+    e11: -1.4828835e-13
     e12: -1
     e13: 0.25300094
-    e20: 2.861023E-06
+    e20: 0.000002861023
     e21: 1
-    e22: -1.4828744E-13
-    e23: -1.7192178E-06
+    e22: -1.4828744e-13
+    e23: -0.0000017192178
     e30: 0
     e31: 0
     e32: 0
     e33: 1
   - e00: 1
-    e01: -1.9073486E-06
-    e02: 4.275095E-13
-    e03: -1.0241419E-08
-    e10: 4.2750954E-13
-    e11: 1.5825584E-14
+    e01: -0.0000019073486
+    e02: 4.275095e-13
+    e03: -0.000000010241419
+    e10: 4.2750954e-13
+    e11: 1.5825584e-14
     e12: -1
     e13: 1
-    e20: 1.9073486E-06
+    e20: 0.0000019073486
     e21: 1
-    e22: 1.5826399E-14
-    e23: -1.8645042E-06
+    e22: 1.5826399e-14
+    e23: -0.0000018645042
     e30: 0
     e31: 0
     e32: 0
@@ -108,18 +108,18 @@ Mesh:
   m_BoneNameHashes: 8387636339d66afa15b76414afe66d8d201207fd
   m_RootBoneNameHash: 4245099040
   m_BonesAABB:
-  - m_Min: {x: -0.3779, y: -8.225441E-06, z: -0.3779007}
-    m_Max: {x: 0.3779, y: 8.6426735E-06, z: 0.3778983}
+  - m_Min: {x: -0.3779, y: -0.000008225441, z: -0.3779007}
+    m_Max: {x: 0.3779, y: 0.0000086426735, z: 0.3778983}
   - m_Min: {x: -0.3779, y: -0.0006130584, z: -0.3779007}
     m_Max: {x: 0.3779, y: -0.0005961815, z: 0.3778973}
-  - m_Min: {x: -0.3779, y: -7.867813E-06, z: -0.3779007}
-    m_Max: {x: 0.3779, y: 9.000301E-06, z: 0.3778983}
-  - m_Min: {x: -0.3779, y: -7.987022E-06, z: -0.3779007}
-    m_Max: {x: 0.3779, y: 8.881092E-06, z: 0.3778983}
-  - m_Min: {x: -0.3779, y: 5.9604645E-08, z: -0.37790072}
-    m_Max: {x: 0.3779, y: 5.9604645E-08, z: 0.37789828}
+  - m_Min: {x: -0.3779, y: -0.000007867813, z: -0.3779007}
+    m_Max: {x: 0.3779, y: 0.000009000301, z: 0.3778983}
+  - m_Min: {x: -0.3779, y: -0.000007987022, z: -0.3779007}
+    m_Max: {x: 0.3779, y: 0.000008881092, z: 0.3778983}
+  - m_Min: {x: -0.3779, y: 0.000000059604645, z: -0.37790072}
+    m_Max: {x: 0.3779, y: 0.000000059604645, z: 0.37789828}
   m_VariableBoneCountWeights:
-    m_Data:
+    m_Data: 
   m_MeshCompression: 0
   m_IsReadable: 0
   m_KeepVertices: 1
@@ -193,60 +193,60 @@ Mesh:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UV:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Normals:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Tangents:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Weights:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_NormalSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_TangentSigns:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_FloatColors:
       m_NumItems: 0
       m_Range: 0
       m_Start: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_BoneIndices:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_Triangles:
       m_NumItems: 0
-      m_Data:
+      m_Data: 
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: 0, y: 5.811453E-07, z: 0.49999556}
+    m_Center: {x: 0, y: 0.0000005811453, z: 0.49999556}
     m_Extent: {x: 0.3779, y: 0.3778996, z: 0.50000435}
   m_MeshUsageFlags: 5
   m_CookingOptions: 30
-  m_BakedConvexCollisionMesh:
-  m_BakedTriangleCollisionMesh:
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
   m_MeshMetrics[0]: 13.471053
   m_MeshMetrics[1]: 1
   m_MeshOptimizationFlags: -1
@@ -254,4 +254,4 @@ Mesh:
     serializedVersion: 2
     offset: 0
     size: 0
-    path:
+    path: 
