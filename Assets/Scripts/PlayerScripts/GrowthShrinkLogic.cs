@@ -223,7 +223,7 @@ public class GrowthShrinkLogic : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
         {
-            other.gameObject.SetActive(false);
+            FindObjectOfType<FoodSpawner>().OnFoodReturn(other.gameObject);
 
             AddFood();
         }
