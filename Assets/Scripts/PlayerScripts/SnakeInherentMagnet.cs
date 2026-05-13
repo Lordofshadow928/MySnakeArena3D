@@ -12,16 +12,16 @@ public class SnakeInherentMagnet : MonoBehaviour
 
     // Track foods already magnetized
     [SerializeField]private List<FoodDemo> magnetFoods = new List<FoodDemo>();
-    private FoodSpawner spawner;
+    private FoodSpawner2 spawner;
 
 
     void Start()
     {
         animator = GetComponent<Animator>();
-            spawner = FindObjectOfType<FoodSpawner>();
+            spawner = FindObjectOfType<FoodSpawner2>();
             if (spawner == null)
             {
-                Debug.LogError("SnakeInherentMagnet: No FoodSpawner found in scene!");
+                Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
         }
     }
 

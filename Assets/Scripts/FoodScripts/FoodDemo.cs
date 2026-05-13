@@ -1,6 +1,7 @@
 using UnityEngine;
+using Lean.Pool;
 
-public class FoodDemo : MonoBehaviour
+public class FoodDemo : MonoBehaviour, IPoolable
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 12f;
@@ -10,13 +11,13 @@ public class FoodDemo : MonoBehaviour
     private Rigidbody rb;
     private Transform target;
     private bool isMovingToTarget = false;
-    private FoodSpawner foodSpawner;
+    private FoodSpawner2 foodSpawner;
     
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        foodSpawner  = FindObjectOfType<FoodSpawner>();
+        foodSpawner  = FindObjectOfType<FoodSpawner2>();
     }
 
     void FixedUpdate()
@@ -40,9 +41,6 @@ public class FoodDemo : MonoBehaviour
         //Eat when close enough
         if (distance <= eatDistance)
         {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-
             transform.position = target.position;
             foodSpawner.OnFoodReturn(gameObject); // Return to pool
             return;
@@ -69,7 +67,12 @@ public class FoodDemo : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    public void OnSpawn()
+    {
+        ResetFood();
+    }
+
+    public void OnDespawn()
     {
         ResetFood();
     }
@@ -78,13 +81,6 @@ public class FoodDemo : MonoBehaviour
     {
         isMovingToTarget = false;
         target = null;
-
-        if (rb != null)
-        {
-            Debug.Log("Resetting food velocity.");
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         if (renderer != null)

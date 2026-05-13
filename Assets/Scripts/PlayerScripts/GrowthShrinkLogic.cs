@@ -6,8 +6,8 @@ using UnityEngine;
 public class GrowthShrinkLogic : MonoBehaviour
 {
     [Header("Pooling")]
-    [SerializeField] private ObjectPool bodyPool;
-    [SerializeField] private FoodSpawner foodSpawner;
+    [SerializeField] private GameObject bodyPrefab;
+    [SerializeField] private FoodSpawner2 foodSpawner;
 
     [Header("Tail")]
     [SerializeField] private GameObject tailPrefab;
@@ -161,17 +161,13 @@ public class GrowthShrinkLogic : MonoBehaviour
 
     private GameObject GrowSnake()
     {
-        GameObject body = bodyPool.GetObject(Vector3.zero, Quaternion.identity);
-
-        if (body == null) return null;
-
+        GameObject body = LeanPool.Spawn(bodyPrefab, Vector3.zero, Quaternion.identity);
         Transform last = (tail != null)
             ? segments[segments.Count - 2]
             : segments[segments.Count - 1];
 
         body.transform.position = last.position - last.forward * segmentDistance;
         body.transform.rotation = last.rotation;
-        body.SetActive(true);
 
         if (tail != null)
         {
@@ -198,7 +194,7 @@ public class GrowthShrinkLogic : MonoBehaviour
         segments.RemoveAt(removeIndex);
         directions.RemoveAt(removeIndex);
 
-        bodyPool.ReturnObject(segmentToRemove.gameObject);
+        LeanPool.Despawn(segmentToRemove.gameObject);
     }
 
     private void AddTail()
