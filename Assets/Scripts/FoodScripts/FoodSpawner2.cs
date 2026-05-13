@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Pool;
 
-public class FoodSpawner : MonoBehaviour
+public class FoodSpawner2 : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private ObjectPool pool;
     [SerializeField] private Transform snakeHead;
 
     [Header("Spawner Settings")]
@@ -23,32 +23,26 @@ public class FoodSpawner : MonoBehaviour
     private List<GameObject> activeFoods = new List<GameObject>();
     void Start()
     {
-        //Auto-assign prefab to pool if missing
-        if (pool != null && pool.prefab == null && foodPrefab != null)
-        {
-            pool.prefab = foodPrefab;
-        }
-
         //Safety check
-        if (pool == null || pool.prefab == null)
+        if (foodPrefab == null)
         {
-            Debug.LogError("FoodSpawner: Missing pool or prefab!");
+            Debug.LogError("FoodSpawner: Missing food prefab!");
             return;
         }
-        //First food spawn after 2 seconds, then repeat every spawnInterval seconds
-        InvokeRepeating(nameof(SpawnFood), 2f, spawnInterval);
+            //First food spawn after 2 seconds, then repeat every spawnInterval seconds
+            InvokeRepeating(nameof(SpawnFood), 2f, spawnInterval);
     }
 
     void SpawnFood()
     {
-        if (pool == null) return;
+        
         for (int j = 0; j < foodPerInterval; j++)
         {
 
             if (spawnedFood >= maxActiveFood)
                 return;
             //Debug.Log($"Currently active: {spawnedFood}");
-            GameObject food = pool.GetObject(Vector3.zero, Quaternion.identity);
+            GameObject food = LeanPool.Spawn(foodPrefab);
             if (food == null) return;
 
             Vector3 spawnPos;
@@ -97,9 +91,6 @@ public class FoodSpawner : MonoBehaviour
         // Reduce active counter safely
         if (spawnedFood > 0)
             spawnedFood--;
-
-        // Return object back to pool
-        pool.ReturnObject(food);
     }
     Vector3 GetRandomPosition()
     {
@@ -129,4 +120,7 @@ public class FoodSpawner : MonoBehaviour
         }
         return foodsInRange;
     }
+
+
 }
+

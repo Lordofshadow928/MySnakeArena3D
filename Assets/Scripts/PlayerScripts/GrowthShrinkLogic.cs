@@ -1,3 +1,4 @@
+using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class GrowthShrinkLogic : MonoBehaviour
 {
     [Header("Pooling")]
     [SerializeField] private ObjectPool bodyPool;
+    [SerializeField] private FoodSpawner foodSpawner;
 
     [Header("Tail")]
     [SerializeField] private GameObject tailPrefab;
@@ -68,12 +70,6 @@ public class GrowthShrinkLogic : MonoBehaviour
 
         for (int i = 0; i < preHistory; i++)
         {
-            //if(movement == null)
-            //{
-            //    Debug.LogError("PlayerMovement component not found on GrowthShrinkiLogic GameObject.");
-            //    break;
-            //}
-            //Debug.Log($"Headpoint: {headPoint} - movement {movement}");
             Vector3 movementOffset = headPoint.forward * Time.fixedDeltaTime * movement.GetMoveSpeed() * i;
 
             positionHistory.Add(headPoint.position - movementOffset);
@@ -202,7 +198,7 @@ public class GrowthShrinkLogic : MonoBehaviour
         segments.RemoveAt(removeIndex);
         directions.RemoveAt(removeIndex);
 
-        segmentToRemove.gameObject.SetActive(false);
+        bodyPool.ReturnObject(segmentToRemove.gameObject);
     }
 
     private void AddTail()
@@ -223,8 +219,8 @@ public class GrowthShrinkLogic : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
         {
-            FindObjectOfType<FoodSpawner>().OnFoodReturn(other.gameObject);
-
+            //foodSpawner.OnFoodReturn(other.gameObject);
+            LeanPool.Despawn(other.gameObject);
             AddFood();
         }
     }
