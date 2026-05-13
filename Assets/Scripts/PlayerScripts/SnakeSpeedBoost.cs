@@ -11,6 +11,9 @@ public class SnakeSpeedBoost : MonoBehaviour
     [SerializeField] private SnakeProgressUI progressUI;
     [SerializeField] private float drainInterval = 0.3f;
 
+    [Header("Boost VFX")]
+    [SerializeField] private ParticleSystem boostVFX;
+
     private float drainTimer = 0f;
     private void Awake()
     {
@@ -21,12 +24,20 @@ public class SnakeSpeedBoost : MonoBehaviour
     {
         movement.BoostSpeed(boostMultiplier);
         growthShrinkLogic.SetBoost();
+        if(boostVFX != null)
+        {
+            boostVFX.Play();
+        }
     }
 
     public void DeActivateBoost()
     {
         movement.ResetSpeed();
         growthShrinkLogic.DeBoost();
+        if (boostVFX != null)
+        {
+            boostVFX.Stop();
+        }
     }
 
     private void Update()

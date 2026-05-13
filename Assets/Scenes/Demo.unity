@@ -122,6 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &89817540 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5396242861065606237, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 504673765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98729995
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +412,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: boostVFX
+      value: 
+      objectReference: {fileID: 89817540}
     - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: progressUI

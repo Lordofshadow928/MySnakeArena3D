@@ -222,6 +222,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mouthPoint: {fileID: 983891367825626772}
+  magnetFoods: []
 --- !u!114 &2483845802200295043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +238,7 @@ MonoBehaviour:
   boostMultiplier: 2
   progressUI: {fileID: 0}
   drainInterval: 0.3
+  boostVFX: {fileID: 0}
 --- !u!114 &4827238707262638034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e53801b76759ff499d1e887aa09cc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyPool: {fileID: 0}
+  bodyPrefab: {fileID: 0}
+  foodSpawner: {fileID: 0}
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
   progressUI: {fileID: 0}
