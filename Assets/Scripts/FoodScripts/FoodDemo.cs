@@ -8,14 +8,15 @@ public class FoodDemo : MonoBehaviour
     [SerializeField] private float eatDistance = 0.3f;
 
     private Rigidbody rb;
-    private ObjectPool getPool;
     private Transform target;
     private bool isMovingToTarget = false;
+    private FoodSpawner foodSpawner;
+    
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        getPool = GetComponent<ObjectPool>();
+        foodSpawner  = FindObjectOfType<FoodSpawner>();
     }
 
     void FixedUpdate()
@@ -43,7 +44,7 @@ public class FoodDemo : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
 
             transform.position = target.position;
-            gameObject.SetActive(false);
+            foodSpawner.OnFoodReturn(gameObject); // Return to pool
             return;
         }
 
@@ -83,6 +84,12 @@ public class FoodDemo : MonoBehaviour
             Debug.Log("Resetting food velocity.");
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+        }
+
+        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        if (renderer != null)
+        {
+            renderer.material.color = Color.white; // Reset color
         }
     }
 }

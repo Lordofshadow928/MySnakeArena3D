@@ -12,7 +12,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private GameObject foodPrefab;
     [SerializeField] private int foodPerInterval = 4;
     [SerializeField] private int maxActiveFood = 15;
-    [SerializeField] private Vector3 spawnArea = new Vector3(20, 1, 20);
+    [SerializeField] private Vector3 spawnArea = new Vector3(5, 1, 5);
     [SerializeField] private float spawnInterval = 5f;
 
     [Header("Smart Spawn")]
@@ -83,8 +83,23 @@ public class FoodSpawner : MonoBehaviour
         spawnedFood++;
         //Debug.Log($"Total active: {spawnedFood}");
         food.transform.position = position;
-        food.SetActive(true);
+        //food.SetActive(true);
         activeFoods.Add(food);
+    }
+
+    public void OnFoodReturn(GameObject food)
+    {
+        if (food == null) return;
+
+        // Remove from active list
+        activeFoods.Remove(food);
+
+        // Reduce active counter safely
+        if (spawnedFood > 0)
+            spawnedFood--;
+
+        // Return object back to pool
+        pool.ReturnObject(food);
     }
     Vector3 GetRandomPosition()
     {
@@ -114,4 +129,6 @@ public class FoodSpawner : MonoBehaviour
         }
         return foodsInRange;
     }
+
+    
 }

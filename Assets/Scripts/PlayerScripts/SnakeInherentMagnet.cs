@@ -30,14 +30,12 @@ public class SnakeInherentMagnet : MonoBehaviour
         DetectFoods();
         UpdateEatingAnimation();
 
-
     }
 
     //Detect foods and tell them to move
     public void DetectFoods()
     {
-        //CollectFood_Collider();
-        CollectFoodDistance();
+       
 
         //Cleanup nulls (destroyed/disabled foods)
         for (int i = magnetFoods.Count - 1; i >= 0; i--)
@@ -47,6 +45,9 @@ public class SnakeInherentMagnet : MonoBehaviour
                 magnetFoods.RemoveAt(i);
             }
         }
+
+        //CollectFood_Collider();
+        CollectFoodDistance();
     }
 
     private void CollectFoodDistance()
@@ -65,23 +66,23 @@ public class SnakeInherentMagnet : MonoBehaviour
         }
     }
 
-    private void CollectFood_Collider()
-    {
-        Collider[] cols = Physics.OverlapSphere(transform.position, magnetRadius, foodLayer);
+    //private void CollectFood_Collider()
+    //{
+    //    Collider[] cols = Physics.OverlapSphere(transform.position, magnetRadius, foodLayer);
 
-        foreach (var col in cols)
-        {
-            FoodDemo food = col.GetComponent<FoodDemo>();
+    //    foreach (var col in cols)
+    //    {
+    //        FoodDemo food = col.GetComponent<FoodDemo>();
 
-            if (food != null && !magnetFoods.Contains(food))
-            {
-                magnetFoods.Add(food);
-                food.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
-                //Tell food to move to mouth
-                food.MoveToTarget(mouthPoint);
-            }
-        }
-    }
+    //        if (food != null && !magnetFoods.Contains(food))
+    //        {
+    //            magnetFoods.Add(food);
+    //            food.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
+    //            //Tell food to move to mouth
+    //            food.MoveToTarget(mouthPoint);
+    //        }
+    //    }
+    //}
 
     // Step 2: control animation
     private void UpdateEatingAnimation()

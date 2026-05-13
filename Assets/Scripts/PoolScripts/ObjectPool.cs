@@ -26,7 +26,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject GetObject(Vector3 position, Quaternion rotation)
     {
-        return Instantiate(prefab, position, rotation);
+        //return Instantiate(prefab, position, rotation);
         foreach (GameObject obj in pool)
         {
             if (!obj.activeInHierarchy)
@@ -73,16 +73,7 @@ public class ObjectPool : MonoBehaviour
 
     public void ReturnObject(GameObject obj)
     {
-        Destroy(obj);
-        return;
-        // Reset physics immediately
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-
+        //Destroy(obj); return;
         obj.SetActive(false);
     }
 
