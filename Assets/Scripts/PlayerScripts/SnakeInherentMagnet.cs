@@ -82,7 +82,7 @@ public class SnakeInherentMagnet : MonoBehaviour
     //            food.MoveToTarget(mouthPoint);
     //        }
     //    }
-    //}
+    //} this function was an earlier attempt to detect food using colliders, but it caused issues with fast-moving food and collider interactions, so I switched to distance-based detection instead.
 
     // Step 2: control animation
     private void UpdateEatingAnimation()
