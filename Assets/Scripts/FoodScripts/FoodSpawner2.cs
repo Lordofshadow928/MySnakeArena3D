@@ -20,7 +20,7 @@ public class FoodSpawner2 : MonoBehaviour
     [SerializeField] private int maxSpawnAttempts = 3;
     private int spawnedFood;
 
-    private List<GameObject> activeFoods = new List<GameObject>();
+    private List<GameObject> spawnedFoods = new List<GameObject>();
     void Start()
     {
         //Safety check
@@ -78,7 +78,7 @@ public class FoodSpawner2 : MonoBehaviour
         //Debug.Log($"Total active: {spawnedFood}");
         food.transform.position = position;
         //food.SetActive(true);
-        activeFoods.Add(food);
+        spawnedFoods.Add(food);
     }
 
     public void OnFoodReturn(GameObject food)
@@ -86,7 +86,12 @@ public class FoodSpawner2 : MonoBehaviour
         if (food == null) return;
 
         // Remove from active list
-        activeFoods.Remove(food);
+        spawnedFoods.Remove(food);
+        FoodDemo foodDemo = food.GetComponent<FoodDemo>();
+        if (foodDemo != null)
+        {
+            magnetFoods.Remove(foodDemo);
+        }
 
         // Reduce active counter safely
         if (spawnedFood > 0)
@@ -111,7 +116,7 @@ public class FoodSpawner2 : MonoBehaviour
     public List<GameObject> GetFoodInRange(Transform target, float range)
     {
         List<GameObject> foodsInRange = new List<GameObject>();
-        foreach (var food in activeFoods)
+        foreach (var food in spawnedFoods)
         {
             if (food != null && Vector3.Distance(food.transform.position, target.position) <= range)
             {
