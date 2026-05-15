@@ -87,12 +87,6 @@ public class FoodSpawner2 : MonoBehaviour
 
         // Remove from active list
         spawnedFoods.Remove(food);
-        FoodDemo foodDemo = food.GetComponent<FoodDemo>();
-        if (foodDemo != null)
-        {
-            magnetFoods.Remove(foodDemo);
-        }
-
         // Reduce active counter safely
         if (spawnedFood > 0)
             spawnedFood--;
