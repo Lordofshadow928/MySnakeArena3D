@@ -171,8 +171,18 @@ public class GrowthShrinkLogic : MonoBehaviour
             ? segments[segments.Count - 2]
             : segments[segments.Count - 1];
 
-        body.transform.position = last.position - last.forward * segmentDistance;
-        body.transform.rotation = last.rotation;
+        if (tail != null)
+        {
+            body.transform.position = tail.position;
+            body.transform.rotation = tail.rotation;
+        }
+        else
+        {
+            body.transform.position =
+                last.position - last.forward * segmentDistance;
+
+            body.transform.rotation = last.rotation;
+        }
 
         if (tail != null)
         {
