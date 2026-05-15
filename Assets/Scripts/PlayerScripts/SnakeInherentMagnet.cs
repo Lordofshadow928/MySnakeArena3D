@@ -18,7 +18,7 @@ public class SnakeInherentMagnet : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-            spawner = FindObjectOfType<FoodSpawner2>();
+        spawner = FindObjectOfType<FoodSpawner2>();
             if (spawner == null)
             {
                 Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
@@ -35,8 +35,6 @@ public class SnakeInherentMagnet : MonoBehaviour
     //Detect foods and tell them to move
     public void DetectFoods()
     {
-       
-
         //Cleanup nulls (destroyed/disabled foods)
         for (int i = magnetFoods.Count - 1; i >= 0; i--)
         {
@@ -45,52 +43,61 @@ public class SnakeInherentMagnet : MonoBehaviour
                 magnetFoods.RemoveAt(i);
             }
         }
-
-        //CollectFood_Collider();
-        CollectFoodDistance();
+        //CollectFoodDistance();
+        CollectFood_Collider();
     }
 
-    private void CollectFoodDistance()
-    {
-        var foods = spawner.GetFoodInRange(transform, magnetRadius);
-        foreach (var food in foods)
-        {
-            FoodDemo foodDemo = food.GetComponent<FoodDemo>();
-            if (foodDemo != null && !magnetFoods.Contains(foodDemo))
-            {
-                magnetFoods.Add(foodDemo);
-                foodDemo.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
-                //Tell food to move to mouth
-                foodDemo.MoveToTarget(mouthPoint);
-            }
-        }
-    }
-
-    //private void CollectFood_Collider()
+    //private void CollectFoodDistance()
     //{
-    //    Collider[] cols = Physics.OverlapSphere(transform.position, magnetRadius, foodLayer);
-
-    //    foreach (var col in cols)
+    //    var foods = spawner.GetFoodInRange(transform, magnetRadius);
+    //    foreach (var food in foods)
     //    {
-    //        FoodDemo food = col.GetComponent<FoodDemo>();
-
-    //        if (food != null && !magnetFoods.Contains(food))
+    //        FoodDemo foodDemo = food.GetComponent<FoodDemo>();
+    //        if (foodDemo != null && !magnetFoods.Contains(foodDemo))
     //        {
-    //            magnetFoods.Add(food);
-    //            food.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
+    //            magnetFoods.Add(foodDemo);
+    //            foodDemo.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
     //            //Tell food to move to mouth
-    //            food.MoveToTarget(mouthPoint);
+    //            foodDemo.MoveToTarget(mouthPoint);
     //        }
     //    }
-    //} this function was an earlier attempt to detect food using colliders, but it caused issues with fast-moving food and collider interactions, so I switched to distance-based detection instead.
+    //}
+
+    private void CollectFood_Collider()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, magnetRadius, foodLayer);
+
+        foreach (var col in cols)
+        {
+            FoodDemo food = col.GetComponent<FoodDemo>();
+
+            if (food != null && !magnetFoods.Contains(food))
+            {
+                magnetFoods.Add(food);
+                food.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
+                //Tell food to move to mouth
+                food.MoveToTarget(mouthPoint);
+            }
+        }
+    } 
+    //this function was an earlier attempt to detect food using colliders, but it caused issues with fast-moving food and collider interactions, so I switched to distance-based detection instead.
 
     // Step 2: control animation
     private void UpdateEatingAnimation()
     {
+        Debug.Log("Animator List Count: " + magnetFoods.Count);
         animator.SetBool("isEating", magnetFoods.Count > 0);
     }
 
-private void OnDrawGizmosSelected()
+    public void RemoveMagnetFood(FoodDemo food)
+    {
+        if (food == null) return;
+        Debug.Log("Before remove: " + magnetFoods.Count);
+        magnetFoods.Remove(food);
+        Debug.Log("After remove: " + magnetFoods.Count);
+    }
+
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, magnetRadius);

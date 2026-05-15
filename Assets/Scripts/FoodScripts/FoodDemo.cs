@@ -11,6 +11,7 @@ public class FoodDemo : MonoBehaviour, IPoolable
     private Rigidbody rb;
     private Transform target;
     private bool isMovingToTarget = false;
+    private SnakeInherentMagnet magnetSystem;
     private FoodSpawner2 foodSpawner;
     
 
@@ -18,12 +19,13 @@ public class FoodDemo : MonoBehaviour, IPoolable
     {
         rb = GetComponent<Rigidbody>();
         foodSpawner  = FindObjectOfType<FoodSpawner2>();
+        magnetSystem = FindObjectOfType<SnakeInherentMagnet>();
     }
 
     void FixedUpdate()
     {
         if (!isMovingToTarget || target == null) return;
-        MoveToTarget();
+        MoveTowardTarget();
     }
 
     //Called by magnet
@@ -33,16 +35,19 @@ public class FoodDemo : MonoBehaviour, IPoolable
         isMovingToTarget = true;
     }
 
-    private void MoveToTarget()
+    private void MoveTowardTarget()
     {
         Vector3 direction = target.position - rb.position;
         float distance = direction.magnitude;
-
+        Debug.Log("Distance: " + distance);
         //Eat when close enough
         if (distance <= eatDistance)
         {
             transform.position = target.position;
-            foodSpawner.OnFoodReturn(gameObject); // Return to pool
+            if (magnetSystem != null)
+                magnetSystem.RemoveMagnetFood(this);
+            if (foodSpawner != null)
+                foodSpawner.OnFoodReturn(gameObject); // Return to pool
             return;
         }
 

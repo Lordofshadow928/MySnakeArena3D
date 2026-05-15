@@ -20,7 +20,7 @@ public class FoodSpawner2 : MonoBehaviour
     [SerializeField] private int maxSpawnAttempts = 3;
     private int spawnedFood;
 
-    private List<GameObject> spawnedFoods = new List<GameObject>();
+    [SerializeField]private List<GameObject> spawnedFoods = new List<GameObject>();
     void Start()
     {
         //Safety check
@@ -41,7 +41,6 @@ public class FoodSpawner2 : MonoBehaviour
 
             if (spawnedFood >= maxActiveFood)
                 return;
-            //Debug.Log($"Currently active: {spawnedFood}");
             GameObject food = LeanPool.Spawn(foodPrefab);
             if (food == null) return;
 
@@ -75,9 +74,7 @@ public class FoodSpawner2 : MonoBehaviour
         if (spawnedFood >= maxActiveFood)
             return;
         spawnedFood++;
-        //Debug.Log($"Total active: {spawnedFood}");
         food.transform.position = position;
-        //food.SetActive(true);
         spawnedFoods.Add(food);
     }
 
@@ -107,17 +104,17 @@ public class FoodSpawner2 : MonoBehaviour
         return Vector3.Distance(pos, snakeHead.position) >= minDistanceFromSnake;
     }
 
-    public List<GameObject> GetFoodInRange(Transform target, float range)
-    {
-        List<GameObject> foodsInRange = new List<GameObject>();
-        foreach (var food in spawnedFoods)
-        {
-            if (food != null && Vector3.Distance(food.transform.position, target.position) <= range)
-            {
-                foodsInRange.Add(food);
-            }
-        }
-        return foodsInRange;
-    }
+    //public List<GameObject> GetFoodInRange(Transform target, float range)
+    //{
+    //    List<GameObject> foodsInRange = new List<GameObject>();
+    //    foreach (var food in spawnedFoods)
+    //    {
+    //        if (food != null && Vector3.Distance(food.transform.position, target.position) <= range)
+    //        {
+    //            foodsInRange.Add(food);
+    //        }
+    //    }
+    //    return foodsInRange;
+    //}
 }
 

@@ -500,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 6458763065665548540, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: magnetRadius
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -564,6 +564,7 @@ MonoBehaviour:
   spawnInterval: 2
   minDistanceFromSnake: 3
   maxSpawnAttempts: 3
+  spawnedFoods: []
 --- !u!1 &871104266
 GameObject:
   m_ObjectHideFlags: 0
