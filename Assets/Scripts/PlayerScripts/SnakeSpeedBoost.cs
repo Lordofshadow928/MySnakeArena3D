@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SnakeSpeedBoost : MonoBehaviour
 {
     [Header("Boost Settings")]
@@ -14,6 +15,7 @@ public class SnakeSpeedBoost : MonoBehaviour
     [Header("Boost VFX")]
     [SerializeField] private ParticleSystem boostVFX;
 
+    private bool isBoosting = false;
     private float drainTimer = 0f;
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class SnakeSpeedBoost : MonoBehaviour
     }
     public void ActivateBoost()
     {
+        if (isBoosting) return;
+        isBoosting = true;
         movement.BoostSpeed(boostMultiplier);
         growthShrinkLogic.SetBoost();
         if(boostVFX != null)
@@ -32,6 +36,8 @@ public class SnakeSpeedBoost : MonoBehaviour
 
     public void DeActivateBoost()
     {
+        if (!isBoosting) return;
+        isBoosting = false;
         movement.ResetSpeed();
         growthShrinkLogic.DeBoost();
         if (boostVFX != null)

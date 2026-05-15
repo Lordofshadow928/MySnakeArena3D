@@ -127,6 +127,51 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: autoRandomSeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.89143604
+      objectReference: {fileID: 0}
     - target: {fileID: 6430182750041869170, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       propertyPath: bodyPrefab
@@ -235,10 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0b12d6aebb24c4ea27af233025d260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostMultiplier: 2
+  boostMultiplier: 1.5
   progressUI: {fileID: 0}
   drainInterval: 0.3
-  boostVFX: {fileID: 0}
+  boostVFX: {fileID: 5396242861065606237}
 --- !u!114 &4827238707262638034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e53801b76759ff499d1e887aa09cc46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyPrefab: {fileID: 0}
+  bodyPrefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7,
+    type: 3}
   foodSpawner: {fileID: 0}
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
@@ -275,11 +321,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c069879a611ecd41acc737f86bbc3cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   rotateSpeed: 240
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5198105938470807320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5396242861065606237 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
     type: 3}
   m_PrefabInstance: {fileID: 5198105938470807320}
   m_PrefabAsset: {fileID: 0}

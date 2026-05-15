@@ -122,12 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!198 &89817540 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5396242861065606237, guid: ff4efc22c3bf453418239f615f3434bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 504673765}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98729995
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,30 +408,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
-      propertyPath: boostVFX
-      value: 
-      objectReference: {fileID: 89817540}
-    - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
       propertyPath: progressUI
       value: 
       objectReference: {fileID: 98729997}
-    - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      propertyPath: boostMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      propertyPath: bodyPool
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      propertyPath: bodyPrefab
-      value: 
-      objectReference: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7,
-        type: 3}
     - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: progressUI
@@ -452,11 +425,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Snake Head Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 5200756796769776569, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5202483054221623996, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
@@ -507,16 +475,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6092836628856733445, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6458763065665548540, guid: ff4efc22c3bf453418239f615f3434bd,
-        type: 3}
-      propertyPath: magnetRadius
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
