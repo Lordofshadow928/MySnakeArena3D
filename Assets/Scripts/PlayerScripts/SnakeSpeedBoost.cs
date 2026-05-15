@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class SnakeSpeedBoost : MonoBehaviour
@@ -12,6 +13,11 @@ public class SnakeSpeedBoost : MonoBehaviour
     [SerializeField] private SnakeProgressUI progressUI;
     [SerializeField] private float drainInterval = 0.3f;
 
+    [Header("Boost UI")]
+    [SerializeField] private Image boostImage;
+    [SerializeField] private Sprite inactiveSprite;
+    [SerializeField] private Sprite activeSprite;
+
     [Header("Boost VFX")]
     [SerializeField] private SnakeParticleVFX snakeVFX;
 
@@ -21,6 +27,7 @@ public class SnakeSpeedBoost : MonoBehaviour
     {
         movement = GetComponent<OnlyMovement>();
         growthShrinkLogic = GetComponent<GrowthShrinkLogic>();
+        boostImage.sprite = inactiveSprite;
     }
     public void ActivateBoost()
     {
@@ -28,7 +35,8 @@ public class SnakeSpeedBoost : MonoBehaviour
         isBoosting = true;
         movement.BoostSpeed(boostMultiplier);
         growthShrinkLogic.SetBoost();
-        if(snakeVFX != null)
+        boostImage.sprite = activeSprite;
+        if (snakeVFX != null)
         {
             snakeVFX.SetBoostVFX(true);
         }
@@ -40,6 +48,7 @@ public class SnakeSpeedBoost : MonoBehaviour
         isBoosting = false;
         movement.ResetSpeed();
         growthShrinkLogic.DeBoost();
+        boostImage.sprite = inactiveSprite;
         if (snakeVFX != null)
         {
             snakeVFX.SetBoostVFX(false);

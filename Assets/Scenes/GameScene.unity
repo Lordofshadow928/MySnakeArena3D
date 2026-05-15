@@ -190,53 +190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1940161131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &219967474
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 219967476}
-  - component: {fileID: 219967475}
-  m_Layer: 0
-  m_Name: PoolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &219967475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219967474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ac623831034c14bb2940df4b3b21d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012, type: 3}
-  poolSize: 20
-  expandPool: 1
---- !u!4 &219967476
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219967474}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.191605, y: -1.493905, z: 8.021497}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &279012064
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,53 +870,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!1 &1367320378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1367320380}
-  - component: {fileID: 1367320379}
-  m_Layer: 0
-  m_Name: BodyPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1367320379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367320378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ac623831034c14bb2940df4b3b21d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7, type: 3}
-  poolSize: 20
-  expandPool: 1
---- !u!4 &1367320380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367320378}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7166233, y: 1.8542492, z: 2.237797}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1459900935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -981,12 +887,22 @@ PrefabInstance:
         type: 3}
       propertyPath: bodyPool
       value: 
-      objectReference: {fileID: 1367320379}
+      objectReference: {fileID: 0}
     - target: {fileID: 4542599575777394362, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: progressUI
       value: 
       objectReference: {fileID: 643244495}
+    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: progressUI
+      value: 
+      objectReference: {fileID: 643244495}
+    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: foodSpawner
+      value: 
+      objectReference: {fileID: 2046532641}
     - target: {fileID: 5197322102684471174, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: m_Name
@@ -1047,60 +963,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4efc22c3bf453418239f615f3434bd, type: 3}
---- !u!1 &1803013340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1803013342}
-  - component: {fileID: 1803013341}
-  m_Layer: 0
-  m_Name: FoodSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1803013341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803013340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d80e6d8062a3d4429ec8b2e71270ee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pool: {fileID: 219967475}
-  snakeHead: {fileID: 5202483054221623996, guid: ff4efc22c3bf453418239f615f3434bd,
-    type: 3}
-  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
-    type: 3}
-  maxActiveFood: 100
-  spawnArea: {x: 8, y: 1, z: 5}
-  spawnInterval: 1
-  minDistanceFromSnake: 3
-  maxSpawnAttempts: 3
---- !u!4 &1803013342
+--- !u!4 &1459900936 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5202483054221623996, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1459900935}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803013340}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1868911035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1180,60 @@ Transform:
   - {fileID: 185256438}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2046532640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2046532642}
+  - component: {fileID: 2046532641}
+  m_Layer: 0
+  m_Name: FoodSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2046532641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046532640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec8f3177c3ac8c4fa4b38166feb16a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snakeHead: {fileID: 1459900936}
+  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
+    type: 3}
+  foodPerInterval: 4
+  maxActiveFood: 100
+  spawnArea: {x: 5, y: 1, z: 5}
+  spawnInterval: 2
+  minDistanceFromSnake: 3
+  maxSpawnAttempts: 3
+  spawnedFoods: []
+--- !u!4 &2046532642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046532640}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1319,8 +1241,6 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1459900935}
-  - {fileID: 219967476}
-  - {fileID: 1367320380}
   - {fileID: 922187730}
-  - {fileID: 1803013342}
   - {fileID: 1940161131}
+  - {fileID: 2046532642}

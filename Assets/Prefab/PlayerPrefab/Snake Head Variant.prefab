@@ -216,6 +216,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6092836628856733445}
+    - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6756696739693028009}
   m_SourcePrefab: {fileID: 100100000, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
 --- !u!1 &5198856020018882843 stripped
 GameObject:
@@ -283,7 +287,7 @@ MonoBehaviour:
   boostMultiplier: 1.5
   progressUI: {fileID: 0}
   drainInterval: 0.3
-  snakeVFX: {fileID: 0}
+  snakeVFX: {fileID: 6756696739693028009}
 --- !u!114 &4827238707262638034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +306,7 @@ MonoBehaviour:
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
   progressUI: {fileID: 0}
-  snakeVFX: {fileID: 0}
+  snakeVFX: {fileID: 6756696739693028009}
   foodsPerGrowth: 4
   foodsPerShrink: 4
   segmentDistance: 0.5
@@ -324,9 +328,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   rotateSpeed: 240
+--- !u!114 &6756696739693028009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198856020018882843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b5dac97d2092147bac9a4ffe82591b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headBoostParticles: {fileID: 5396242861065606237}
+  growthShrinkLogic: {fileID: 4827238707262638034}
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5198105938470807320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5396242861065606237 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
     type: 3}
   m_PrefabInstance: {fileID: 5198105938470807320}
   m_PrefabAsset: {fileID: 0}
