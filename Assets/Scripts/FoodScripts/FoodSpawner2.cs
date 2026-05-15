@@ -120,7 +120,5 @@ public class FoodSpawner2 : MonoBehaviour
         }
         return foodsInRange;
     }
-
-
 }
 
