@@ -14,6 +14,7 @@ public class GrowthShrinkLogic : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private SnakeProgressUI progressUI;
+    [SerializeField] private SnakeParticleVFX snakeVFX;
 
     [Header("Growth Settings")]
     [SerializeField] private int foodsPerGrowth = 4;
@@ -31,6 +32,10 @@ public class GrowthShrinkLogic : MonoBehaviour
     private List<Vector3> positionHistory = new();
     private List<Transform> segments = new();
     private List<Vector3> directions = new();
+    public List<Transform> GetSegments()
+    {
+        return segments;
+    }
     private bool isBoosted;
 
     private Transform tail;
@@ -179,6 +184,10 @@ public class GrowthShrinkLogic : MonoBehaviour
             segments.Add(body.transform);
             directions.Add(last.forward);
         }
+        if (snakeVFX != null)
+        {
+            snakeVFX.RefreshParticles();
+        }
 
         return body;
     }
@@ -195,6 +204,10 @@ public class GrowthShrinkLogic : MonoBehaviour
         directions.RemoveAt(removeIndex);
 
         LeanPool.Despawn(segmentToRemove.gameObject);
+        if (snakeVFX != null)
+        {
+            snakeVFX.RefreshParticles();
+        }
     }
 
     private void AddTail()
@@ -210,6 +223,8 @@ public class GrowthShrinkLogic : MonoBehaviour
         segments.Add(tail);
         directions.Add(last.forward);
     }
+
+  
 
     private void OnTriggerEnter(Collider other)
     {

@@ -13,7 +13,7 @@ public class SnakeSpeedBoost : MonoBehaviour
     [SerializeField] private float drainInterval = 0.3f;
 
     [Header("Boost VFX")]
-    [SerializeField] private ParticleSystem boostVFX;
+    [SerializeField] private SnakeParticleVFX snakeVFX;
 
     private bool isBoosting = false;
     private float drainTimer = 0f;
@@ -28,9 +28,9 @@ public class SnakeSpeedBoost : MonoBehaviour
         isBoosting = true;
         movement.BoostSpeed(boostMultiplier);
         growthShrinkLogic.SetBoost();
-        if(boostVFX != null)
+        if(snakeVFX != null)
         {
-            boostVFX.Play();
+            snakeVFX.SetBoostVFX(true);
         }
     }
 
@@ -40,9 +40,9 @@ public class SnakeSpeedBoost : MonoBehaviour
         isBoosting = false;
         movement.ResetSpeed();
         growthShrinkLogic.DeBoost();
-        if (boostVFX != null)
+        if (snakeVFX != null)
         {
-            boostVFX.Stop();
+            snakeVFX.SetBoostVFX(false);
         }
     }
 

@@ -122,6 +122,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &89817540 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5396242861065606237, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 504673765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98729995
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,9 +414,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
+      propertyPath: snakeVFX
+      value: 
+      objectReference: {fileID: 1231199808}
+    - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
       propertyPath: progressUI
       value: 
       objectReference: {fileID: 98729997}
+    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: snakeVFX
+      value: 
+      objectReference: {fileID: 1231199808}
     - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: progressUI
@@ -476,10 +492,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5396242861065606237, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1231199808}
   m_SourcePrefab: {fileID: 100100000, guid: ff4efc22c3bf453418239f615f3434bd, type: 3}
 --- !u!1 &540602855
 GameObject:
@@ -734,6 +759,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1231199798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5198856020018882843, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 504673765}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1231199801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 504673765}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231199798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e53801b76759ff499d1e887aa09cc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1231199808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231199798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b5dac97d2092147bac9a4ffe82591b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headBoostParticles: {fileID: 89817540}
+  growthShrinkLogic: {fileID: 1231199801}
 --- !u!1 &1310393873
 GameObject:
   m_ObjectHideFlags: 0

@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
@@ -283,7 +283,7 @@ MonoBehaviour:
   boostMultiplier: 1.5
   progressUI: {fileID: 0}
   drainInterval: 0.3
-  boostVFX: {fileID: 5396242861065606237}
+  snakeVFX: {fileID: 0}
 --- !u!114 &4827238707262638034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
   progressUI: {fileID: 0}
+  snakeVFX: {fileID: 0}
   foodsPerGrowth: 4
   foodsPerShrink: 4
   segmentDistance: 0.5
@@ -326,12 +327,6 @@ MonoBehaviour:
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
-    type: 3}
-  m_PrefabInstance: {fileID: 5198105938470807320}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &5396242861065606237 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198210635252314949, guid: e0af87f621a1c3549948d2be82b3f3b3,
     type: 3}
   m_PrefabInstance: {fileID: 5198105938470807320}
   m_PrefabAsset: {fileID: 0}
