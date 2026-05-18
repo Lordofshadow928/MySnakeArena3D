@@ -14,7 +14,6 @@ public class SnakeInherentMagnet : MonoBehaviour
     [SerializeField]private List<FoodDemo> magnetFoods = new List<FoodDemo>();
     private FoodSpawner2 spawner;
 
-
     void Start()
     {
         spawner = FindObjectOfType<FoodSpawner2>();
@@ -46,22 +45,6 @@ public class SnakeInherentMagnet : MonoBehaviour
         CollectFood_Collider();
     }
 
-    //private void CollectFoodDistance()
-    //{
-    //    var foods = spawner.GetFoodInRange(transform, magnetRadius);
-    //    foreach (var food in foods)
-    //    {
-    //        FoodDemo foodDemo = food.GetComponent<FoodDemo>();
-    //        if (foodDemo != null && !magnetFoods.Contains(foodDemo))
-    //        {
-    //            magnetFoods.Add(foodDemo);
-    //            foodDemo.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
-    //            //Tell food to move to mouth
-    //            foodDemo.MoveToTarget(mouthPoint);
-    //        }
-    //    }
-    //}
-
     private void CollectFood_Collider()
     {
         Collider[] cols = Physics.OverlapSphere(transform.position, magnetRadius, foodLayer);
@@ -80,7 +63,6 @@ public class SnakeInherentMagnet : MonoBehaviour
         }
     } 
     
-
     // Step 2: control animation
     private void UpdateEatingAnimation()
     {

@@ -103,18 +103,5 @@ public class FoodSpawner2 : MonoBehaviour
 
         return Vector3.Distance(pos, snakeHead.position) >= minDistanceFromSnake;
     }
-
-    //public List<GameObject> GetFoodInRange(Transform target, float range)
-    //{
-    //    List<GameObject> foodsInRange = new List<GameObject>();
-    //    foreach (var food in spawnedFoods)
-    //    {
-    //        if (food != null && Vector3.Distance(food.transform.position, target.position) <= range)
-    //        {
-    //            foodsInRange.Add(food);
-    //        }
-    //    }
-    //    return foodsInRange;
-    //}
 }
 
