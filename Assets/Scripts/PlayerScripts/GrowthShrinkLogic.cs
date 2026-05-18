@@ -11,6 +11,7 @@ public class GrowthShrinkLogic : MonoBehaviour
 
     [Header("Tail")]
     [SerializeField] private GameObject tailPrefab;
+    [SerializeField] private Transform tailPoint;
 
     [Header("UI")]
     [SerializeField] private SnakeProgressUI progressUI;
@@ -43,6 +44,7 @@ public class GrowthShrinkLogic : MonoBehaviour
     private int foodCounter;
     private int shrinkCounter;
     private int growPending;
+    private int currentFoodStored = 0;
 
     private OnlyMovement movement;
 
@@ -110,11 +112,7 @@ public class GrowthShrinkLogic : MonoBehaviour
             {
                 Vector3 targetPos = positionHistory[index];
 
-                segment.position = Vector3.Lerp(
-                    segment.position,
-                    targetPos,
-                    movement.GetMoveSpeed() * Time.fixedDeltaTime
-                );
+                segment.position = Vector3.Lerp(segment.position,targetPos,movement.GetMoveSpeed() * Time.fixedDeltaTime);
 
                 segment.LookAt(segments[i - 1]);
             }
@@ -131,7 +129,7 @@ public class GrowthShrinkLogic : MonoBehaviour
     public void AddFood()
     {
         foodCounter++;
-
+        currentFoodStored++;
         progressUI.AddProgress(1);
 
         if (foodCounter >= foodsPerGrowth)
@@ -205,7 +203,6 @@ public class GrowthShrinkLogic : MonoBehaviour
     public void ShrinkSnake()
     {
         if (segments.Count <= 5) return;
-
         int removeIndex = segments.Count - 2;
 
         Transform segmentToRemove = segments[removeIndex];
@@ -224,23 +221,36 @@ public class GrowthShrinkLogic : MonoBehaviour
     {
         Transform last = segments[segments.Count - 1];
 
-        tail = Instantiate(
-            tailPrefab,
-            last.position - last.forward * segmentDistance,
-            last.rotation
-        ).transform;
+        tail = Instantiate(tailPrefab,last.position - last.forward * segmentDistance,last.rotation).transform;
+
+        //Find tail point for poop system
+        tailPoint = tail.Find("TailPoint");
 
         segments.Add(tail);
         directions.Add(last.forward);
     }
 
-  
+    public Transform GetTailPoint()
+    {
+        return tailPoint;
+    }
+    public int GetStoredFood()
+    {
+        return currentFoodStored;
+    }
+
+    public void RemoveStoredFood(int amount)
+    {
+        currentFoodStored -= amount;
+
+        currentFoodStored = Mathf.Max(0, currentFoodStored);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
         {
-            //foodSpawner.OnFoodReturn(other.gameObject);
             LeanPool.Despawn(other.gameObject);
             AddFood();
         }

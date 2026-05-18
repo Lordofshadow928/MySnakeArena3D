@@ -1,5 +1,6 @@
 using UnityEngine;
 using Lean.Pool;
+using System.Collections;
 
 public class FoodDemo : MonoBehaviour, IPoolable
 {
@@ -13,7 +14,11 @@ public class FoodDemo : MonoBehaviour, IPoolable
     private bool isMovingToTarget = false;
     private SnakeInherentMagnet magnetSystem;
     private FoodSpawner2 foodSpawner;
-    
+
+    [Header("Poop Settings")]
+    [SerializeField] private float poopMagnetDelay = 0.5f;
+
+    private bool canBeMagnetized = true;
 
     void Awake()
     {
@@ -86,6 +91,9 @@ public class FoodDemo : MonoBehaviour, IPoolable
     {
         isMovingToTarget = false;
         target = null;
+
+        rb.velocity = Vector3.zero;
+        canBeMagnetized = true;
 
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         if (renderer != null)

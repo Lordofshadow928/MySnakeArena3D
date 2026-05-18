@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983891367825626772}
+  - component: {fileID: 8651640578119955502}
   m_Layer: 0
   m_Name: MouthPoint
   m_TagString: Untagged
@@ -31,6 +32,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5202483054221623996}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8651640578119955502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2265086496220109263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf8f72783594ad4ebb88209de376fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetRadius: 1
+  foodLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  mouthPoint: {fileID: 983891367825626772}
+  magnetFoods: []
 --- !u!1 &6273819916289912866
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,10 +222,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6458763065665548540}
-    - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2483845802200295043}
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
@@ -254,24 +269,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
---- !u!114 &6458763065665548540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5198856020018882843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf8f72783594ad4ebb88209de376fc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magnetRadius: 2
-  foodLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  mouthPoint: {fileID: 983891367825626772}
-  magnetFoods: []
 --- !u!114 &2483845802200295043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +284,12 @@ MonoBehaviour:
   boostMultiplier: 1.5
   progressUI: {fileID: 0}
   drainInterval: 0.3
+  boostImage: {fileID: 0}
+  inactiveSprite: {fileID: 0}
+  activeSprite: {fileID: 0}
   snakeVFX: {fileID: 6756696739693028009}
+  poopFoodPrefab: {fileID: 0}
+  poopInterval: 0.25
 --- !u!114 &4827238707262638034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +307,7 @@ MonoBehaviour:
   foodSpawner: {fileID: 0}
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
+  tailPoint: {fileID: 0}
   progressUI: {fileID: 0}
   snakeVFX: {fileID: 6756696739693028009}
   foodsPerGrowth: 4

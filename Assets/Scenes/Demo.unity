@@ -499,10 +499,27 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
+      propertyPath: poopInterval
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
       propertyPath: inactiveSprite
       value: 
       objectReference: {fileID: 21300000, guid: 10d502deab3b6294282c6aaa42cc9f4f,
         type: 2}
+    - target: {fileID: 2483845802200295043, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: poopFoodPrefab
+      value: 
+      objectReference: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
+        type: 3}
+    - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: tailPoint
+      value: 
+      objectReference: {fileID: 6021216056786274393, guid: 8ad8fcc7e8170e2448685ad811c9e477,
+        type: 3}
     - target: {fileID: 4827238707262638034, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: progressUI
@@ -568,6 +585,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6458763065665548540, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: magnetRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651640578119955502, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1333822258}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1305,6 +1332,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!95 &1333822258 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5292505130159744351, guid: ff4efc22c3bf453418239f615f3434bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 504673765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2099355723
 GameObject:
   m_ObjectHideFlags: 0

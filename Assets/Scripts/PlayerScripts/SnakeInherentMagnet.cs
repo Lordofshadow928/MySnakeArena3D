@@ -8,7 +8,7 @@ public class SnakeInherentMagnet : MonoBehaviour
     [SerializeField] private float magnetRadius = 2f;
     [SerializeField] private LayerMask foodLayer;
     [SerializeField] private Transform mouthPoint;    
-    private Animator animator;
+    [SerializeField]private Animator animator;
 
     // Track foods already magnetized
     [SerializeField]private List<FoodDemo> magnetFoods = new List<FoodDemo>();
@@ -17,7 +17,6 @@ public class SnakeInherentMagnet : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         spawner = FindObjectOfType<FoodSpawner2>();
             if (spawner == null)
             {
@@ -80,7 +79,7 @@ public class SnakeInherentMagnet : MonoBehaviour
             }
         }
     } 
-    //this function was an earlier attempt to detect food using colliders, but it caused issues with fast-moving food and collider interactions, so I switched to distance-based detection instead.
+    
 
     // Step 2: control animation
     private void UpdateEatingAnimation()
