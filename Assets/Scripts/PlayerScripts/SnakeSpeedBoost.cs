@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SnakeSpeedBoost : MonoBehaviour
 {
     [Header("Boost Settings")]
-    public float boostMultiplier = 2f;
+    [SerializeField] private float boostMultiplier = 2f;
     private OnlyMovement movement;
     private GrowthShrinkLogic growthShrinkLogic;
     [SerializeField] private SnakeProgressUI progressUI;
@@ -27,6 +27,7 @@ public class SnakeSpeedBoost : MonoBehaviour
     [SerializeField] private float poopInterval = 0.3f;
 
     private bool isBoosting = false;
+    private bool forceDisableBoost = false;
     private float drainTimer = 0f;
     private float poopTimer = 0f;
     private void Awake()
@@ -35,17 +36,33 @@ public class SnakeSpeedBoost : MonoBehaviour
         growthShrinkLogic = GetComponent<GrowthShrinkLogic>();
         boostImage.sprite = inactiveSprite;
     }
+
+    public void ForceDisableBoost(bool value)
+    {
+        forceDisableBoost = value;
+
+        if (value)
+        {
+            DeActivateBoost();
+        }
+    }
+
+    public void SetBoostVisual(bool active)
+    {
+        boostImage.sprite = active ? activeSprite : inactiveSprite;
+
+        if (snakeVFX != null)
+        {
+            snakeVFX.SetBoostVFX(active);
+        }
+    }
     public void ActivateBoost()
     {
         if (isBoosting) return;
         isBoosting = true;
         movement.BoostSpeed(boostMultiplier);
         growthShrinkLogic.SetBoost();
-        boostImage.sprite = activeSprite;
-        if (snakeVFX != null)
-        {
-            snakeVFX.SetBoostVFX(true);
-        }
+        SetBoostVisual(true);
     }
 
     public void DeActivateBoost()
@@ -54,11 +71,7 @@ public class SnakeSpeedBoost : MonoBehaviour
         isBoosting = false;
         movement.ResetSpeed();
         growthShrinkLogic.DeBoost();
-        boostImage.sprite = inactiveSprite;
-        if (snakeVFX != null)
-        {
-            snakeVFX.SetBoostVFX(false);
-        }
+        SetBoostVisual(false);
     }
 
     private void PoopFood()
@@ -81,7 +94,7 @@ public class SnakeSpeedBoost : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && progressUI.HasEnergy())
+        if (!forceDisableBoost && Input.GetKey(KeyCode.Space) && progressUI.HasEnergy())
         {
             ActivateBoost();
             //Energy drain logic

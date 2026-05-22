@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class InvinciblePickup : PickupBase
 {
-    [SerializeField] private float duration = 5f;
-    [SerializeField] private GameObject rainbowBallPrefab;
-
+    [SerializeField] private float duration = 10f;
     public override void OnPickup(GameObject onpick)
     {
-        Debug.Log($"Invincible for {duration} seconds!");
-
-        // Future:
-        // collector.GetComponent<PlayerHealth>()
-        //     ?.SetInvincible(duration);
+        SnakeInvincible invincible = onpick.GetComponent<SnakeInvincible>();
+        if (invincible != null)
+        {
+            invincible.ActivateInvincible(duration);
+        }
 
         LeanPool.Despawn(gameObject);
     }
