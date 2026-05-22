@@ -245,15 +245,4 @@ public class GrowthShrinkLogic : MonoBehaviour
 
         currentFoodStored = Mathf.Max(0, currentFoodStored);
     }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (LayerMask.LayerToName(other.gameObject.layer) == "Food")
-        {
-            LeanPool.Despawn(other.gameObject);
-            AddFood();
-        }
-    }
-
 }

@@ -29,7 +29,6 @@ public class SnakeInherentMagnet : MonoBehaviour
         UpdateEatingAnimation();
 
     }
-
     //Detect foods and tell them to move
     public void DetectFoods()
     {
@@ -41,7 +40,6 @@ public class SnakeInherentMagnet : MonoBehaviour
                 magnetFoods.RemoveAt(i);
             }
         }
-        //CollectFoodDistance();
         CollectFood_Collider();
     }
 
