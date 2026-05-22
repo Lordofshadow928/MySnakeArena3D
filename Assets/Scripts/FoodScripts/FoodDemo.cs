@@ -15,11 +15,6 @@ public class FoodDemo : MonoBehaviour, IPoolable
     private SnakeInherentMagnet magnetSystem;
     private FoodSpawner2 foodSpawner;
 
-    [Header("Poop Settings")]
-    [SerializeField] private float poopMagnetDelay = 0.5f;
-
-    private bool canBeMagnetized = true;
-
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -91,10 +86,7 @@ public class FoodDemo : MonoBehaviour, IPoolable
     {
         isMovingToTarget = false;
         target = null;
-
         rb.velocity = Vector3.zero;
-        canBeMagnetized = true;
-
         MeshRenderer renderer = GetComponent<MeshRenderer>();
         if (renderer != null)
         {
