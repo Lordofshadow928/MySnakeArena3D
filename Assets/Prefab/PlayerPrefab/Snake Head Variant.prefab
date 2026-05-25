@@ -49,7 +49,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mouthPoint: {fileID: 983891367825626772}
+  animator: {fileID: 5292505130159744351}
   magnetFoods: []
+--- !u!1 &3748099605189894759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6210071011670116452}
+  m_Layer: 0
+  m_Name: SnakeStates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6210071011670116452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748099605189894759}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.5769625, y: 1.1206944, z: 4.870616}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5202483054221623996}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6273819916289912866
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +246,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 983891367825626772}
+    - targetCorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6210071011670116452}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
@@ -235,6 +271,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6756696739693028009}
+    - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7469084273216817532}
+    - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2724070704428822635}
   m_SourcePrefab: {fileID: 100100000, guid: e0af87f621a1c3549948d2be82b3f3b3, type: 3}
 --- !u!1 &5198856020018882843 stripped
 GameObject:
@@ -285,11 +329,12 @@ MonoBehaviour:
   progressUI: {fileID: 0}
   drainInterval: 0.3
   boostImage: {fileID: 0}
-  inactiveSprite: {fileID: 0}
-  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 21300000, guid: 10d502deab3b6294282c6aaa42cc9f4f, type: 2}
+  activeSprite: {fileID: 21300000, guid: a4875663ef0a0634186719277d6f0bdc, type: 2}
   snakeVFX: {fileID: 6756696739693028009}
-  poopFoodPrefab: {fileID: 0}
-  poopInterval: 0.25
+  poopFoodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
+    type: 3}
+  poopInterval: 0.3
 --- !u!114 &4827238707262638034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +352,8 @@ MonoBehaviour:
   foodSpawner: {fileID: 0}
   tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
     type: 3}
-  tailPoint: {fileID: 0}
+  tailPoint: {fileID: 6021216056786274393, guid: 8ad8fcc7e8170e2448685ad811c9e477,
+    type: 3}
   progressUI: {fileID: 0}
   snakeVFX: {fileID: 6756696739693028009}
   foodsPerGrowth: 4
@@ -345,9 +391,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headBoostParticles: {fileID: 5396242861065606237}
   growthShrinkLogic: {fileID: 4827238707262638034}
+--- !u!114 &7469084273216817532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198856020018882843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c66a0448b86547b676e02349ac447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2724070704428822635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5198856020018882843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4bc50d53e9c2b4ebdd3e4d871c3bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  invincibleSpeedMultiplier: 1.5
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5198105938470807320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5292505130159744351 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95033609911272007, guid: e0af87f621a1c3549948d2be82b3f3b3,
     type: 3}
   m_PrefabInstance: {fileID: 5198105938470807320}
   m_PrefabAsset: {fileID: 0}
