@@ -106,12 +106,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6273819916289912866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5202483054221623996}
+  m_Father: {fileID: 5200756796769776569}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5198105938470807320
 PrefabInstance:
@@ -241,15 +241,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1317098655145831972}
-    - targetCorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 983891367825626772}
     - targetCorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6210071011670116452}
+    - targetCorrespondingSourceObject: {fileID: 4412404952700065, guid: e0af87f621a1c3549948d2be82b3f3b3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1317098655145831972}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1528106561490435, guid: e0af87f621a1c3549948d2be82b3f3b3,
         type: 3}
@@ -417,6 +417,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 10
   invincibleSpeedMultiplier: 1.5
+  headCollider: {fileID: 0}
+--- !u!4 &5200756796769776569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4412404952700065, guid: e0af87f621a1c3549948d2be82b3f3b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5198105938470807320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5202483054221623996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4942345363006884, guid: e0af87f621a1c3549948d2be82b3f3b3,

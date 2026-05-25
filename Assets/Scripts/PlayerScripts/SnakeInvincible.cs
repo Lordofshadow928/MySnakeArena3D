@@ -6,22 +6,18 @@ public class SnakeInvincible : MonoBehaviour
 {
     [SerializeField] private float duration = 10f;
     [SerializeField] private float invincibleSpeedMultiplier = 1.5f;
+    [SerializeField] private Collider headCollider;
 
     private OnlyMovement movement;
     private SnakeSpeedBoost boost;
-
-    private int normalLayer;
-    private int invincibleLayer;
-
+    private bool isTriggered;
     private Coroutine routine;
 
     private void Awake()
     {
         movement = GetComponent<OnlyMovement>();
         boost = GetComponent<SnakeSpeedBoost>();
-
-        normalLayer = LayerMask.NameToLayer("Snake");
-        invincibleLayer = LayerMask.NameToLayer("InvincibleSnake");
+        isTriggered = headCollider.isTrigger;
     }
 
     public void ActivateInvincible()
@@ -30,7 +26,6 @@ public class SnakeInvincible : MonoBehaviour
         {
             StopCoroutine(routine);
         }
-
         routine = StartCoroutine(InvincibleRoutine());
     }
 
@@ -38,32 +33,20 @@ public class SnakeInvincible : MonoBehaviour
     {
         // Disable normal boost
         boost.ForceDisableBoost(true);
-
         // Enable boost visuals
         boost.SetBoostVisual(true);
-
         // Constant speed
         movement.BoostSpeed(invincibleSpeedMultiplier);
-
-        // Change layer
-        gameObject.layer = invincibleLayer;
-
+        headCollider.isTrigger = true;
         Debug.Log("INVINCIBLE START");
-
         yield return new WaitForSeconds(duration);
-
-        // Restore layer
-        gameObject.layer = normalLayer;
-
+        headCollider.isTrigger = false;
         // Restore movement
         movement.ResetSpeed();
-
         // Restore visuals
         boost.SetBoostVisual(false);
-
         // Enable normal boost again
         boost.ForceDisableBoost(false);
-
         Debug.Log("INVINCIBLE END");
     }
 }
