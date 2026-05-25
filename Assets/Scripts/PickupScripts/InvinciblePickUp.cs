@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class InvinciblePickup : PickupBase
 {
-    [SerializeField] private float duration = 10f;
     public override void OnPickup(GameObject onpick)
     {
         SnakeInvincible invincible = onpick.GetComponent<SnakeInvincible>();
         if (invincible != null)
         {
-            invincible.ActivateInvincible(duration);
+            invincible.ActivateInvincible();
         }
 
         LeanPool.Despawn(gameObject);
