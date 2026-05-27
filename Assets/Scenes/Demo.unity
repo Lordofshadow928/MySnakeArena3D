@@ -586,7 +586,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!64 &451445933
@@ -702,6 +702,7 @@ MonoBehaviour:
   distanceBetweenPoints: 0.15
   preHistory: 15
   headPoint: {fileID: 897862507}
+  stopThreshold: 0.01
 --- !u!114 &451445939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +717,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   rotateSpeed: 240
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  autoAvoidStrength: 8
+  autoAvoidDecay: 8
+  collisionCooldown: 0.15
 --- !u!1001 &504673765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2246,7 +2253,7 @@ GameObject:
   - component: {fileID: 1836234594}
   - component: {fileID: 1836234593}
   - component: {fileID: 1836234592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

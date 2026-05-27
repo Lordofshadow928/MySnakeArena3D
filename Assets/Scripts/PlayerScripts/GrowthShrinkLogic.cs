@@ -29,6 +29,7 @@ public class GrowthShrinkLogic : MonoBehaviour
     [Header("History")]
     [SerializeField] private int preHistory = 15;
     [SerializeField] private Transform headPoint;
+    [SerializeField] private float stopThreshold = 0.01f;
 
     private List<Vector3> positionHistory = new();
     private List<Transform> segments = new();
@@ -92,6 +93,18 @@ public class GrowthShrinkLogic : MonoBehaviour
 
     private void UpdateHistory()
     {
+        // Snake stopped
+        if (movement.CurrentSpeed <= stopThreshold)
+        {
+            // Keep first history point synced to head
+            if (positionHistory.Count > 0)
+            {
+                positionHistory[0] = headPoint.position;
+            }
+
+            return;
+        }
+
         if (isBoosted)
         {
             var lastPos = positionHistory[0];
@@ -112,9 +125,24 @@ public class GrowthShrinkLogic : MonoBehaviour
             {
                 Vector3 targetPos = positionHistory[index];
 
-                segment.position = Vector3.Lerp(segment.position,targetPos,movement.GetMoveSpeed() * Time.fixedDeltaTime);
+                float followSpeed = movement.CurrentSpeed;
+
+                segment.position = Vector3.Lerp(segment.position,targetPos,followSpeed * Time.fixedDeltaTime);
 
                 segment.LookAt(segments[i - 1]);
+
+                // Snap to target when close enough
+                if (Vector3.Distance(segment.position, targetPos) < 0.001f)
+                {
+                    segment.position = targetPos;
+                }
+
+                Vector3 lookDir = segments[i - 1].position - segment.position;
+
+                if (lookDir.sqrMagnitude > 0.0001f)
+                {
+                    segment.rotation = Quaternion.LookRotation(lookDir);
+                }
             }
         }
 
