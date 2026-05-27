@@ -87,6 +87,7 @@ public class FoodSpawner2 : MonoBehaviour
         // Reduce active counter safely
         if (spawnedFood > 0)
             spawnedFood--;
+        LeanPool.Despawn(food);
     }
     Vector3 GetRandomPosition()
     {

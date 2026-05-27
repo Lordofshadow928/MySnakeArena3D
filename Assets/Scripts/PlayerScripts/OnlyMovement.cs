@@ -11,14 +11,20 @@ public class OnlyMovement : MonoBehaviour
     private float defaultRotateSpeed;
 
     private bool isBoosted;
-    private Transform root;
+    private Rigidbody rb;
+    private float horizontalInput;
 
-    private void Start()
+
+    private void Awake()
     {
-        root = transform.parent;
-
+        rb = GetComponent<Rigidbody>();
         defaultMoveSpeed = moveSpeed;
         defaultRotateSpeed = rotateSpeed;
+    }
+
+    private void Update()
+    {
+        horizontalInput = Input.GetAxis("Horizontal");
     }
 
     private void FixedUpdate()
@@ -28,11 +34,13 @@ public class OnlyMovement : MonoBehaviour
 
     private void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        Quaternion deltaRotation = Quaternion.Euler(Vector3.up * horizontalInput * rotateSpeed * Time.fixedDeltaTime);
 
-        root.Rotate(Vector3.up * horizontal * rotateSpeed * Time.fixedDeltaTime);
+        rb.MoveRotation(rb.rotation * deltaRotation);
 
-        root.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
+        Vector3 moveDirection = transform.forward * moveSpeed * Time.fixedDeltaTime;
+
+        rb.MovePosition(rb.position + moveDirection);
     }
 
     public void BoostSpeed(float multiplier)

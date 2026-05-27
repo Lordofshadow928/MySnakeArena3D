@@ -7,78 +7,91 @@ public class SnakeInherentMagnet : MonoBehaviour
     [Header("Magnet Settings")]
     [SerializeField] private float magnetRadius = 2f;
     [SerializeField] private LayerMask foodLayer;
-    [SerializeField] private Transform mouthPoint;    
-    [SerializeField]private Animator animator;
+    [SerializeField] private Transform mouthPoint;
+    [SerializeField] private Animator animator;
 
-    // Track foods already magnetized
-    [SerializeField]private List<FoodDemo> magnetFoods = new List<FoodDemo>();
+    [SerializeField] private List<FoodDemo> magnetFoods = new List<FoodDemo>();
     private FoodSpawner2 spawner;
 
     void Start()
     {
         spawner = FindObjectOfType<FoodSpawner2>();
-            if (spawner == null)
-            {
-                Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
-        }
+        if (spawner == null)
+            Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
+
+        if (mouthPoint == null)
+            mouthPoint = transform; // fallback; better assign in inspector
+    }
+
+    // Use FixedUpdate so physics state is up-to-date when reading overlaps
+    void FixedUpdate()
+    {
+        DetectFoods();
     }
 
     void Update()
     {
-        DetectFoods();
-        UpdateEatingAnimation();
-
+        UpdateEatingAnimation(); // animation can remain in Update
     }
-    //Detect foods and tell them to move
+
     public void DetectFoods()
     {
-        //Cleanup nulls (destroyed/disabled foods)
+        // Cleanup nulls
         for (int i = magnetFoods.Count - 1; i >= 0; i--)
         {
             if (magnetFoods[i] == null || !magnetFoods[i].gameObject.activeInHierarchy)
-            {
                 magnetFoods.RemoveAt(i);
-            }
         }
+
         CollectFood_Collider();
     }
 
     private void CollectFood_Collider()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, magnetRadius, foodLayer);
+        if (mouthPoint == null) return;
+
+        // Ensure transforms are synchronized with physics if you must call from Update:
+        // Physics.SyncTransforms();
+
+        // Use mouthPoint.position and include triggers (food often uses trigger colliders)
+        Collider[] cols = Physics.OverlapSphere(mouthPoint.position, magnetRadius, foodLayer, QueryTriggerInteraction.Collide);
+
+        if (cols.Length == 0)
+        {
+            // Optional: debug to confirm why nothing is found
+            // Debug.Log("Magnet detected 0 colliders. mouthPoint pos: " + mouthPoint.position);
+        }
 
         foreach (var col in cols)
         {
             FoodDemo food = col.GetComponent<FoodDemo>();
-
             if (food != null && !magnetFoods.Contains(food))
             {
                 magnetFoods.Add(food);
-                food.GetComponent<MeshRenderer>().material.color = Color.green; // Optional: visually indicate magnetized food
-                //Tell food to move to mouth
+
+                var mr = food.GetComponent<MeshRenderer>();
+                if (mr != null) mr.material.color = Color.green;
+
                 food.MoveToTarget(mouthPoint);
             }
         }
-    } 
-    
-    // Step 2: control animation
+    }
+
     private void UpdateEatingAnimation()
     {
-        Debug.Log("Animator List Count: " + magnetFoods.Count);
-        animator.SetBool("isEating", magnetFoods.Count > 0);
+        animator?.SetBool("isEating", magnetFoods.Count > 0);
     }
 
     public void RemoveMagnetFood(FoodDemo food)
     {
         if (food == null) return;
-        Debug.Log("Before remove: " + magnetFoods.Count);
         magnetFoods.Remove(food);
-        Debug.Log("After remove: " + magnetFoods.Count);
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, magnetRadius);
+        if (mouthPoint != null) Gizmos.DrawWireSphere(mouthPoint.position, magnetRadius);
+        else Gizmos.DrawWireSphere(transform.position, magnetRadius);
     }
 }

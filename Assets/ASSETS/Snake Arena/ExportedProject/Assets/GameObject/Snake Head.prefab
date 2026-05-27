@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4412404952700065}
   - component: {fileID: 137133162125040085}
   - component: {fileID: 95033609911272007}
-  - component: {fileID: 149432173069322449}
   m_Layer: 0
   m_Name: Snake Head
   m_TagString: Untagged
@@ -142,28 +141,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &149432173069322449
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528106561490435}
-  m_Material: {fileID: 13400000, guid: 51fd7da298fc01f429f9afb955a5668f, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 629498b623911654f99f99eb85d4e5bf, type: 2}
 --- !u!1 &1595479323204245
 GameObject:
   m_ObjectHideFlags: 0
