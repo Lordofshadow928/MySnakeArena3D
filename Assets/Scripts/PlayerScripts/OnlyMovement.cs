@@ -19,7 +19,7 @@ public class OnlyMovement : MonoBehaviour
 
     private Rigidbody rb;
 
-    private float horizontalInput;
+    public float SteeringInput { get; set; }
 
     // Smooth auto steering
     private float autoSteerInput;
@@ -39,11 +39,6 @@ public class OnlyMovement : MonoBehaviour
 
         defaultMoveSpeed = moveSpeed;
         defaultRotateSpeed = rotateSpeed;
-    }
-
-    private void Update()
-    {
-        horizontalInput = Input.GetAxis("Horizontal");
     }
 
     private void FixedUpdate()
@@ -68,7 +63,7 @@ public class OnlyMovement : MonoBehaviour
     private void Move()
     {
         // Combine player steering + auto avoid steering
-        float finalInput = horizontalInput + autoSteerInput;
+        float finalInput = SteeringInput + autoSteerInput;
 
         finalInput = Mathf.Clamp(finalInput, -1f, 1f);
 
