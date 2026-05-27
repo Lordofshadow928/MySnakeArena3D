@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SnakeSpeedBoost : MonoBehaviour
 {
     [Header("Boost Settings")]
-    [SerializeField] private float boostMultiplier = 2f;
+    [SerializeField] private float boostMultiplier = 1.5f;
     private OnlyMovement movement;
     private GrowthShrinkLogic growthShrinkLogic;
     [SerializeField] private SnakeProgressUI progressUI;

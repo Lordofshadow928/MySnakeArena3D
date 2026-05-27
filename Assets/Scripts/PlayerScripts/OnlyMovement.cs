@@ -4,7 +4,7 @@ public class OnlyMovement : MonoBehaviour
 {
 
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float rotateSpeed = 240f;
 
     private float defaultMoveSpeed;
