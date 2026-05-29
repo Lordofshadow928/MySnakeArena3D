@@ -46,18 +46,11 @@ public class OnlyMovement : MonoBehaviour
         Move();
 
         // Calculate real speed
-        currentSpeed =
-            Vector3.Distance(transform.position, lastPosition)
-            / Time.fixedDeltaTime;
-
+        currentSpeed = Vector3.Distance(transform.position, lastPosition) / Time.fixedDeltaTime;
         lastPosition = transform.position;
 
         // Smoothly remove auto steering over time
-        autoSteerInput = Mathf.Lerp(
-            autoSteerInput,
-            0f,
-            autoAvoidDecay * Time.fixedDeltaTime
-        );
+        autoSteerInput = Mathf.Lerp(autoSteerInput, 0f, autoAvoidDecay * Time.fixedDeltaTime);
     }
 
     private void Move()
@@ -67,20 +60,11 @@ public class OnlyMovement : MonoBehaviour
 
         finalInput = Mathf.Clamp(finalInput, -1f, 1f);
 
-        Quaternion deltaRotation =
-            Quaternion.Euler(
-                Vector3.up *
-                finalInput *
-                rotateSpeed *
-                Time.fixedDeltaTime
-            );
+        Quaternion deltaRotation = Quaternion.Euler(Vector3.up * finalInput * rotateSpeed * Time.fixedDeltaTime);
 
         rb.MoveRotation(rb.rotation * deltaRotation);
 
-        Vector3 moveDirection =
-            transform.forward *
-            moveSpeed *
-            Time.fixedDeltaTime;
+        Vector3 moveDirection = transform.forward * moveSpeed * Time.fixedDeltaTime;
 
         rb.MovePosition(rb.position + moveDirection);
     }
@@ -88,7 +72,6 @@ public class OnlyMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!canAutoAvoid) return;
-
         // Ignore non-obstacles
         if ((Obstacle.value & (1 << collision.gameObject.layer)) == 0)
             return;
@@ -99,31 +82,19 @@ public class OnlyMovement : MonoBehaviour
     private void AutoAvoid(Vector3 collisionNormal)
     {
         canAutoAvoid = false;
-
         // Direction toward obstacle
         Vector3 obstacleDirection = -collisionNormal;
-
         // Calculate signed angle
-        float angle =
-            Vector3.SignedAngle(
-                transform.forward,
-                obstacleDirection,
-                Vector3.up
-            );
-
+        float angle = Vector3.SignedAngle(transform.forward, obstacleDirection, Vector3.up);
         // Turn AWAY from obstacle
         float steerDirection = -Mathf.Sign(angle);
-
         // Perfect front collision fallback
         if (steerDirection == 0)
         {
-            steerDirection =
-                Random.value > 0.5f ? 1f : -1f;
+            steerDirection = Random.value > 0.5f ? 1f : -1f;
         }
-
         // Apply smooth steering force
-        autoSteerInput =
-            steerDirection * autoAvoidStrength;
+        autoSteerInput = steerDirection * autoAvoidStrength;
 
         Invoke(nameof(ResetCollision), collisionCooldown);
     }
@@ -137,7 +108,6 @@ public class OnlyMovement : MonoBehaviour
     {
         moveSpeed = defaultMoveSpeed * multiplier;
         rotateSpeed = defaultRotateSpeed * multiplier;
-
         isBoosted = true;
     }
 
@@ -145,7 +115,6 @@ public class OnlyMovement : MonoBehaviour
     {
         moveSpeed = defaultMoveSpeed;
         rotateSpeed = defaultRotateSpeed;
-
         isBoosted = false;
     }
 
