@@ -129,7 +129,7 @@ public class GrowthShrinkLogic : MonoBehaviour
 
                 segment.position = Vector3.Lerp(segment.position,targetPos,followSpeed * Time.fixedDeltaTime);
 
-                segment.LookAt(segments[i - 1]);
+                //segment.LookAt(segments[i - 1]);
 
                 // Snap to target when close enough
                 if (Vector3.Distance(segment.position, targetPos) < 0.001f)

@@ -568,6 +568,11 @@ PrefabInstance:
       propertyPath: foodSpawner
       value: 
       objectReference: {fileID: 540602858}
+    - target: {fileID: 4751852133400107974, guid: ff4efc22c3bf453418239f615f3434bd,
+        type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5197322102684471174, guid: ff4efc22c3bf453418239f615f3434bd,
         type: 3}
       propertyPath: m_Name
@@ -725,10 +730,10 @@ MonoBehaviour:
   foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
     type: 3}
   foodPerInterval: 4
-  maxActiveFood: 100
-  spawnArea: {x: 5, y: 1, z: 5}
-  spawnInterval: 2
-  minDistanceFromSnake: 3
+  maxActiveFood: 12
+  spawnArea: {x: 2, y: 1, z: 2}
+  spawnInterval: 1.5
+  minDistanceFromSnake: 2
   maxSpawnAttempts: 3
   spawnedFoods: []
 --- !u!4 &557843382
@@ -957,12 +962,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665462863}
   m_CullTransparentMesh: 1
+--- !u!1 &726944790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7788830413648488686, guid: 4b8275555c209134284d53db9eb5d147,
+    type: 3}
+  m_PrefabInstance: {fileID: 3474645383211666491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &726944791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8525735434103315537, guid: 4b8275555c209134284d53db9eb5d147,
     type: 3}
   m_PrefabInstance: {fileID: 3474645383211666491}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &726944797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726944790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c66a0448b86547b676e02349ac447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830450472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,11 +3363,36 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 557843382}
+    - target: {fileID: 819093675611585941, guid: 4b8275555c209134284d53db9eb5d147,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 819093675611585941, guid: 4b8275555c209134284d53db9eb5d147,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 819093675611585941, guid: 4b8275555c209134284d53db9eb5d147,
+        type: 3}
+      propertyPath: autoAvoidStrength
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795029173958566501, guid: 4b8275555c209134284d53db9eb5d147,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6717570777797652111, guid: 4b8275555c209134284d53db9eb5d147,
         type: 3}
       propertyPath: foodSpawner
       value: 
       objectReference: {fileID: 540602858}
+    - target: {fileID: 7615315334057991345, guid: 4b8275555c209134284d53db9eb5d147,
+        type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7788830413648488686, guid: 4b8275555c209134284d53db9eb5d147,
         type: 3}
       propertyPath: m_Name
@@ -3403,7 +3451,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7788830413648488686, guid: 4b8275555c209134284d53db9eb5d147,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 726944797}
   m_SourcePrefab: {fileID: 100100000, guid: 4b8275555c209134284d53db9eb5d147, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

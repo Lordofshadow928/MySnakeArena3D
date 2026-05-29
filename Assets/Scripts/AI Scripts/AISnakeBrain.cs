@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AISnakeBrain : MonoBehaviour
 {
     [SerializeField] private Transform target;
+
+    [SerializeField] private float steeringSensitivity = 90f;
+    [SerializeField] private float steeringSmoothness = 4f;
 
     private OnlyMovement movement;
 
@@ -13,18 +14,36 @@ public class AISnakeBrain : MonoBehaviour
         movement = GetComponent<OnlyMovement>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (target == null)
+        {
+            movement.SteeringInput = 0f;
             return;
+        }
 
         Vector3 directionToTarget =
             (target.position - transform.position).normalized;
 
         float angle =
-            Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
+            Vector3.SignedAngle(
+                transform.forward,
+                directionToTarget,
+                Vector3.up
+            );
+
+        float targetSteering =
+            Mathf.Clamp(
+                angle / steeringSensitivity,
+                -1f,
+                1f
+            );
 
         movement.SteeringInput =
-            Mathf.Clamp(angle / 45f, -1f, 1f);
+            Mathf.Lerp(
+                movement.SteeringInput,
+                targetSteering,
+                steeringSmoothness * Time.fixedDeltaTime
+            );
     }
 }

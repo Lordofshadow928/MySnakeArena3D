@@ -91,7 +91,7 @@ public class FoodSpawner2 : MonoBehaviour
     }
     Vector3 GetRandomPosition()
     {
-        return new Vector3(
+        return transform.position + new Vector3(
             Random.Range(-spawnArea.x, spawnArea.x),
             0.5f,
             Random.Range(-spawnArea.z, spawnArea.z)
