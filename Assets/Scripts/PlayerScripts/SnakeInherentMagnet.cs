@@ -20,10 +20,8 @@ public class SnakeInherentMagnet : MonoBehaviour
             Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
 
         if (mouthPoint == null)
-            mouthPoint = transform; // fallback; better assign in inspector
+            mouthPoint = transform; 
     }
-
-    // Use FixedUpdate so physics state is up-to-date when reading overlaps
     void FixedUpdate()
     {
         DetectFoods();
@@ -31,7 +29,7 @@ public class SnakeInherentMagnet : MonoBehaviour
 
     void Update()
     {
-        UpdateEatingAnimation(); // animation can remain in Update
+        UpdateEatingAnimation(); 
     }
 
     public void DetectFoods()
@@ -49,17 +47,12 @@ public class SnakeInherentMagnet : MonoBehaviour
     private void CollectFood_Collider()
     {
         if (mouthPoint == null) return;
-
-        // Ensure transforms are synchronized with physics if you must call from Update:
-        // Physics.SyncTransforms();
-
-        // Use mouthPoint.position and include triggers (food often uses trigger colliders)
+        // Use mouthPoint.position and include triggers
         Collider[] cols = Physics.OverlapSphere(mouthPoint.position, magnetRadius, foodLayer, QueryTriggerInteraction.Collide);
 
         if (cols.Length == 0)
         {
-            // Optional: debug to confirm why nothing is found
-            // Debug.Log("Magnet detected 0 colliders. mouthPoint pos: " + mouthPoint.position);
+            //Debug.Log("Magnet detected 0 colliders. mouthPoint pos: " + mouthPoint.position);
         }
 
         foreach (var col in cols)

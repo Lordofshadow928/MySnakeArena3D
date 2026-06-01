@@ -22,28 +22,12 @@ public class AISnakeBrain : MonoBehaviour
             return;
         }
 
-        Vector3 directionToTarget =
-            (target.position - transform.position).normalized;
+        Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-        float angle =
-            Vector3.SignedAngle(
-                transform.forward,
-                directionToTarget,
-                Vector3.up
-            );
+        float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
 
-        float targetSteering =
-            Mathf.Clamp(
-                angle / steeringSensitivity,
-                -1f,
-                1f
-            );
+        float targetSteering = Mathf.Clamp(angle / steeringSensitivity, -1f, 1f);
 
-        movement.SteeringInput =
-            Mathf.Lerp(
-                movement.SteeringInput,
-                targetSteering,
-                steeringSmoothness * Time.fixedDeltaTime
-            );
+        movement.SteeringInput = Mathf.Lerp(movement.SteeringInput, targetSteering, steeringSmoothness * Time.fixedDeltaTime);
     }
 }

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private OnlyMovement movement;
-
+    private SnakeMovement movement;
     private void Awake()
     {
-        movement = GetComponent<OnlyMovement>();
+        movement = GetComponentInParent<SnakeMovement>();
     }
 
     private void Update()
