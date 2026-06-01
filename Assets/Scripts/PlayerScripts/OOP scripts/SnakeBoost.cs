@@ -6,13 +6,9 @@ using UnityEngine;
 public class SnakeBoost : MonoBehaviour
 {
     [SerializeField] private float boostMultiplier = 1.5f;
-
     private SnakeMovement movement;
-
     public bool IsBoosting { get; private set; }
-
     private bool boostDisabled;
-
     public event Action<bool> OnBoostChanged;
 
     private void Awake()
@@ -26,27 +22,21 @@ public class SnakeBoost : MonoBehaviour
         if (IsBoosting) return;
 
         IsBoosting = true;
-
         movement.BoostSpeed(boostMultiplier);
-
         OnBoostChanged?.Invoke(true);
     }
 
     public void DeactivateBoost()
     {
         if (!IsBoosting) return;
-
         IsBoosting = false;
         movement.ResetSpeed();
-
-
         OnBoostChanged?.Invoke(false);
     }
 
     public void DisableBoost()
     {
         boostDisabled = true;
-
         DeactivateBoost();
     }
 

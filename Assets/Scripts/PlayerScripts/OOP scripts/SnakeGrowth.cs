@@ -4,11 +4,8 @@ using UnityEngine;
 public class SnakeGrowth : MonoBehaviour
 {
     [SerializeField] private int foodsPerGrowth = 4;
-
     private int foodCounter;
-
     private SnakeBody body;
-
     public event Action OnGrow;
 
     private void Awake()
