@@ -6,32 +6,24 @@ public class SnakeShrink : MonoBehaviour
     [SerializeField] private int foodsPerShrink = 4;
 
     private int shrinkCounter;
-
     private SnakeBody body;
-
-    public bool IsBoosted { get; private set; }
-
+    private SnakeEnergy energy;
+    private SnakeBoost boost;
     public event Action OnShrink;
 
     private void Awake()
     {
         body = GetComponent<SnakeBody>();
-    }
-
-    public void StartBoost()
-    {
-        IsBoosted = true;
-    }
-
-    public void StopBoost()
-    {
-        IsBoosted = false;
+        boost = GetComponent<SnakeBoost>();
+        energy = GetComponent<SnakeEnergy>();
     }
 
     public void ConsumeBoostEnergy()
     {
+        if(!boost.IsBoosting) return;
+        if (boost.IgnoreEnergyCost) return;
         shrinkCounter++;
-
+        energy.RemoveEnergy(1);
         if (shrinkCounter >= foodsPerShrink)
         {
             shrinkCounter = 0;

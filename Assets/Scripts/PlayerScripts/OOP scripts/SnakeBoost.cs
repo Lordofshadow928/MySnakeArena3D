@@ -8,6 +8,7 @@ public class SnakeBoost : MonoBehaviour
     [SerializeField] private float boostMultiplier = 1.5f;
     private SnakeMovement movement;
     public bool IsBoosting { get; private set; }
+    public bool IgnoreEnergyCost { get; private set; }
     private bool boostDisabled;
     public event Action<bool> OnBoostChanged;
 
@@ -43,5 +44,15 @@ public class SnakeBoost : MonoBehaviour
     public void EnableBoost()
     {
         boostDisabled = false;
+    }
+
+    public void EnableFreeBoost()
+    {
+        IgnoreEnergyCost = true;
+    }
+
+    public void DisableFreeBoost()
+    {
+        IgnoreEnergyCost = false;
     }
 }

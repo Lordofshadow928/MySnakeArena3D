@@ -92,35 +92,35 @@ public class SnakeSpeedBoost : MonoBehaviour
         LeanPool.Spawn(poopFoodPrefab,spawnPos,spawnRot);
     }
 
-    private void Update()
-    {
-        if (!forceDisableBoost && Input.GetKey(KeyCode.Space) && progressUI.HasEnergy())
-        {
-            ActivateBoost();
-            //Energy drain logic
-            drainTimer += Time.deltaTime;
-            if (drainTimer >= drainInterval)
-            {
-                growthShrinkLogic.ConsumeBoostEnergy();
-                progressUI.RemoveProgress(0);
-                drainTimer = 0f;
-            }
+    //private void Update()
+    //{
+    //    if (!forceDisableBoost && Input.GetKey(KeyCode.Space) && progressUI.HasEnergy())
+    //    {
+    //        ActivateBoost();
+    //        //Energy drain logic
+    //        drainTimer += Time.deltaTime;
+    //        if (drainTimer >= drainInterval)
+    //        {
+    //            growthShrinkLogic.ConsumeBoostEnergy();
+    //            progressUI.RemoveProgress(0);
+    //            drainTimer = 0f;
+    //        }
 
-            //Poop food spawn logic
-            poopTimer += Time.deltaTime;
-            if (poopTimer >= poopInterval)
-            {
-                PoopFood();
-                poopTimer = 0f;
-            }
-        }
-        else
-        {
-            DeActivateBoost();
-            drainTimer = 0f;
-            poopTimer = 0f;
-        }
-    }
+    //        //Poop food spawn logic
+    //        poopTimer += Time.deltaTime;
+    //        if (poopTimer >= poopInterval)
+    //        {
+    //            PoopFood();
+    //            poopTimer = 0f;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        DeActivateBoost();
+    //        drainTimer = 0f;
+    //        poopTimer = 0f;
+    //    }
+    //}
 }
 
 

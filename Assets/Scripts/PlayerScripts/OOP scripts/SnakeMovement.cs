@@ -14,12 +14,14 @@ public class SnakeMovement : MonoBehaviour
     private Rigidbody rb;
     public float SteeringInput { get; set; }
     public float CurrentSpeed { get; private set; }
+    public float MoveSpeed { get => moveSpeed; private set => moveSpeed = value; }
+
     private Vector3 lastPosition;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        defaultMoveSpeed = moveSpeed;
+        defaultMoveSpeed = MoveSpeed;
         defaultRotateSpeed = rotateSpeed;
     }
 
@@ -34,19 +36,19 @@ public class SnakeMovement : MonoBehaviour
     {
         Quaternion deltaRotation = Quaternion.Euler(Vector3.up * SteeringInput * rotateSpeed * Time.fixedDeltaTime);
         rb.MoveRotation(rb.rotation * deltaRotation);
-        Vector3 moveDirection = transform.forward * moveSpeed * Time.fixedDeltaTime;
+        Vector3 moveDirection = transform.forward * MoveSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + moveDirection);
     }
 
     public void BoostSpeed(float multiplier)
     {
-        moveSpeed = defaultMoveSpeed * multiplier;
+        MoveSpeed = defaultMoveSpeed * multiplier;
         rotateSpeed = defaultRotateSpeed * multiplier;
     }
 
     public void ResetSpeed()
     {
-        moveSpeed = defaultMoveSpeed;
+        MoveSpeed = defaultMoveSpeed;
         rotateSpeed = defaultRotateSpeed;
     }
 }

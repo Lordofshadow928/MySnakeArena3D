@@ -5,7 +5,7 @@ using UnityEngine;
 public class SnakeInherentMagnet : MonoBehaviour
 {
     [Header("Magnet Settings")]
-    [SerializeField] private float magnetRadius = 2f;
+    [SerializeField] private float magnetRadius = 1f;
     [SerializeField] private LayerMask foodLayer;
     [SerializeField] private Transform mouthPoint;
     [SerializeField] private Animator animator;

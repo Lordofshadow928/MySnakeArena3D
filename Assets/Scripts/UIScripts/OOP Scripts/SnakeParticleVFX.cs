@@ -1,30 +1,51 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SnakeParticleVFX : MonoBehaviour
-
 {
     [Header("Head VFX")]
     [SerializeField] private ParticleSystem headBoostParticles;
 
     [Header("Body Segments")]
-    [SerializeField] private GrowthShrinkLogic growthShrinkLogic;
+    [SerializeField] private SnakeBody body;
+
+    private SnakeBoost boost;
 
     private List<ParticleSystem> segmentParticles = new();
 
     private bool initialized = false;
+
+    private void Awake()
+    {
+        boost = GetComponent<SnakeBoost>();
+    }
+
+    private void OnEnable()
+    {
+        if (boost != null)
+        {
+            boost.OnBoostChanged += SetBoostVFX;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (boost != null)
+        {
+            boost.OnBoostChanged -= SetBoostVFX;
+        }
+    }
 
     private void Start()
     {
         CacheSegmentParticles();
     }
 
-    void CacheSegmentParticles()
+    private void CacheSegmentParticles()
     {
         segmentParticles.Clear();
 
-        List<Transform> segments = growthShrinkLogic.GetSegments();
+        IReadOnlyList<Transform> segments = body.Segments;
 
         foreach (Transform segment in segments)
         {
@@ -72,5 +93,3 @@ public class SnakeParticleVFX : MonoBehaviour
         CacheSegmentParticles();
     }
 }
-
-

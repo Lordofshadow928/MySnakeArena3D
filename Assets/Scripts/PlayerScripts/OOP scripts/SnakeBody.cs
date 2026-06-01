@@ -10,7 +10,7 @@ public class SnakeBody : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform headPoint;
-    [SerializeField] private OnlyMovement movement;
+    [SerializeField] private SnakeMovement movement;
 
     [Header("Body Settings")]
     [SerializeField] private float segmentDistance = 0.5f;
@@ -21,7 +21,7 @@ public class SnakeBody : MonoBehaviour
     [SerializeField] private int preHistory = 15;
     [SerializeField] private float stopThreshold = 0.01f;
 
-    private readonly List<Vector3> positionHistory = new();
+    [SerializeField] private  List<Vector3> positionHistory = new();
     private readonly List<Transform> segments = new();
 
     private Transform tail;
@@ -33,6 +33,7 @@ public class SnakeBody : MonoBehaviour
     private void Start()
     {
         InitializeSnake();
+        
     }
 
     private void FixedUpdate()
@@ -41,6 +42,14 @@ public class SnakeBody : MonoBehaviour
         MoveSegments();
     }
 
+    private void OnDrawGizmos()
+    {
+        foreach(var position in positionHistory)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(position, 0.1f);
+        }
+    }
     private void InitializeSnake()
     {
         segments.Clear();
@@ -50,7 +59,7 @@ public class SnakeBody : MonoBehaviour
 
         for (int i = 0; i < preHistory; i++)
         {
-            Vector3 offset = headPoint.forward * Time.fixedDeltaTime * movement.CurrentSpeed * i;
+            Vector3 offset = headPoint.forward * Time.fixedDeltaTime * movement.MoveSpeed * i;
 
             positionHistory.Add(headPoint.position - offset);
         }

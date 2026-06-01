@@ -14,7 +14,7 @@ public class GrowthShrinkLogic : MonoBehaviour
     [SerializeField] private Transform tailPoint;
 
     [Header("UI")]
-    [SerializeField] private SnakeProgressUI progressUI;
+    
     [SerializeField] private SnakeParticleVFX snakeVFX;
 
     [Header("Growth Settings")]
@@ -156,7 +156,7 @@ public class GrowthShrinkLogic : MonoBehaviour
     {
         foodCounter++;
         currentFoodStored++;
-        progressUI.AddProgress(1);
+        
 
         if (foodCounter >= foodsPerGrowth)
         {
@@ -177,7 +177,7 @@ public class GrowthShrinkLogic : MonoBehaviour
 
     public void ConsumeBoostEnergy()
     {
-        progressUI.RemoveProgress(1);
+        
 
         shrinkCounter++;
 
