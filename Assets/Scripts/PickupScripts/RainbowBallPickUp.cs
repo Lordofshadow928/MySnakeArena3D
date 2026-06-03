@@ -6,7 +6,7 @@ public class RainbowBallPickUp : PickupBase
 {
     public override void OnPickup(GameObject onpick)
     {
-        RainBowPowerUp rainbow = onpick.GetComponent<RainBowPowerUp>();
+        RainBowPowerUp rainbow = onpick.GetComponentInParent<RainBowPowerUp>();
 
         if (rainbow != null)
         {

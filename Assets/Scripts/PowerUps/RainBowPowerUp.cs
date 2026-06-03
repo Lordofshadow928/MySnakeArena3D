@@ -12,12 +12,15 @@ public class RainBowPowerUp : MonoBehaviour
 
     private void Awake()
     {
-        invincible = GetComponent<SnakeInvincible2>();
+        invincible = GetComponentInChildren<SnakeInvincible2>();
         boost = GetComponent<SnakeBoost>();
+        Debug.Log("INVINCIBLE = " + invincible);
+        Debug.Log("BOOST = " + boost);
     }
 
     public void ActivateRainbowMode()
     {
+        Debug.Log("RAINBOW PICKED");
         if (routine != null)
         {
             StopCoroutine(routine);
@@ -28,16 +31,31 @@ public class RainBowPowerUp : MonoBehaviour
 
     private IEnumerator RainbowRoutine()
     {
+        Debug.Log("COROUTINE START");
+        if (invincible == null)
+        {
+            Debug.LogError("INVINCIBLE NULL");
+            yield break;
+        }
+
+        if (boost == null)
+        {
+            Debug.LogError("BOOST NULL");
+            yield break;
+        }
         invincible.EnableInvincible();
+        Debug.Log("INVINCIBLE ENABLED");
 
+        boost.EnableBoost();
         boost.EnableFreeBoost();
-        boost.ActivateBoost();
-
+        boost.EnableForcedBoost();
+        Debug.Log("BOOST ACTIVATED");
         yield return new WaitForSeconds(duration);
 
         invincible.DisableInvincible();
 
         boost.DisableFreeBoost();
-        boost.DeactivateBoost();
+        boost.DisableForcedBoost();
+        Debug.Log("RAINBOW END");
     }
 }

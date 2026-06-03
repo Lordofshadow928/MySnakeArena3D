@@ -9,6 +9,7 @@ public class SnakeBoost : MonoBehaviour
     private SnakeMovement movement;
     public bool IsBoosting { get; private set; }
     public bool IgnoreEnergyCost { get; private set; }
+    public bool ForceBoost { get; private set; }
     private bool boostDisabled;
     public event Action<bool> OnBoostChanged;
 
@@ -29,10 +30,25 @@ public class SnakeBoost : MonoBehaviour
 
     public void DeactivateBoost()
     {
+        if (ForceBoost) return;
         if (!IsBoosting) return;
         IsBoosting = false;
         movement.ResetSpeed();
         OnBoostChanged?.Invoke(false);
+    }
+
+    public void EnableForcedBoost()
+    {
+        ForceBoost = true;
+
+        ActivateBoost();
+    }
+
+    public void DisableForcedBoost()
+    {
+        ForceBoost = false;
+
+        DeactivateBoost();
     }
 
     public void DisableBoost()
