@@ -23,7 +23,7 @@ public class SnakeBoostPoop : MonoBehaviour
 
     private void Update()
     {
-        if (!boost.IsBoosting)
+        if (!boost.IsBoosting || boost.ForceBoost)
         {
             timer = 0f;
             return;
@@ -35,6 +35,7 @@ public class SnakeBoostPoop : MonoBehaviour
         {
             timer = 0f;
             SpawnPoop();
+            Debug.Log(boost.IsBoosting);
         }
     }
 
@@ -53,5 +54,6 @@ public class SnakeBoostPoop : MonoBehaviour
         LeanPool.Spawn(poopFoodPrefab, pos, tail.rotation);
 
         storage.RemoveFood(1);
+        Debug.Log("SPAWN POOP");
     }
 }

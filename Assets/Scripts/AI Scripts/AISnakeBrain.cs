@@ -7,11 +7,11 @@ public class AISnakeBrain : MonoBehaviour
     [SerializeField] private float steeringSensitivity = 90f;
     [SerializeField] private float steeringSmoothness = 4f;
 
-    private OnlyMovement movement;
+    private SnakeMovement movement;
 
     private void Awake()
     {
-        movement = GetComponent<OnlyMovement>();
+        movement = GetComponent<SnakeMovement>();
     }
 
     private void FixedUpdate()

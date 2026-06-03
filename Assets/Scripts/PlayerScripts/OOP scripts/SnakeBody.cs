@@ -144,6 +144,13 @@ public class SnakeBody : MonoBehaviour
         {
             segments.Add(body.transform);
         }
+
+        SnakeParticleVFX vfx = GetComponent<SnakeParticleVFX>();
+
+        if (vfx != null)
+        {
+            vfx.RefreshParticles();
+        }
     }
 
     public void RemoveSegment()
@@ -162,6 +169,12 @@ public class SnakeBody : MonoBehaviour
         tail = Instantiate(tailPrefab, last.position - last.forward * segmentDistance, last.rotation).transform;
         TailPoint = tail.Find("TailPoint");
         segments.Add(tail);
+
+        SnakeParticleVFX vfx = GetComponent<SnakeParticleVFX>();
+        if (vfx != null)
+        {
+            vfx.RefreshParticles();
+        }
     }
 }
 
