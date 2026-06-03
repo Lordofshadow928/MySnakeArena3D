@@ -7,6 +7,7 @@ public class SnakeGrowth : MonoBehaviour
     private int foodCounter;
     private SnakeBody body;
     private SnakeEnergy energy;
+    private int pendingGrowth;
     public event Action OnGrow;
 
     private void Awake()
@@ -15,6 +16,15 @@ public class SnakeGrowth : MonoBehaviour
         energy = GetComponent<SnakeEnergy>();
     }
 
+    private void Update()
+    {
+        if (pendingGrowth > 0)
+        {
+            pendingGrowth--;
+            body.AddSegment();
+            OnGrow?.Invoke();
+        }
+    }
     public void AddFood()
     {
         foodCounter++;
@@ -22,8 +32,7 @@ public class SnakeGrowth : MonoBehaviour
         if (foodCounter >= foodsPerGrowth)
         {
             foodCounter = 0;
-            body.AddSegment();
-            OnGrow?.Invoke();
+            pendingGrowth++;
         }
     }
 }

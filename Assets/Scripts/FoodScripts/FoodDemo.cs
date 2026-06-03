@@ -43,7 +43,7 @@ public class FoodDemo : MonoBehaviour, IPoolable
         //Eat when close enough
         if (distance <= eatDistance)
         {
-            transform.position = target.position;
+            rb.position = target.position;
             if (magnetSystem != null)
                 magnetSystem.RemoveMagnetFood(this);
             if (foodSpawner != null)
