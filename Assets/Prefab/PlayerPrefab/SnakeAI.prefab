@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4107406180530893214}
+  - component: {fileID: 2947955942688390126}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -62,6 +63,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 104581236696149027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2947955942688390126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3633159317601600881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3741600f013314b904355b7a509593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  steeringSensitivity: 90
+  steeringSmoothness: 4
 --- !u!1 &4686460544526818871
 GameObject:
   m_ObjectHideFlags: 0

@@ -1570,6 +1570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1117569007}
+  - component: {fileID: 1117569008}
   m_Layer: 0
   m_Name: FoodManager
   m_TagString: Untagged
@@ -1592,6 +1593,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1117569008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117569006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fffa10ec7a9604ab806fcc506eac66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138044730
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,24 +3362,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6952617159793129128, guid: 60f41f754e2320c4c83151c8d88adf50,
+    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
-      propertyPath: boostImage
+      propertyPath: target
       value: 
-      objectReference: {fileID: 367990146}
+      objectReference: {fileID: 557843382}
+    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 557843381}
     - target: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
       propertyPath: m_Name
       value: SnakeAI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 463606471367429679, guid: 60f41f754e2320c4c83151c8d88adf50, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3633159317601600881, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4432416247583073175}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f41f754e2320c4c83151c8d88adf50, type: 3}
 --- !u!1001 &3585949200484561163
 PrefabInstance:
@@ -3517,27 +3532,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1148464084866710605}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4432416247583073174 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3633159317601600881, guid: 60f41f754e2320c4c83151c8d88adf50,
-    type: 3}
-  m_PrefabInstance: {fileID: 1148464084866710605}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4432416247583073175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4432416247583073174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e3741600f013314b904355b7a509593, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 557843382}
-  steeringSensitivity: 90
-  steeringSmoothness: 4
 --- !u!114 &7923619250120950961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3607005102260194980, guid: ea7469c767c125d41b542f3238fc5e4e,

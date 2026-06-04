@@ -104,5 +104,26 @@ public class FoodSpawner2 : MonoBehaviour
 
         return Vector3.Distance(pos, snakeHead.position) >= minDistanceFromSnake;
     }
+
+    public Transform GetClosestFood(Vector3 fromPosition)
+    {
+        GameObject closest = null;
+        float minDist = float.MaxValue;
+
+        foreach (var food in spawnedFoods)
+        {
+            if (food == null) continue;
+
+            float dist = Vector3.Distance(fromPosition, food.transform.position);
+
+            if (dist < minDist)
+            {
+                minDist = dist;
+                closest = food;
+            }
+        }
+
+        return closest != null ? closest.transform : null;
+    }
 }
 
