@@ -28,7 +28,7 @@ public class SnakeGrowth : MonoBehaviour
     public void AddFood()
     {
         foodCounter++;
-        energy.AddEnergy(1);
+        energy?.AddEnergy(1);
         if (foodCounter >= foodsPerGrowth)
         {
             foodCounter = 0;

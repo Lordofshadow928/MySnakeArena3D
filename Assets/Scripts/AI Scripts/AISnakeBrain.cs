@@ -11,7 +11,7 @@ public class AISnakeBrain : MonoBehaviour
 
     private void Awake()
     {
-        movement = GetComponent<SnakeMovement>();
+        movement = GetComponentInParent<SnakeMovement>();
     }
 
     private void FixedUpdate()
