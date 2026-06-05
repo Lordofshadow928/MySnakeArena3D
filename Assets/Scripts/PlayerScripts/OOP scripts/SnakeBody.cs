@@ -25,9 +25,10 @@ public class SnakeBody : MonoBehaviour
     private readonly List<Transform> segments = new();
 
     private Transform tail;
-
+    private bool isDead;
     public IReadOnlyList<Transform> Segments => segments;
-
+    public Transform Head => segments[0];
+    public Transform Tail => tail;
     public Transform TailPoint { get; private set; }
 
     private void Start()
@@ -122,6 +123,28 @@ public class SnakeBody : MonoBehaviour
         }
     }
 
+    public int GetTotalSegmentCount()
+    {
+        return segments.Count;
+    }
+
+    public int GetBodySegmentCount()
+    {
+        // excludes head + tail
+        return Mathf.Max(0, segments.Count - 2);
+    }
+
+    public Transform GetLastBodySegment()
+    {
+        return segments.Count > 2 ? segments[segments.Count - 2] : null;
+    }
+
+    public void KillSnake()
+    {
+        if (isDead) return;
+
+        isDead = true;
+    }
     public void AddSegment()
     {
         GameObject body = LeanPool.Spawn(bodyPrefab);
@@ -145,13 +168,7 @@ public class SnakeBody : MonoBehaviour
         {
             segments.Add(body.transform);
         }
-
-        SnakeParticleVFX vfx = GetComponent<SnakeParticleVFX>();
-
-        if (vfx != null)
-        {
-            vfx.RefreshParticles();
-        }
+        RefreshVFX();
     }
 
     public void RemoveSegment()
@@ -170,12 +187,16 @@ public class SnakeBody : MonoBehaviour
         tail = Instantiate(tailPrefab, last.position - last.forward * segmentDistance, last.rotation).transform;
         TailPoint = tail.Find("TailPoint");
         segments.Add(tail);
+        RefreshVFX();
 
+    }
+
+    private void RefreshVFX()
+    {
         SnakeParticleVFX vfx = GetComponent<SnakeParticleVFX>();
+
         if (vfx != null)
-        {
             vfx.RefreshParticles();
-        }
     }
 }
 

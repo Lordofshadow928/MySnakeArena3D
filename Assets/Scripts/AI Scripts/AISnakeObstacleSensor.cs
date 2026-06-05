@@ -11,17 +11,25 @@ public class AISnakeObstacleSensor : MonoBehaviour
     [SerializeField] private float sideAngle = 45f;
 
     [Header("Snake Detection")]
-    [SerializeField] private float snakeDetectionRadius = 3f;
+    [SerializeField] private float snakeDetectionRadius = 1.5f;
+    [SerializeField] float reactionInterval = 0.3f;
 
     [Header("Weights")]
     [SerializeField] private float wallAvoidWeight = 2f;
-    [SerializeField] private float snakeAvoidWeight = 3f;
+    [SerializeField] private float snakeAvoidWeight = 0.75f;
 
     public Vector3 AvoidanceDirection { get; private set; }
+    private float timer;
 
     private void Update()
     {
-        CalculateAvoidance();
+        timer += Time.deltaTime;
+
+        if (timer >= reactionInterval)
+        {
+            timer = 0f;
+            CalculateAvoidance();
+        }
     }
 
     private void CalculateAvoidance()

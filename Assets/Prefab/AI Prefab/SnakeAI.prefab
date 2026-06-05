@@ -75,7 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3741600f013314b904355b7a509593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
   steeringSensitivity: 90
   steeringSmoothness: 4
 --- !u!1 &4686460544526818871
@@ -104,11 +103,11 @@ Transform:
   m_GameObject: {fileID: 4686460544526818871}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3985863898555342876}
+  m_Father: {fileID: 104581236696149027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8161713464598103326
 MonoBehaviour:
@@ -2457,12 +2456,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6155260930282301073}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.85}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8500004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3002499764048720265}
+  m_Father: {fileID: 104581236696149027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6945206834696919366
 GameObject:
@@ -2495,7 +2494,6 @@ Transform:
   m_Children:
   - {fileID: 3002499764048720265}
   - {fileID: 4478402633841928258}
-  - {fileID: 5611793181453183598}
   m_Father: {fileID: 104581236696149027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7216615919594575813
@@ -2513,6 +2511,10 @@ GameObject:
   - component: {fileID: 8992971415625369584}
   - component: {fileID: 3174689671301906698}
   - component: {fileID: 7133297430260850361}
+  - component: {fileID: 763358534982787288}
+  - component: {fileID: 7303939760959858855}
+  - component: {fileID: 8434104731234120776}
+  - component: {fileID: 3786767425790067407}
   m_Layer: 0
   m_Name: SnakeAI
   m_TagString: Untagged
@@ -2534,6 +2536,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3985863898555342876}
+  - {fileID: 1762451670320994664}
+  - {fileID: 5611793181453183598}
   - {fileID: 4107406180530893214}
   - {fileID: 5613969846246534047}
   m_Father: {fileID: 0}
@@ -2650,6 +2654,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9c66a0448b86547b676e02349ac447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &763358534982787288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216615919594575813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262d9c794ae91214cab0a180b0cdde8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  autoAvoidStrength: 2
+  autoAvoidDecay: 6
+  collisionCooldown: 0.3
+--- !u!114 &7303939760959858855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216615919594575813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b892ec57abfdc48adc44917a0e20fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  pressureBuildSpeed: 0.5
+  pressureReleaseSpeed: 2
+  maxSlowdown: 1
+--- !u!114 &8434104731234120776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216615919594575813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71d03c3b734c59468f311edb3d661fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  stuckTime: 3
+  recoverySteering: 5
+--- !u!114 &3786767425790067407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216615919594575813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef9696da846fac4fac93b4717cdb18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  Snake:
+    serializedVersion: 2
+    m_Bits: 512
+  wallSensorDistance: 4
+  sideAngle: 45
+  snakeDetectionRadius: 3
+  wallAvoidWeight: 2
+  snakeAvoidWeight: 3
 --- !u!1 &8523054184211758264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,8 +2760,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1762451670320994664}
+  m_Children: []
   m_Father: {fileID: 3985863898555342876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &7718015670213258107

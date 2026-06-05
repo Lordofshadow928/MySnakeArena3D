@@ -1555,12 +1555,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1094595689 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
-    type: 3}
-  m_PrefabInstance: {fileID: 1148464084866710605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1117569006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,52 +3362,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1208776226625014494, guid: 60f41f754e2320c4c83151c8d88adf50,
+    - target: {fileID: 3786767425790067407, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
-      propertyPath: moveSpeed
-      value: 4
+      propertyPath: snakeAvoidWeight
+      value: 0.75
       objectReference: {fileID: 0}
-    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
+    - target: {fileID: 3786767425790067407, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 557843382}
-    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      propertyPath: spawner
-      value: 
-      objectReference: {fileID: 557843381}
+      propertyPath: snakeDetectionRadius
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
       propertyPath: m_Name
       value: SnakeAI
       objectReference: {fileID: 0}
-    - target: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 463606471367429679, guid: 60f41f754e2320c4c83151c8d88adf50, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4044437393556983466}
-    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4044437393556983459}
-    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4044437393556983458}
-    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4044437393556983467}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60f41f754e2320c4c83151c8d88adf50, type: 3}
 --- !u!1001 &3585949200484561163
 PrefabInstance:
@@ -3574,82 +3541,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1148464084866710605}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4044437393556983458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094595689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71d03c3b734c59468f311edb3d661fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle:
-    serializedVersion: 2
-    m_Bits: 256
-  stuckTime: 3
-  recoverySteering: 5
---- !u!114 &4044437393556983459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094595689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b892ec57abfdc48adc44917a0e20fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle:
-    serializedVersion: 2
-    m_Bits: 256
-  pressureBuildSpeed: 0.5
-  pressureReleaseSpeed: 2
-  maxSlowdown: 1
---- !u!114 &4044437393556983466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094595689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262d9c794ae91214cab0a180b0cdde8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle:
-    serializedVersion: 2
-    m_Bits: 256
-  autoAvoidStrength: 2
-  autoAvoidDecay: 6
-  collisionCooldown: 0.3
---- !u!114 &4044437393556983467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094595689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef9696da846fac4fac93b4717cdb18c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle:
-    serializedVersion: 2
-    m_Bits: 256
-  Snake:
-    serializedVersion: 2
-    m_Bits: 512
-  wallSensorDistance: 4
-  sideAngle: 45
-  snakeDetectionRadius: 3
-  wallAvoidWeight: 2
-  snakeAvoidWeight: 3
 --- !u!114 &8007011546389395258 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 553610566051941527, guid: ea7469c767c125d41b542f3238fc5e4e,
