@@ -2555,6 +2555,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13948dc6e81a0e64da52f527c16f7137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boost: {fileID: 2352508175228313679}
+  energy: {fileID: 553610566051941527}
+  invincible: {fileID: 3607005102260194980}
 --- !u!1 &6551823763182382594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,7 +2579,11 @@ GameObject:
   - component: {fileID: 5157051580087888968}
   - component: {fileID: 3596012194943527330}
   - component: {fileID: 2663433265626587531}
+  - component: {fileID: 800011845224009936}
   - component: {fileID: 2133393702122055084}
+  - component: {fileID: 7482216065549896932}
+  - component: {fileID: 2712956843354781588}
+  - component: {fileID: 6736863827698132754}
   m_Layer: 0
   m_Name: SnakeRoot
   m_TagString: Untagged
@@ -2689,6 +2696,7 @@ MonoBehaviour:
   distanceBetweenPoints: 0.15
   preHistory: 15
   stopThreshold: 0.01
+  positionHistory: []
 --- !u!114 &7529534111271883942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2795,6 +2803,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headBoostParticles: {fileID: 8964432622225612239}
   body: {fileID: 6299270509758072363}
+--- !u!114 &800011845224009936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551823763182382594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c23bddb20fa4e4e85b57b435e89598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boost: {fileID: 2352508175228313679}
+  boostImage: {fileID: 0}
+  activeSprite: {fileID: 21300000, guid: a4875663ef0a0634186719277d6f0bdc, type: 2}
+  inactiveSprite: {fileID: 21300000, guid: 10d502deab3b6294282c6aaa42cc9f4f, type: 2}
 --- !u!114 &2133393702122055084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,6 +2832,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
+--- !u!114 &7482216065549896932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551823763182382594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f9c66a0448b86547b676e02349ac447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2712956843354781588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551823763182382594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b892ec57abfdc48adc44917a0e20fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  pressureBuildSpeed: 0.25
+  pressureReleaseSpeed: 2
+  maxSlowdown: 1
+--- !u!114 &6736863827698132754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551823763182382594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71d03c3b734c59468f311edb3d661fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Obstacle:
+    serializedVersion: 2
+    m_Bits: 256
+  stuckSpeedThreshold: 0.2
+  stuckTime: 5
+  recoverySteering: 1
 --- !u!1 &8233289448206971642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,7 +2905,7 @@ Transform:
   m_GameObject: {fileID: 8233289448206971642}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.85}
+  m_LocalPosition: {x: 0, y: 0, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2895,8 +2967,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9085719878780341964}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5769625, y: 1.1206944, z: 4.870616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2914,3 +2986,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2fe2eee9e38fa4e9d215a9b17662ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snakeHeadCollider: {fileID: 6220414701023902720}

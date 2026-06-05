@@ -40,6 +40,7 @@ public class SnakeBody : MonoBehaviour
     {
         UpdateHistory();
         MoveSegments();
+        
     }
 
     private void OnDrawGizmos()
