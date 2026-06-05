@@ -8,12 +8,12 @@ public class SnakeStuckRecovery : MonoBehaviour
     [SerializeField] private LayerMask Obstacle;
     [Header("Stuck Detection")]
     //[SerializeField] private float stuckSpeedThreshold = 0.2f;
-    [SerializeField] private float stuckTime = 5f;
-    [SerializeField] private float recoverySteering = 1f;
+    [SerializeField] private float stuckTime = 2f;
+    [SerializeField] private float recoverySteering = 3f;
 
     private SnakeMovement movement;
     private SnakeWallContact friction;
-
+    public bool IsRecovering => stuckTimer >= stuckTime;
     private float stuckTimer;
     private float recoveryDirection;
 

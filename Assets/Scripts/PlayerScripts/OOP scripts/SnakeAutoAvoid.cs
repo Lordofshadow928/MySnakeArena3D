@@ -13,17 +13,24 @@ public class SnakeAutoAvoid : MonoBehaviour
     [SerializeField] private float collisionCooldown = 0.15f;
 
     private SnakeMovement movement;
-
+    private SnakeStuckRecovery recovery;
     private float autoSteerInput;
     private bool canAutoAvoid = true;
 
     private void Awake()
     {
         movement = GetComponent<SnakeMovement>();
+        recovery = GetComponent<SnakeStuckRecovery>();
     }
 
     private void Update()
     {
+        if (recovery.IsRecovering)
+        {
+            movement.AvoidanceSteering = 0f;
+            return;
+        }
+
         autoSteerInput = Mathf.Lerp(autoSteerInput, 0f, autoAvoidDecay * Time.deltaTime);
 
         movement.AvoidanceSteering = autoSteerInput;
