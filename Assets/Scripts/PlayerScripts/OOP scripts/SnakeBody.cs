@@ -148,12 +148,12 @@ public class SnakeBody : MonoBehaviour
     public void AddSegment()
     {
         GameObject body = LeanPool.Spawn(bodyPrefab);
-        SnakePart part = body.GetComponentInParent<SnakePart>();
+        //SnakePart part = body.GetComponentInParent<SnakePart>();
 
-        if (part != null)
-        {
-            part.Owner = GetComponent<SnakeHealth>();
-        }
+        //if (part != null)
+        //{
+        //    part.Owner = GetComponent<SnakeHealth>();
+        //}
         Transform last = tail != null ? segments[segments.Count - 2] : segments[segments.Count - 1];
         if (tail != null)
         {
@@ -191,12 +191,12 @@ public class SnakeBody : MonoBehaviour
     {
         Transform last = segments[segments.Count - 1];
         tail = Instantiate(tailPrefab, last.position - last.forward * segmentDistance, last.rotation).transform;
-        SnakePart part = tail.GetComponentInParent<SnakePart>();
+        //SnakePart part = tail.GetComponentInParent<SnakePart>();
 
-        if (part != null)
-        {
-            part.Owner = GetComponent<SnakeHealth>();
-        }
+        //if (part != null)
+        //{
+        //    part.Owner = GetComponent<SnakeHealth>();
+        //}
         TailPoint = tail.Find("TailPoint");
         segments.Add(tail);
         RefreshVFX();
