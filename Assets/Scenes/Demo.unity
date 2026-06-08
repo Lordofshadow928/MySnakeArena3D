@@ -3380,8 +3380,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4044437393556983452}
+    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4044437393556983455}
+    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4044437393556983454}
+    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4044437393556983453}
+    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4044437393556983456}
   m_SourcePrefab: {fileID: 100100000, guid: 60f41f754e2320c4c83151c8d88adf50, type: 3}
+--- !u!1 &1148464084866710606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148464084866710605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3585949200484561163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3528,6 +3554,22 @@ PrefabInstance:
         type: 3}
       insertIndex: 16
       addedObject: {fileID: 8007011546389395275}
+    - targetCorrespondingSourceObject: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8007011546389395276}
+    - targetCorrespondingSourceObject: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8007011546389395277}
+    - targetCorrespondingSourceObject: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8007011546389395278}
+    - targetCorrespondingSourceObject: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8007011546389395279}
   m_SourcePrefab: {fileID: 100100000, guid: ea7469c767c125d41b542f3238fc5e4e, type: 3}
 --- !u!4 &3585949200484561164 stripped
 Transform:
@@ -3535,12 +3577,104 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3585949200484561163}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3585949200484561165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4815686954785256359, guid: ea7469c767c125d41b542f3238fc5e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3585949200484561163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c072e2ff2332eba42879cb33f5b547d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4044437393556983451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 104581236696149027, guid: 60f41f754e2320c4c83151c8d88adf50,
     type: 3}
   m_PrefabInstance: {fileID: 1148464084866710605}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4044437393556983452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b0296efe15f4949aee1df271e482f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4044437393556983453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c072e2ff2332eba42879cb33f5b547d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4044437393556983454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2add03de96f41ee4eade0751995cf67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4044437393556983454}
+        m_TargetAssemblyTypeName: SnakeHealth, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  foodStorage: {fileID: 4044437393556983453}
+--- !u!114 &4044437393556983455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5b00a146f7c2a4a84bb9d5908a67de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 4044437393556983454}
+--- !u!114 &4044437393556983456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cc0b99df4e824b81ef1adf5975967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 4044437393556983454}
+  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
+    type: 3}
 --- !u!114 &8007011546389395258 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 553610566051941527, guid: ea7469c767c125d41b542f3238fc5e4e,
@@ -3571,6 +3705,74 @@ MonoBehaviour:
   autoAvoidStrength: 2
   autoAvoidDecay: 6
   collisionCooldown: 0.3
+--- !u!114 &8007011546389395276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2add03de96f41ee4eade0751995cf67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8007011546389395276}
+        m_TargetAssemblyTypeName: SnakeHealth, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  foodStorage: {fileID: 3585949200484561165}
+--- !u!114 &8007011546389395277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b0296efe15f4949aee1df271e482f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8007011546389395278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5b00a146f7c2a4a84bb9d5908a67de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 8007011546389395276}
+--- !u!114 &8007011546389395279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cc0b99df4e824b81ef1adf5975967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 8007011546389395276}
+  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
+    type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

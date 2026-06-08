@@ -23,10 +23,7 @@ public class SnakeHealth : MonoBehaviour
 
         int storedFood = foodStorage != null ? foodStorage.StoredFood : 0;
         int dropAmount = storedFood;
-        DeathData data = new DeathData(
-            dropAmount,
-            transform.position
-        );
+        DeathData data = new DeathData(dropAmount, transform.position);
 
         OnDeath?.Invoke(data);
     }

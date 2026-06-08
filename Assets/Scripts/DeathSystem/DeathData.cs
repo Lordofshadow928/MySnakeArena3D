@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public struct DeathData
 {
-    public int bodyCount;
+    public int foodCount;
     public Vector3 position;
 
-    public DeathData(int bodyCount, Vector3 position)
+    public DeathData(int foodCount, Vector3 position)
     {
-        this.bodyCount = bodyCount;
+        this.foodCount = foodCount;
         this.position = position;
     }
 }
