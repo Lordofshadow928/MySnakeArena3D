@@ -863,6 +863,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665462863}
   m_CullTransparentMesh: 1
+--- !u!95 &803636129 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2256448784013967006, guid: ea7469c767c125d41b542f3238fc5e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3585949200484561163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &830450472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,6 +2975,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980419915}
   m_CullTransparentMesh: 1
+--- !u!95 &2086752166 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5188762361446974032, guid: 60f41f754e2320c4c83151c8d88adf50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148464084866710605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2099355723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,6 +3394,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnakeAI
       objectReference: {fileID: 0}
+    - target: {fileID: 8992971415625369584, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 1148464084866710606}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3410,6 +3427,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4044437393556983468}
+    - targetCorrespondingSourceObject: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4044437393556983469}
   m_SourcePrefab: {fileID: 100100000, guid: 60f41f754e2320c4c83151c8d88adf50, type: 3}
 --- !u!1 &1148464084866710606 stripped
 GameObject:
@@ -3510,6 +3531,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6299270509758072363, guid: ea7469c767c125d41b542f3238fc5e4e,
+        type: 3}
+      propertyPath: visualRoot
+      value: 
+      objectReference: {fileID: 2130837743}
     - target: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
         type: 3}
       propertyPath: m_Name
@@ -3583,6 +3609,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8007011546389395295}
+    - targetCorrespondingSourceObject: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8007011546389395296}
   m_SourcePrefab: {fileID: 100100000, guid: ea7469c767c125d41b542f3238fc5e4e, type: 3}
 --- !u!4 &3585949200484561164 stripped
 Transform:
@@ -3633,6 +3663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 4044437393556983456}
+  body: {fileID: 4044437393556983463}
   foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
     type: 3}
 --- !u!114 &4044437393556983455
@@ -3676,6 +3707,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   foodStorage: {fileID: 4044437393556983453}
+--- !u!114 &4044437393556983463 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8992971415625369584, guid: 60f41f754e2320c4c83151c8d88adf50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148464084866710605}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ad48b89e513f545a9aac83080172aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4044437393556983467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3700,6 +3743,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6124c2f295db9bd429bd0f224a1d6cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4044437393556983469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148464084866710606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62d2ef7e77beb24495d9df143128bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 4044437393556983456}
+  animator: {fileID: 2086752166}
+  deathExplosion: {fileID: 198299818774797479, guid: bcb76a51b69ccff4d978441cb0304b25,
+    type: 3}
+  destroyDelay: 0.5
 --- !u!114 &8007011546389395258 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 553610566051941527, guid: ea7469c767c125d41b542f3238fc5e4e,
@@ -3784,8 +3844,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 8007011546389395277}
+  body: {fileID: 8007011546389395290}
   foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
     type: 3}
+--- !u!114 &8007011546389395290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6299270509758072363, guid: ea7469c767c125d41b542f3238fc5e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3585949200484561163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ad48b89e513f545a9aac83080172aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8007011546389395294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3810,6 +3883,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22243d2d4932cdc4986b5bd8ea002191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8007011546389395296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130837743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62d2ef7e77beb24495d9df143128bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 8007011546389395277}
+  animator: {fileID: 803636129}
+  deathExplosion: {fileID: 198299818774797479, guid: bcb76a51b69ccff4d978441cb0304b25,
+    type: 3}
+  destroyDelay: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

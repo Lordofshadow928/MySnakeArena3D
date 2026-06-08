@@ -1,3 +1,4 @@
+using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,8 @@ using UnityEngine;
 public class SnakeDeathHandler : MonoBehaviour
 {
     [SerializeField] private SnakeHealth health;
+    [SerializeField] private SnakeBody body;
     [SerializeField] private GameObject foodPrefab;
-
     private void Start()
     {
         health.OnDeath.AddListener(HandleDeath);
@@ -17,13 +18,18 @@ public class SnakeDeathHandler : MonoBehaviour
         Debug.Log($"Drop {data.foodCount} food");
 
         // Spawn food here
+        var segments = body.Segments;
+
         for (int i = 0; i < data.foodCount; i++)
         {
-            Vector3 offset = Random.insideUnitSphere;
+            Transform segment = segments[Random.Range(0, segments.Count)];
+
+            Vector3 offset = Random.insideUnitSphere * 0.3f;
+
             offset.y = 0;
 
-            Instantiate(foodPrefab, data.position + offset, Quaternion.identity);
+            LeanPool.Spawn(foodPrefab, segment.position + offset, Quaternion.identity);
         }
-        Destroy(gameObject);
+        body.CleanupBody();
     }
 }

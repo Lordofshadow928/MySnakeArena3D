@@ -18,6 +18,7 @@ public class SnakeBody : MonoBehaviour
     [SerializeField] private float distanceBetweenPoints = 0.15f;
 
     [Header("History")]
+    [SerializeField] private GameObject visualRoot;
     [SerializeField] private int preHistory = 15;
     [SerializeField] private float stopThreshold = 0.01f;
 
@@ -145,8 +146,30 @@ public class SnakeBody : MonoBehaviour
 
         isDead = true;
     }
+
+    public void CleanupBody()
+    {
+        visualRoot.SetActive(false);
+        positionHistory.Clear();
+        for (int i = 1; i < segments.Count - 1; i++)
+        {
+            LeanPool.Despawn(segments[i].gameObject);
+        }
+
+        if (tail != null)
+        {
+            Destroy(tail.gameObject);
+            tail = null;
+        }
+
+        segments.Clear();
+    }
     public void AddSegment()
     {
+        if (isDead || segments.Count == 0)
+        {
+            return;
+        }
         GameObject body = LeanPool.Spawn(bodyPrefab);
         SnakePart part = body.GetComponentInParent<SnakePart>();
 

@@ -12,7 +12,7 @@ public class SnakeSpeedBoost : MonoBehaviour
     private OnlyMovement movement;
     private GrowthShrinkLogic growthShrinkLogic;
     [SerializeField] private SnakeProgressUI progressUI;
-    [SerializeField] private float drainInterval = 0.3f;
+    //[SerializeField] private float drainInterval = 0.3f;
 
     [Header("Boost UI")]
     [SerializeField] private Image boostImage;
@@ -24,12 +24,12 @@ public class SnakeSpeedBoost : MonoBehaviour
 
     [Header("Poop Food")]
     [SerializeField] private GameObject poopFoodPrefab;
-    [SerializeField] private float poopInterval = 0.3f;
+    //[SerializeField] private float poopInterval = 0.3f;
 
     private bool isBoosting = false;
     private bool forceDisableBoost = false;
-    private float drainTimer = 0f;
-    private float poopTimer = 0f;
+    //private float drainTimer = 0f;
+    //private float poopTimer = 0f;
     private void Awake()
     {
         movement = GetComponent<OnlyMovement>();
