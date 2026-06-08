@@ -6,13 +6,19 @@ public class SnakeCollector : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided with: " + other.name);
+        //Debug.Log("Collided with: " + other.name);
         PickupBase pickup = other.GetComponent<PickupBase>();
-        if (pickup != null)
+        if (pickup == null)
         {
-            Debug.Log("Picked up detected");
-            pickup.OnPickup(gameObject);
+            //Debug.Log("Picked up detected");
+            return;
         }
+        if(!pickup.CanBeCollectedBy(gameObject))
+        {
+            //Debug.Log("Pickup cannot be collected by this object");
+            return;
+        }
+        pickup.OnPickup(gameObject);
     }
 }
 
