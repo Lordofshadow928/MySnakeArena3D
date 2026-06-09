@@ -1,7 +1,9 @@
+using Lean.Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Lean.Pool;
+using UnityEngine.UIElements;
+using static UnityEditor.PlayerSettings;
 
 public class FoodSpawner2 : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class FoodSpawner2 : MonoBehaviour
     [SerializeField] private Transform snakeHead;
 
     [Header("Spawner Settings")]
+    [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject foodPrefab;
     [SerializeField] private int foodPerInterval = 4;
     [SerializeField] private int maxActiveFood = 15;
@@ -91,11 +94,13 @@ public class FoodSpawner2 : MonoBehaviour
     }
     Vector3 GetRandomPosition()
     {
-        return transform.position + new Vector3(
-            Random.Range(-spawnArea.x, spawnArea.x),
-            0.5f,
-            Random.Range(-spawnArea.z, spawnArea.z)
-        );
+        Transform center = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        Vector3 pos = center.position + new Vector3(Random.Range(-spawnArea.x, spawnArea.x), 0.5f, Random.Range(-spawnArea.z, spawnArea.z));
+
+        Debug.Log($"SpawnPoint: {center.name} | Center: {center.position} | SpawnPos: {pos}");
+
+        return pos;
     }
 
     bool IsFarFromSnake(Vector3 pos)
@@ -124,6 +129,22 @@ public class FoodSpawner2 : MonoBehaviour
         }
 
         return closest != null ? closest.transform : null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (spawnPoints == null) return;
+
+        foreach (Transform point in spawnPoints)
+        {
+            if (point == null) continue;
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(point.position, 0.5f);
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(point.position, new Vector3(spawnArea.x * 2, 0.1f, spawnArea.z * 2));
+        }
     }
 }
 
