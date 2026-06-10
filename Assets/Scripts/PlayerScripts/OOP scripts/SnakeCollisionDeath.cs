@@ -27,8 +27,6 @@ public class SnakeCollisionDeath : MonoBehaviour
             return;
         }
         
-        
-
         health.Die();
     }
 }
