@@ -17,15 +17,17 @@ public class SnakeCollisionDeath : MonoBehaviour
 
         if (part == null)
             return;
+        // Ignore our own snake
+        if (part.Owner == health)
+            return;
         // If invincible, kill other snake
         if (invincible != null && invincible.IsInvincible)
         {
             part.Owner.Die();
             return;
         }
-        // Ignore our own snake
-        if (part.Owner == health)
-            return;
+        
+        
 
         health.Die();
     }

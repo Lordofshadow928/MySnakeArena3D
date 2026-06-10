@@ -3458,6 +3458,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: steeringDeadZone
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: steeringSmoothness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947955942688390126, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: steeringSensitivity
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786767425790067407, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: snakeViewDot
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786767425790067407, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: reactionInterval
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3786767425790067407, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
       propertyPath: snakeAvoidWeight

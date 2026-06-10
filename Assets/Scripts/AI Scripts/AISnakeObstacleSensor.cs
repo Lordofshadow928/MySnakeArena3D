@@ -12,13 +12,17 @@ public class AISnakeObstacleSensor : MonoBehaviour
 
     [Header("Snake Detection")]
     [SerializeField] private float snakeDetectionRadius = 1.5f;
-    [SerializeField] float reactionInterval = 0.3f;
+    [SerializeField] private float reactionInterval = 0.3f;
 
     [Header("Weights")]
     [SerializeField] private float wallAvoidWeight = 2f;
     [SerializeField] private float snakeAvoidWeight = 0.75f;
 
+    [Header("Vision")]
+    [SerializeField] private float snakeViewDot = 0.5f;
+
     public Vector3 AvoidanceDirection { get; private set; }
+
     private float timer;
 
     private void Update()
@@ -37,16 +41,11 @@ public class AISnakeObstacleSensor : MonoBehaviour
         Vector3 wallAvoidance = GetWallAvoidance();
         Vector3 snakeAvoidance = GetSnakeAvoidance();
 
-        //AvoidanceDirection =
-        //    wallAvoidance * wallAvoidWeight +
-        //    snakeAvoidance * snakeAvoidWeight;
-
-        //AvoidanceDirection.y = 0f;
         Vector3 avoidance = wallAvoidance * wallAvoidWeight + snakeAvoidance * snakeAvoidWeight;
 
         avoidance.y = 0f;
 
-        AvoidanceDirection = avoidance;
+        AvoidanceDirection = avoidance.sqrMagnitude > 0.01f ? avoidance.normalized : Vector3.zero;
     }
 
     private Vector3 GetWallAvoidance()
@@ -68,7 +67,9 @@ public class AISnakeObstacleSensor : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, direction, out RaycastHit hit, wallSensorDistance, Obstacle))
         {
-            return -direction.normalized;
+            float strength = 1f - (hit.distance / wallSensorDistance);
+
+            return -direction.normalized * strength;
         }
 
         return Vector3.zero;
@@ -82,7 +83,14 @@ public class AISnakeObstacleSensor : MonoBehaviour
 
         foreach (Collider hit in hits)
         {
-            if (hit.transform.root == transform)
+            if (hit.transform.root == transform.root)
+                continue;
+
+            Vector3 toSnake = (hit.transform.position - transform.position).normalized;
+
+            float dot = Vector3.Dot(transform.forward, toSnake);
+
+            if (dot < snakeViewDot)
                 continue;
 
             Vector3 away = transform.position - hit.transform.position;
@@ -95,7 +103,7 @@ public class AISnakeObstacleSensor : MonoBehaviour
             avoidance += away.normalized / distance;
         }
 
-        return avoidance.normalized;
+        return avoidance;
     }
 
     private void OnDrawGizmosSelected()

@@ -3,11 +3,18 @@ using UnityEngine;
 public class AISnakeBrain : MonoBehaviour
 {
     [Header("Steering")]
-    [SerializeField] private float steeringSensitivity = 90f;
-    [SerializeField] private float steeringSmoothness = 4f;
+    [SerializeField] private float steeringSensitivity = 120f;
+    [SerializeField] private float steeringSmoothness = 2f;
+    [SerializeField] private float steeringDeadZone = 12f;
+
+    [Header("Targeting")]
+    [SerializeField] private float targetRefreshRate = 0.75f;
 
     private SnakeMovement movement;
     private AISnakeObstacleSensor sensor;
+
+    private Transform currentTarget;
+    private float targetTimer;
 
     private void Awake()
     {
@@ -20,17 +27,28 @@ public class AISnakeBrain : MonoBehaviour
         if (FoodManager.Instance == null)
             return;
 
-        Transform target = FoodManager.Instance.GetNearestFood(transform.position);
+        targetTimer += Time.fixedDeltaTime;
 
-        if (target == null)
+        if (currentTarget == null || targetTimer >= targetRefreshRate)
+        {
+            targetTimer = 0f;
+            currentTarget = FoodManager.Instance.GetNearestFood(transform.position);
+        }
+
+        if (currentTarget == null)
         {
             movement.SteeringInput = 0f;
             return;
         }
 
-        Vector3 foodDirection = (target.position - transform.position).normalized;
+        Vector3 foodDirection = (currentTarget.position - transform.position).normalized;
 
-        Vector3 finalDirection = foodDirection + sensor.AvoidanceDirection;
+        Vector3 finalDirection = foodDirection;
+
+        if (sensor.AvoidanceDirection.sqrMagnitude > 0.1f)
+        {
+            finalDirection += sensor.AvoidanceDirection;
+        }
 
         finalDirection.y = 0f;
 
@@ -41,7 +59,12 @@ public class AISnakeBrain : MonoBehaviour
 
         float angle = Vector3.SignedAngle(transform.forward, finalDirection, Vector3.up);
 
-        float targetSteering = Mathf.Clamp(angle / steeringSensitivity, -1f, 1f);
+        float targetSteering = 0f;
+
+        if (Mathf.Abs(angle) > steeringDeadZone)
+        {
+            targetSteering = Mathf.Clamp(angle / steeringSensitivity, -1f, 1f);
+        }
 
         movement.SteeringInput = Mathf.Lerp(movement.SteeringInput, targetSteering, steeringSmoothness * Time.fixedDeltaTime);
     }
