@@ -24,6 +24,7 @@ public class AISnakeObstacleSensor : MonoBehaviour
     public Vector3 AvoidanceDirection { get; private set; }
 
     private float timer;
+    private bool isGizmosOn = false;
 
     private void Update()
     {
@@ -108,6 +109,7 @@ public class AISnakeObstacleSensor : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if(!isGizmosOn) return;
         Gizmos.color = Color.red;
 
         Vector3 forward = transform.forward;

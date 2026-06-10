@@ -12,6 +12,7 @@ public class SnakeInherentMagnet : MonoBehaviour
 
     [SerializeField] private List<FoodDemo> magnetFoods = new List<FoodDemo>();
     private FoodSpawner2 spawner;
+    private bool isGizmosOn = false;
 
     void Start()
     {
@@ -83,6 +84,7 @@ public class SnakeInherentMagnet : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if (!isGizmosOn) return;
         Gizmos.color = Color.cyan;
         if (mouthPoint != null) Gizmos.DrawWireSphere(mouthPoint.position, magnetRadius);
         else Gizmos.DrawWireSphere(transform.position, magnetRadius);

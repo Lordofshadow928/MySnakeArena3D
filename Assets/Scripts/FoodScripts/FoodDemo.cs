@@ -87,10 +87,10 @@ public class FoodDemo : MonoBehaviour, IPoolable
         isMovingToTarget = false;
         target = null;
         rb.velocity = Vector3.zero;
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
-        if (renderer != null)
-        {
-            renderer.material.color = Color.white; // Reset color
-        }
+        //MeshRenderer renderer = GetComponent<MeshRenderer>();
+        //if (renderer != null)
+        //{
+        //    renderer.material.color = Color.white; // Reset color
+        //}
     }
 }
