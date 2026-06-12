@@ -2496,6 +2496,7 @@ Transform:
   - {fileID: 2937932223278089462}
   - {fileID: 8467729985940845086}
   - {fileID: 6652406195626299585}
+  - {fileID: 3610463222716741963}
   m_Father: {fileID: 5498972219986183345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5328857248986442172
@@ -2558,6 +2559,68 @@ MonoBehaviour:
   boost: {fileID: 2352508175228313679}
   energy: {fileID: 553610566051941527}
   invincible: {fileID: 3607005102260194980}
+--- !u!1 &5633146559642068350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3610463222716741963}
+  - component: {fileID: 2745112367387547020}
+  - component: {fileID: 2045228267480600983}
+  m_Layer: 0
+  m_Name: SkinAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3610463222716741963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633146559642068350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1758128404819284445}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2745112367387547020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633146559642068350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf168da82ba1e349a1283d1351306a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2045228267480600983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633146559642068350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d347b52079199458fa69f5df2deaab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedSkin:
+    skinName: 
+    headPrefab: {fileID: 0}
+    bodyPrefab: {fileID: 0}
+    tailPrefab: {fileID: 0}
 --- !u!1 &6551823763182382594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,15 +2748,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ad48b89e513f545a9aac83080172aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyPrefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7,
-    type: 3}
-  tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
-    type: 3}
   headPoint: {fileID: 482839896371289429}
   movement: {fileID: 7974197632432107030}
   segmentDistance: 0.5
   segmentLength: 1
   distanceBetweenPoints: 0.15
+  visualRoot: {fileID: 0}
   preHistory: 15
   stopThreshold: 0.01
   positionHistory: []
@@ -2877,7 +2937,6 @@ MonoBehaviour:
   Obstacle:
     serializedVersion: 2
     m_Bits: 256
-  stuckSpeedThreshold: 0.2
   stuckTime: 5
   recoverySteering: 1
 --- !u!1 &8233289448206971642

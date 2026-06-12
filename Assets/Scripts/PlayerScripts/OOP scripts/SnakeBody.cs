@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class SnakeBody : MonoBehaviour
 {
-    [Header("Prefabs")]
-    [SerializeField] private GameObject bodyPrefab;
-    [SerializeField] private GameObject tailPrefab;
-
     [Header("References")]
     [SerializeField] private Transform headPoint;
     [SerializeField] private SnakeMovement movement;
@@ -24,6 +20,7 @@ public class SnakeBody : MonoBehaviour
 
     [SerializeField] private  List<Vector3> positionHistory = new();
     private readonly List<Transform> segments = new();
+    private SnakeSkinController skinController;
 
     private Transform tail;
     private bool isDead;
@@ -32,6 +29,10 @@ public class SnakeBody : MonoBehaviour
     public Transform Tail => tail;
     public Transform TailPoint { get; private set; }
 
+    private void Awake()
+    {
+        skinController = GetComponentInChildren<SnakeSkinController>();
+    }
     private void Start()
     {
         InitializeSnake();
@@ -164,12 +165,38 @@ public class SnakeBody : MonoBehaviour
 
         segments.Clear();
     }
+    private GameObject GetBodyPrefab()
+    {
+        if (skinController == null || skinController.CurrentSkin == null)
+        {
+            Debug.LogError($"No skin assigned on {gameObject.name}");
+            return null;
+        }
+
+        return skinController.CurrentSkin.bodyPrefab;
+    }
+
+    private GameObject GetTailPrefab()
+    {
+        if (skinController == null || skinController.CurrentSkin == null)
+        {
+            Debug.LogError($"No skin assigned on {gameObject.name}");
+            return null;
+        }
+        return skinController.CurrentSkin.tailPrefab;
+    }
     public void AddSegment()
     {
         if (isDead || segments.Count == 0)
         {
             return;
         }
+
+        GameObject bodyPrefab = GetBodyPrefab();
+
+        if (bodyPrefab == null)
+            return;
+
         GameObject body = LeanPool.Spawn(bodyPrefab);
         SnakePart part = body.GetComponentInParent<SnakePart>();
 
@@ -213,7 +240,7 @@ public class SnakeBody : MonoBehaviour
     private void CreateTail()
     {
         Transform last = segments[segments.Count - 1];
-        tail = Instantiate(tailPrefab, last.position - last.forward * segmentDistance, last.rotation).transform;
+        tail = Instantiate(GetTailPrefab(), last.position - last.forward * segmentDistance, last.rotation).transform;
         SnakePart part = tail.GetComponentInParent<SnakePart>();
 
         if (part != null)
