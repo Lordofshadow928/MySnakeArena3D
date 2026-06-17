@@ -25,15 +25,12 @@ public class SnakeStuckRecovery : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Speed: {movement.CurrentSpeed:F2} | Pressure: {friction.WallPressure:F2}"
-);
+        Debug.Log($"Speed: {movement.CurrentSpeed:F2} | Pressure: {friction.WallPressure:F2}");
         bool stuck = friction.WallPressure >= 0.95f;
-        //bool stuck = friction.IsTouchingWall && movement.CurrentSpeed < stuckSpeedThreshold;
 
         if (stuck)
         {
             stuckTimer += Time.deltaTime;
-            Debug.Log($"Stuck Timer: {stuckTimer}");
         }
         else
         {
@@ -43,7 +40,6 @@ public class SnakeStuckRecovery : MonoBehaviour
 
         if (stuckTimer >= stuckTime)
         {
-            Debug.Log("RECOVERY ACTIVE");
             movement.RecoverySteering = recoveryDirection * recoverySteering;
         }
     }
