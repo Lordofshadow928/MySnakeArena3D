@@ -1,43 +1,54 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SnakeUITeleport : MonoBehaviour
 {
     [SerializeField] private ParticleSystem disappearSmokePrefab;
     [SerializeField] private ParticleSystem appearSmokePrefab;
-    [SerializeField] private GameObject snakeVisual; // SnakeShowUp
 
+    private Renderer[] renderers;
     private bool teleporting;
 
-    public void TeleportTo(Vector3 newPos)
+    private void Awake()
     {
-        if (!teleporting)
-            StartCoroutine(TeleportRoutine(newPos));
+        renderers = GetComponentsInChildren<Renderer>();
     }
 
-    IEnumerator TeleportRoutine(Vector3 newPos)
+    public void TeleportTo(MenuIsland island)
+    {
+        if (teleporting || island.IsLocked)
+            return;
+
+        StartCoroutine(TeleportRoutine(island.PositionForSnake));
+    }
+
+    private IEnumerator TeleportRoutine(Transform target)
     {
         teleporting = true;
 
-        // Smoke at old location
-        Instantiate(disappearSmokePrefab, transform.position, Quaternion.identity);
+        if (disappearSmokePrefab != null)
+            Instantiate(disappearSmokePrefab, transform.position, Quaternion.identity);
 
-        // Hide snake
-        snakeVisual.SetActive(false);
+        SetVisible(false);
 
-        // Small delay for effect
         yield return new WaitForSeconds(0.25f);
 
-        // Teleport
-        transform.position = newPos;
+        transform.position = target.position;
 
-        // Smoke at new location
-        Instantiate(appearSmokePrefab, transform.position, Quaternion.identity);
+        if (appearSmokePrefab != null)
+            Instantiate(appearSmokePrefab, transform.position, Quaternion.identity);
 
-        // Show snake
-        snakeVisual.SetActive(true);
+        SetVisible(true);
 
         teleporting = false;
+    }
+
+    private void SetVisible(bool visible)
+    {
+        foreach (Renderer r in renderers)
+        {
+            if (r != null)
+                r.enabled = visible;
+        }
     }
 }

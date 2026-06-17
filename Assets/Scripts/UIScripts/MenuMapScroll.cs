@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class MenuMapScroll : MonoBehaviour
 {
+    [SerializeField] private MenuProgressManager progressManager;
     [SerializeField] private SnakeUITeleport snakeTeleportEffect;
-    [SerializeField] private Transform[] islands;
+    [SerializeField] private MenuIsland[] islands;
 
     private int currentLevel;
     private int previousLevel;
@@ -45,7 +46,7 @@ public class MenuMapScroll : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             float level = Mathf.Round((targetZ - snapOffset) / stepSize);
-            currentLevel = Mathf.Clamp((int)level, 0, islands.Length - 1);
+            currentLevel = Mathf.Clamp((int)level, 0, progressManager.MaxReachableIndex);
 
             targetZ = currentLevel * stepSize + snapOffset;
             targetZ = Mathf.Clamp(targetZ, minZ, maxZ);
@@ -53,7 +54,7 @@ public class MenuMapScroll : MonoBehaviour
             // Only teleport if level changed
             if (currentLevel != previousLevel)
             {
-                snakeTeleportEffect.TeleportTo(islands[currentLevel].position);
+                snakeTeleportEffect.TeleportTo(islands[currentLevel]);
                 previousLevel = currentLevel;
             }
         }

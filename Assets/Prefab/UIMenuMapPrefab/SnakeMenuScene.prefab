@@ -356,6 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5920214537663906122}
+  - component: {fileID: 4402664005221518823}
   m_Layer: 0
   m_Name: SnakeShowUp
   m_TagString: Untagged
@@ -372,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 8390444019306675683}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.35836798, z: 0, w: 0.93358046}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -381,3 +382,19 @@ Transform:
   - {fileID: 2590324567127622419}
   m_Father: {fileID: 6782518794242687660}
   m_LocalEulerAnglesHint: {x: 0, y: -42, z: 0}
+--- !u!114 &4402664005221518823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390444019306675683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9775a80b7aecc4d9113246fda95ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disappearSmokePrefab: {fileID: 198299818774797479, guid: bcb76a51b69ccff4d978441cb0304b25,
+    type: 3}
+  appearSmokePrefab: {fileID: 198357115147926545, guid: 045251f1edcd2154f86e38cc2c82e021,
+    type: 3}
