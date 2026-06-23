@@ -123,11 +123,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 9ec6fcdaf8fb7a04cbc753b8b3044d57, type: 2}
 --- !u!1 &135450472491783032
@@ -373,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3226052200303942710
 Transform:
   m_ObjectHideFlags: 0
@@ -2863,6 +2863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2175108039212669739}
+  - component: {fileID: 1853101829568838524}
   m_Layer: 0
   m_Name: Platypus Body
   m_TagString: Untagged
@@ -2886,6 +2887,18 @@ Transform:
   - {fileID: 1537722523932770737}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &1853101829568838524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4507761664232245867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b0296efe15f4949aee1df271e482f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6991250660308011684
 GameObject:
   m_ObjectHideFlags: 0

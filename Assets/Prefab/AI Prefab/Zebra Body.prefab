@@ -339,11 +339,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 559ffebdedfd9f84da36e065a8ff14c3, type: 2}
 --- !u!1 &4998629344720343240
@@ -396,7 +396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3401041560190683657
 Transform:
   m_ObjectHideFlags: 0
@@ -2940,6 +2940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8313550110194634089}
+  - component: {fileID: 962259136466778489}
   m_Layer: 0
   m_Name: Zebra Body
   m_TagString: Untagged
@@ -2963,6 +2964,18 @@ Transform:
   - {fileID: 484163280466377916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &962259136466778489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560482864041002935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b0296efe15f4949aee1df271e482f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8107317852744504938
 GameObject:
   m_ObjectHideFlags: 0

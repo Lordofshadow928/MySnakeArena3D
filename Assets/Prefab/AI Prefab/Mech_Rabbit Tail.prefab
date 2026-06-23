@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 459936559616756229}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4856601892683383963}
+  m_Father: {fileID: 4968910733110894955}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!198 &7574173867614641156
 ParticleSystem:
@@ -2432,6 +2432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4968910733110894955}
+  - component: {fileID: 708812649964242310}
   m_Layer: 10
   m_Name: Mech_Rabbit Tail
   m_TagString: Body
@@ -2453,8 +2454,21 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4856601892683383963}
+  - {fileID: 6618861956118245832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &708812649964242310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3166685071528182004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b0296efe15f4949aee1df271e482f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3637622332381392529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,7 +2718,7 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
@@ -2740,7 +2754,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6618861956118245832}
   - {fileID: 3896159763919191543}
   - {fileID: 14167016691084842}
   m_Father: {fileID: 4968910733110894955}

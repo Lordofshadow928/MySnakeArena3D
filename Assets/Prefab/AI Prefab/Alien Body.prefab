@@ -2671,6 +2671,7 @@ GameObject:
   - component: {fileID: 6062423463413456685}
   - component: {fileID: 6803342157748654565}
   - component: {fileID: 5916101566933361566}
+  - component: {fileID: 7131640316964043228}
   m_Layer: 0
   m_Name: Alien_body
   m_TagString: Untagged
@@ -2745,6 +2746,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5080566689596700458}
   m_Mesh: {fileID: 4300000, guid: fc7ecf3226a7a5b4a802149017315c49, type: 2}
+--- !u!64 &7131640316964043228
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080566689596700458}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: fc7ecf3226a7a5b4a802149017315c49, type: 2}
 --- !u!1 &5533366235661440067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,7 +2787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4259347914397976498
 Transform:
   m_ObjectHideFlags: 0
@@ -2907,7 +2930,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: fc7ecf3226a7a5b4a802149017315c49, type: 2}
 --- !u!1 &5893348375728322983
