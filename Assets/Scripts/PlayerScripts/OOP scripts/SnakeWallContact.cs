@@ -32,9 +32,7 @@ public class SnakeWallContact : MonoBehaviour
 
         float targetPressure = touchingWall ? 1f : 0f;
 
-        float speed = touchingWall
-            ? pressureBuildSpeed
-            : pressureReleaseSpeed;
+        float speed = touchingWall ? pressureBuildSpeed : pressureReleaseSpeed;
 
         wallPressure = Mathf.MoveTowards(wallPressure, targetPressure, speed * Time.deltaTime);
         Debug.Log($"Touching:{IsTouchingWall} Pressure:{wallPressure:F2}"
