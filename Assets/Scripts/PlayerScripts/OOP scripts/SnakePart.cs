@@ -23,5 +23,5 @@ public class SnakePart : MonoBehaviour
     //    {
     //        transform.rotation = Quaternion.LookRotation(dir);
     //    }
-    //}
+    //} pick this logic back to the Snakebody script.
 }
