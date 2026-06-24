@@ -12,6 +12,7 @@ public class SnakeBody : MonoBehaviour
     [SerializeField] private float segmentDistance = 0.5f;
     [SerializeField] private float segmentLength = 1f;
     [SerializeField] private float distanceBetweenPoints = 0.15f;
+    [SerializeField] private float bodyFollowSpeed = 15f;
 
     [Header("History")]
     [SerializeField] private GameObject visualRoot;
@@ -54,6 +55,26 @@ public class SnakeBody : MonoBehaviour
             Gizmos.DrawSphere(position, 0.1f);
         }
     }
+    //private void InitializeSnake()
+    //{
+    //    segments.Clear();
+    //    positionHistory.Clear();
+
+    //    segments.Add(transform);
+
+    //    for (int i = 0; i < preHistory; i++)
+    //    {
+    //        Vector3 offset = headPoint.forward * Time.fixedDeltaTime * movement.MoveSpeed * i;
+
+    //        positionHistory.Add(headPoint.position - offset);
+    //    }
+
+    //    for (int i = 0; i < 3; i++)
+    //    {
+    //        AddSegment();
+    //    }
+    //    CreateTail();
+    //}
     private void InitializeSnake()
     {
         segments.Clear();
@@ -63,8 +84,7 @@ public class SnakeBody : MonoBehaviour
 
         for (int i = 0; i < preHistory; i++)
         {
-            Vector3 offset = headPoint.forward * Time.fixedDeltaTime * movement.MoveSpeed * i;
-
+            Vector3 offset = headPoint.forward * distanceBetweenPoints * i;
             positionHistory.Add(headPoint.position - offset);
         }
 
@@ -72,23 +92,74 @@ public class SnakeBody : MonoBehaviour
         {
             AddSegment();
         }
+
         CreateTail();
     }
 
+    //private void UpdateHistory()
+    //{
+    //    if (movement.CurrentSpeed <= stopThreshold)
+    //    {
+    //        if (positionHistory.Count > 0)
+    //        {
+    //            positionHistory[0] = headPoint.position;
+    //        }
+
+    //        return;
+    //    }
+    //    positionHistory.Insert(0, headPoint.position);
+    //}
     private void UpdateHistory()
     {
-        if (movement.CurrentSpeed <= stopThreshold)
+        if (positionHistory.Count == 0 ||
+            Vector3.Distance(positionHistory[0], headPoint.position) >= distanceBetweenPoints)
         {
-            if (positionHistory.Count > 0)
-            {
-                positionHistory[0] = headPoint.position;
-            }
-
-            return;
+            positionHistory.Insert(0, headPoint.position);
         }
-        positionHistory.Insert(0, headPoint.position);
+
+        int maxHistory = segments.Count * Mathf.RoundToInt(segmentLength / distanceBetweenPoints) + 10;
+
+        while (positionHistory.Count > maxHistory)
+        {
+            positionHistory.RemoveAt(positionHistory.Count - 1);
+        }
     }
 
+    //private void MoveSegments()
+    //{
+    //    for (int i = 1; i < segments.Count; i++)
+    //    {
+    //        Transform segment = segments[i];
+
+    //        int index = Mathf.RoundToInt(i * segmentLength / distanceBetweenPoints);
+
+    //        if (index >= positionHistory.Count)
+    //            continue;
+
+    //        Vector3 targetPos = positionHistory[index];
+
+    //        segment.position = Vector3.Lerp(segment.position, targetPos, movement.CurrentSpeed * Time.fixedDeltaTime);
+
+    //        if (Vector3.Distance(segment.position, targetPos) < 0.001f)
+    //        {
+    //            segment.position = targetPos;
+    //        }
+
+    //        Vector3 lookDir = segments[i - 1].position - segment.position;
+
+    //        if (lookDir.sqrMagnitude > 0.0001f)
+    //        {
+    //            segment.rotation = Quaternion.LookRotation(lookDir);
+    //        }
+    //    }
+
+    //    int maxHistory = segments.Count * Mathf.RoundToInt(segmentLength / distanceBetweenPoints) + 10;
+
+    //    if (positionHistory.Count > maxHistory)
+    //    {
+    //        positionHistory.RemoveAt(positionHistory.Count - 1);
+    //    }
+    //}
     private void MoveSegments()
     {
         for (int i = 1; i < segments.Count; i++)
@@ -97,17 +168,11 @@ public class SnakeBody : MonoBehaviour
 
             int index = Mathf.RoundToInt(i * segmentLength / distanceBetweenPoints);
 
-            if (index >= positionHistory.Count)
-                continue;
+            index = Mathf.Clamp(index, 0, positionHistory.Count - 1);
 
             Vector3 targetPos = positionHistory[index];
 
-            segment.position = Vector3.Lerp(segment.position, targetPos, movement.CurrentSpeed * Time.fixedDeltaTime);
-
-            if (Vector3.Distance(segment.position, targetPos) < 0.001f)
-            {
-                segment.position = targetPos;
-            }
+            segment.position = Vector3.MoveTowards(segment.position, targetPos, bodyFollowSpeed * Time.fixedDeltaTime);
 
             Vector3 lookDir = segments[i - 1].position - segment.position;
 
@@ -115,13 +180,6 @@ public class SnakeBody : MonoBehaviour
             {
                 segment.rotation = Quaternion.LookRotation(lookDir);
             }
-        }
-
-        int maxHistory = segments.Count * Mathf.RoundToInt(segmentLength / distanceBetweenPoints) + 10;
-
-        if (positionHistory.Count > maxHistory)
-        {
-            positionHistory.RemoveAt(positionHistory.Count - 1);
         }
     }
 
