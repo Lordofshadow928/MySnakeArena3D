@@ -21,6 +21,14 @@ public class FoodSpawner2 : MonoBehaviour
     [Header("Smart Spawn")]
     [SerializeField] private float minDistanceFromSnake = 3f;
     [SerializeField] private int maxSpawnAttempts = 3;
+
+    [Header("Obstacle Check")]
+    [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private float obstacleCheckRadius = 0.4f;
+    bool IsPositionFree(Vector3 pos)
+    {
+        return !Physics.CheckSphere(pos, obstacleCheckRadius, obstacleLayer);
+    }
     private int spawnedFood;
 
     [SerializeField]private List<GameObject> spawnedFoods = new List<GameObject>();
@@ -56,7 +64,7 @@ public class FoodSpawner2 : MonoBehaviour
             {
                 spawnPos = GetRandomPosition();
 
-                if (IsFarFromSnake(spawnPos))
+                if (IsFarFromSnake(spawnPos) && IsPositionFree(spawnPos))
                 {
                     ActivateFood(food, spawnPos);
                     foundValid = true;
@@ -67,7 +75,15 @@ public class FoodSpawner2 : MonoBehaviour
 
             if (!foundValid)
             {
-                ActivateFood(food, GetRandomPosition());
+                Vector3 pos = GetRandomPosition();
+                if(IsPositionFree(pos))
+                {
+                    ActivateFood(food, pos);
+                }
+                else
+                {
+                    LeanPool.Despawn(food);
+                }
             }
         }
     }
@@ -92,6 +108,7 @@ public class FoodSpawner2 : MonoBehaviour
             spawnedFood--;
         LeanPool.Despawn(food);
     }
+
     Vector3 GetRandomPosition()
     {
         Transform center = spawnPoints[Random.Range(0, spawnPoints.Length)];

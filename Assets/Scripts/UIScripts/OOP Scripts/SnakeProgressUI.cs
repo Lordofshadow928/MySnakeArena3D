@@ -6,10 +6,12 @@ using TMPro;
 
 public class SnakeProgressUI : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private SnakeEnergy energy;
     [SerializeField] private TMP_Text progressText;
     [SerializeField] private Image fillImage;
-
+    [SerializeField] private ResultHandler result;
+    private bool hasWon;
     private void OnEnable()
     {
         energy.OnEnergyChanged += UpdateUI;
@@ -27,5 +29,12 @@ public class SnakeProgressUI : MonoBehaviour
         fillImage.fillAmount = percent;
 
         progressText.text = $"{Mathf.RoundToInt(percent * 100)}%";
+
+        if (!hasWon && percent >= 1f)
+        {
+            hasWon = true;
+            result.HandleResult();
+        }
     }
+   
 }
