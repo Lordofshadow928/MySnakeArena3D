@@ -75,27 +75,7 @@ public class SnakeBody : MonoBehaviour
         }
         CreateTail();
     }
-    //private void InitializeSnake()
-    //{
-    //    segments.Clear();
-    //    positionHistory.Clear();
-
-    //    segments.Add(transform);
-
-    //    for (int i = 0; i < preHistory; i++)
-    //    {
-    //        Vector3 offset = headPoint.forward * distanceBetweenPoints * i;
-    //        positionHistory.Add(headPoint.position - offset);
-    //    }
-
-    //    for (int i = 0; i < 3; i++)
-    //    {
-    //        AddSegment();
-    //    }
-
-    //    CreateTail();
-    //}
-
+   
     private void UpdateHistory()
     {
         if (movement.CurrentSpeed <= stopThreshold)
@@ -109,22 +89,7 @@ public class SnakeBody : MonoBehaviour
         }
         positionHistory.Insert(0, headPoint.position);
     }
-    //private void UpdateHistory()
-    //{
-    //    if (positionHistory.Count == 0 ||
-    //        Vector3.Distance(positionHistory[0], headPoint.position) >= distanceBetweenPoints)
-    //    {
-    //        positionHistory.Insert(0, headPoint.position);
-    //    }
-
-    //    int maxHistory = segments.Count * Mathf.RoundToInt(segmentLength / distanceBetweenPoints) + 10;
-
-    //    while (positionHistory.Count > maxHistory)
-    //    {
-    //        positionHistory.RemoveAt(positionHistory.Count - 1);
-    //    }
-    //}
-
+   
     private void MoveSegments()
     {
         for (int i = 1; i < segments.Count; i++)

@@ -1914,6 +1914,10 @@ MonoBehaviour:
   spawnInterval: 2
   minDistanceFromSnake: 3
   maxSpawnAttempts: 3
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleCheckRadius: 0.4
   spawnedFoods: []
 --- !u!1 &598953201
 GameObject:
@@ -4102,6 +4106,7 @@ GameObject:
   - component: {fileID: 1311072198}
   - component: {fileID: 1311072197}
   - component: {fileID: 1311072196}
+  - component: {fileID: 1311072199}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4150,7 +4155,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 68.8
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4177,12 +4182,26 @@ Transform:
   m_GameObject: {fileID: 1311072195}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 11.1, z: -7.15}
+  m_LocalPosition: {x: 0, y: 15.28, z: -9.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &1311072199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311072195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ac72dd5d4e7d345aa097ee118ab965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3585949200484561164}
+  smoothSpeed: 5
 --- !u!1 &1333384131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,6 +4898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174689671301906698, guid: 60f41f754e2320c4c83151c8d88adf50,
+        type: 3}
+      propertyPath: foodsPerGrowth
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3961227131394222208, guid: 60f41f754e2320c4c83151c8d88adf50,
         type: 3}
