@@ -12,7 +12,7 @@ public class SnakeBody : MonoBehaviour
     [SerializeField] private float segmentDistance = 0.5f;
     [SerializeField] private float segmentLength = 1f;
     [SerializeField] private float distanceBetweenPoints = 0.15f;
-    [SerializeField] private float bodyFollowSpeed = 15f;
+    
 
     [Header("History")]
     [SerializeField] private GameObject visualRoot;
