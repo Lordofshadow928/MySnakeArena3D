@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SnakeEnergy : MonoBehaviour
 {
-    [SerializeField] private int maxEnergy = 10;
+    [SerializeField] private int maxEnergy = 400;
 
     public int CurrentEnergy { get; private set; }
 

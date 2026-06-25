@@ -17,6 +17,8 @@ public class FoodCountManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            if (!PlayerPrefs.HasKey("HighestStage"))
+                PlayerPrefs.SetInt("HighestStage", 1);
         }
         else
         {
@@ -34,12 +36,17 @@ public class FoodCountManager : MonoBehaviour
 
     public void CheckStageUnlock(int totalFruit)
     {
+        int highestUnlocked = HighestUnlockedStage;
         foreach (FoodCountData stage in stages)
         {
-            if (totalFruit >= stage.requiredFruit && HighestUnlockedStage < stage.stageIndex)
+            if (totalFruit >= stage.requiredFruit && stage.stageIndex > highestUnlocked)
             {
-                UnlockStage(stage.stageIndex);
+                highestUnlocked = stage.stageIndex;
             }
+        }
+        if (highestUnlocked > HighestUnlockedStage)
+        {
+            UnlockStage(highestUnlocked);
         }
     }
 
@@ -49,5 +56,6 @@ public class FoodCountManager : MonoBehaviour
 
         // Mark animation pending
         PlayerPrefs.SetInt("PendingUnlockStage", stage);
+        PlayerPrefs.Save();
     }
 }
