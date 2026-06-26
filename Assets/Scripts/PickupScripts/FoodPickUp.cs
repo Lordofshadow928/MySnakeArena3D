@@ -24,11 +24,6 @@ public class FoodPickUp : PickupBase
         {
             growth.AddFood();
         }
-
-        if (storage != null)
-        {
-            storage.AddFood(1);
-        }
         LeanPool.Despawn(gameObject);
     }
 }

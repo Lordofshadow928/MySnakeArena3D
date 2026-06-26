@@ -27,7 +27,6 @@ public class FoodDemo : MonoBehaviour, IPoolable
         if (!isMovingToTarget || target == null) return;
         MoveTowardTarget();
     }
-
     //Called by magnet
     public void MoveToTarget(Transform targetTransform)
     {
@@ -50,21 +49,15 @@ public class FoodDemo : MonoBehaviour, IPoolable
                 foodSpawner.OnFoodReturn(gameObject); // Return to pool
             return;
         }
-
-        //Normalize direction
         direction.Normalize();
-
         //Slow down when very close (smooth stop)
         float speed = moveSpeed;
-
         if (distance < 1.5f)
         {
             speed *= (distance / 1.5f); // smooth slow near mouth
         }
-
         //Set velocity directly
         rb.velocity = direction * speed;
-
         //Clamp just in case
         if (rb.velocity.magnitude > maxSpeed)
         {
@@ -87,10 +80,5 @@ public class FoodDemo : MonoBehaviour, IPoolable
         isMovingToTarget = false;
         target = null;
         rb.velocity = Vector3.zero;
-        //MeshRenderer renderer = GetComponent<MeshRenderer>();
-        //if (renderer != null)
-        //{
-        //    renderer.material.color = Color.white; // Reset color
-        //}
     }
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class SnakePart : MonoBehaviour
 {
     public SnakeHealth Owner { get; set; }
-    public Vector3 TargetPosition { get; set; }
-    public Vector3 TargetLookPosition { get; set; }
+    //public Vector3 TargetPosition { get; set; }
+    //public Vector3 TargetLookPosition { get; set; }
 
-    public float MoveSpeed { get; set; }
+    //public float MoveSpeed { get; set; }
 
     //private void FixedUpdate()
     //{
