@@ -54,8 +54,10 @@ public class MenuMapScroll : MonoBehaviour
             // Only teleport if level changed
             if (currentLevel != previousLevel)
             {
-                snakeTeleportEffect.TeleportTo(islands[currentLevel]);
-                previousLevel = currentLevel;
+                if(snakeTeleportEffect.TeleportTo(islands[currentLevel]))
+                {
+                    previousLevel = currentLevel;
+                }
             }
         }
 

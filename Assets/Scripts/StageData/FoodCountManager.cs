@@ -30,7 +30,6 @@ public class FoodCountManager : MonoBehaviour
     {
         int totalFruit = TotalFruitEaten + amount;
         PlayerPrefs.SetInt("TotalFruit", totalFruit);
-
         CheckStageUnlock(totalFruit);
     }
 
@@ -53,8 +52,6 @@ public class FoodCountManager : MonoBehaviour
     private void UnlockStage(int stage)
     {
         PlayerPrefs.SetInt("HighestStage", stage);
-
-        // Mark animation pending
         PlayerPrefs.SetInt("PendingUnlockStage", stage);
         PlayerPrefs.Save();
     }

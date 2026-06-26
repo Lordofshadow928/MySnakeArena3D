@@ -14,12 +14,13 @@ public class SnakeUITeleport : MonoBehaviour
         renderers = GetComponentsInChildren<Renderer>();
     }
 
-    public void TeleportTo(MenuIsland island)
+    public bool TeleportTo(MenuIsland island)
     {
         if (teleporting || island.IsLocked)
-            return;
+            return false;
 
         StartCoroutine(TeleportRoutine(island.PositionForSnake));
+        return true;
     }
 
     private IEnumerator TeleportRoutine(Transform target)
