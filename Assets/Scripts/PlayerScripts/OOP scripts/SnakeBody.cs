@@ -12,17 +12,16 @@ public class SnakeBody : MonoBehaviour
     [SerializeField] private float segmentDistance = 0.5f;
     [SerializeField] private float segmentLength = 1f;
     [SerializeField] private float distanceBetweenPoints = 0.15f;
-    
+    [SerializeField] private int maxBodySegments = 25;
 
     [Header("History")]
     [SerializeField] private GameObject visualRoot;
     [SerializeField] private int preHistory = 15;
     [SerializeField] private float stopThreshold = 0.01f;
-
     [SerializeField] private  List<Vector3> positionHistory = new();
+
     private readonly List<Transform> segments = new();
     private SnakeSkinController skinController;
-
     private Transform tail;
     private bool isDead;
     public IReadOnlyList<Transform> Segments => segments;
@@ -37,14 +36,12 @@ public class SnakeBody : MonoBehaviour
     private void Start()
     {
         InitializeSnake();
-        
     }
 
     private void FixedUpdate()
     {
         UpdateHistory();
-        MoveSegments();
-        
+        MoveSegments();  
     }
 
     private void OnDrawGizmos()
@@ -84,7 +81,6 @@ public class SnakeBody : MonoBehaviour
             {
                 positionHistory[0] = headPoint.position;
             }
-
             return;
         }
         positionHistory.Insert(0, headPoint.position);
@@ -157,25 +153,21 @@ public class SnakeBody : MonoBehaviour
     {
         return segments.Count;
     }
-
     public int GetBodySegmentCount()
     {
         // excludes head + tail
         return Mathf.Max(0, segments.Count - 2);
     }
-
     public Transform GetLastBodySegment()
     {
         return segments.Count > 2 ? segments[segments.Count - 2] : null;
     }
-
     public void KillSnake()
     {
         if (isDead) return;
 
         isDead = true;
     }
-
     public void CleanupBody()
     {
         visualRoot.SetActive(false);
@@ -190,7 +182,6 @@ public class SnakeBody : MonoBehaviour
             Destroy(tail.gameObject);
             tail = null;
         }
-
         segments.Clear();
     }
     private GameObject GetBodyPrefab()
@@ -200,7 +191,6 @@ public class SnakeBody : MonoBehaviour
             Debug.LogError($"No skin assigned on {gameObject.name}");
             return null;
         }
-
         return skinController.CurrentSkin.bodyPrefab;
     }
 
@@ -221,13 +211,14 @@ public class SnakeBody : MonoBehaviour
         }
 
         GameObject bodyPrefab = GetBodyPrefab();
-
         if (bodyPrefab == null)
             return;
 
         GameObject body = LeanPool.Spawn(bodyPrefab);
         SnakePart part = body.GetComponentInParent<SnakePart>();
 
+        if (GetBodySegmentCount() >= maxBodySegments)
+            return;
         if (part != null)
         {
             part.Owner = GetComponent<SnakeHealth>();
@@ -284,7 +275,6 @@ public class SnakeBody : MonoBehaviour
     private void RefreshVFX()
     {
         SnakeParticleVFX vfx = GetComponent<SnakeParticleVFX>();
-
         if (vfx != null)
             vfx.RefreshParticles();
     }

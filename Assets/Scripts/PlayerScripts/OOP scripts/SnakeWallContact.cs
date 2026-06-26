@@ -29,28 +29,17 @@ public class SnakeWallContact : MonoBehaviour
     private void Update()
     {
         bool touchingWall = IsTouchingWall;
-
         float targetPressure = touchingWall ? 1f : 0f;
-
         float speed = touchingWall ? pressureBuildSpeed : pressureReleaseSpeed;
-
         wallPressure = Mathf.MoveTowards(wallPressure, targetPressure, speed * Time.deltaTime);
-        Debug.Log($"Touching:{IsTouchingWall} Pressure:{wallPressure:F2}"
-);
         float speedMultiplier = Mathf.Lerp(1f, 1f - maxSlowdown, wallPressure);
-
-        movement.SetSpeedMultiplier(speedMultiplier);
-
-        // Reset each frame.
-        // OnCollisionStay will set it back to true if still touching.
-        
+        movement.SetSpeedMultiplier(speedMultiplier); 
     }
 
     private void OnCollisionStay(Collision collision)
     {
         if ((Obstacle.value & (1 << collision.gameObject.layer)) == 0)
             return;
-
         lastWallContactTime = Time.time;
     }
 }

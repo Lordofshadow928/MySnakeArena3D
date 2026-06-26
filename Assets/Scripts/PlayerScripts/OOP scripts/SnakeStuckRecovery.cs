@@ -25,7 +25,6 @@ public class SnakeStuckRecovery : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Speed: {movement.CurrentSpeed:F2} | Pressure: {friction.WallPressure:F2}");
         bool stuck = friction.WallPressure >= 0.95f;
 
         if (stuck)
