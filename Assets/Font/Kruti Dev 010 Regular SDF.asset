@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!28 &-8045308731017205451
+--- !u!28 &-9184609198509160427
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KrutiBold Atlas
+  m_Name: Kruti Dev 010 Regular Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -48,14 +48,149 @@ Texture2D:
     offset: 0
     size: 0
     path: 
---- !u!21 &-7628423090773641301
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+  m_Name: Kruti Dev 010 Regular SDF
+  m_EditorClassIdentifier: 
+  hashCode: 0
+  material: {fileID: 3340606828663630911}
+  materialHashCode: 0
+  m_Version: 1.1.0
+  m_SourceFontFileGUID: 898610092fdebec43a0919d1be1d0926
+  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 898610092fdebec43a0919d1be1d0926,
+    type: 3}
+  m_SourceFontFile: {fileID: 12800000, guid: 898610092fdebec43a0919d1be1d0926, type: 3}
+  m_AtlasPopulationMode: 1
+  m_FaceInfo:
+    m_FaceIndex: 0
+    m_FamilyName: Kruti Dev 010
+    m_StyleName: Regular
+    m_PointSize: 90
+    m_Scale: 1
+    m_UnitsPerEM: 1000
+    m_LineHeight: 94.41
+    m_AscentLine: 72.090004
+    m_CapLine: 46
+    m_MeanLine: 46
+    m_Baseline: 0
+    m_DescentLine: -22.320002
+    m_SuperscriptOffset: 72.090004
+    m_SuperscriptSize: 0.5
+    m_SubscriptOffset: -22.320002
+    m_SubscriptSize: 0.5
+    m_UnderlineOffset: -12.870001
+    m_UnderlineThickness: 1.8000001
+    m_StrikethroughOffset: 18.4
+    m_StrikethroughThickness: 1.8000001
+    m_TabWidth: 34
+  m_GlyphTable: []
+  m_CharacterTable: []
+  m_AtlasTextures:
+  - {fileID: -9184609198509160427}
+  m_AtlasTextureIndex: 0
+  m_IsMultiAtlasTexturesEnabled: 0
+  m_ClearDynamicDataOnBuild: 0
+  m_UsedGlyphRects: []
+  m_FreeGlyphRects:
+  - m_X: 0
+    m_Y: 0
+    m_Width: 1023
+    m_Height: 1023
+  m_fontInfo:
+    Name: 
+    PointSize: 0
+    Scale: 0
+    CharacterCount: 0
+    LineHeight: 0
+    Baseline: 0
+    Ascender: 0
+    CapHeight: 0
+    Descender: 0
+    CenterLine: 0
+    SuperscriptOffset: 0
+    SubscriptOffset: 0
+    SubSize: 0
+    Underline: 0
+    UnderlineThickness: 0
+    strikethrough: 0
+    strikethroughThickness: 0
+    TabWidth: 0
+    Padding: 0
+    AtlasWidth: 0
+    AtlasHeight: 0
+  atlas: {fileID: 0}
+  m_AtlasWidth: 1024
+  m_AtlasHeight: 1024
+  m_AtlasPadding: 9
+  m_AtlasRenderMode: 4165
+  m_glyphInfoList: []
+  m_KerningTable:
+    kerningPairs: []
+  m_FontFeatureTable:
+    m_GlyphPairAdjustmentRecords: []
+  fallbackFontAssets: []
+  m_FallbackFontAssetTable: []
+  m_CreationSettings:
+    sourceFontFileName: 
+    sourceFontFileGUID: 898610092fdebec43a0919d1be1d0926
+    pointSizeSamplingMode: 0
+    pointSize: 90
+    padding: 9
+    packingMode: 0
+    atlasWidth: 1024
+    atlasHeight: 1024
+    characterSetSelectionMode: 7
+    characterSequence: 
+    referencedFontAssetGUID: 
+    referencedTextAssetGUID: 
+    fontStyle: 0
+    fontStyleModifier: 0
+    renderMode: 4165
+    includeFontFeatures: 0
+  m_FontWeightTable:
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  - regularTypeface: {fileID: 0}
+    italicTypeface: {fileID: 0}
+  fontWeights: []
+  normalStyle: 0
+  normalSpacingOffset: 0
+  boldStyle: 0.75
+  boldSpacing: 7
+  italicStyle: 35
+  tabSize: 10
+--- !u!21 &3340606828663630911
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KrutiBold Atlas Material
+  m_Name: Kruti Dev 010 Regular Atlas Material
   m_Shader: {fileID: 4800000, guid: 066f3d9e3164bf4469515f534c5501c3, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -84,7 +219,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -8045308731017205451}
+        m_Texture: {fileID: -9184609198509160427}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -155,138 +290,3 @@ Material:
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: KrutiBold SDF
-  m_EditorClassIdentifier: 
-  hashCode: 0
-  material: {fileID: -7628423090773641301}
-  materialHashCode: 0
-  m_Version: 1.1.0
-  m_SourceFontFileGUID: 1c3908e58922cbb4191c86d7a1c6a0da
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 1c3908e58922cbb4191c86d7a1c6a0da,
-    type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 1c3908e58922cbb4191c86d7a1c6a0da, type: 3}
-  m_AtlasPopulationMode: 1
-  m_FaceInfo:
-    m_FaceIndex: 0
-    m_FamilyName: Kruti Dev 040
-    m_StyleName: ' Bold'
-    m_PointSize: 90
-    m_Scale: 1
-    m_UnitsPerEM: 1000
-    m_LineHeight: 123.93001
-    m_AscentLine: 72.54
-    m_CapLine: 44
-    m_MeanLine: 44
-    m_Baseline: 0
-    m_DescentLine: -51.390003
-    m_SuperscriptOffset: 72.54
-    m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -51.390003
-    m_SubscriptSize: 0.5
-    m_UnderlineOffset: -12.870001
-    m_UnderlineThickness: 1.8000001
-    m_StrikethroughOffset: 17.6
-    m_StrikethroughThickness: 1.8000001
-    m_TabWidth: 45
-  m_GlyphTable: []
-  m_CharacterTable: []
-  m_AtlasTextures:
-  - {fileID: -8045308731017205451}
-  m_AtlasTextureIndex: 0
-  m_IsMultiAtlasTexturesEnabled: 0
-  m_ClearDynamicDataOnBuild: 0
-  m_UsedGlyphRects: []
-  m_FreeGlyphRects:
-  - m_X: 0
-    m_Y: 0
-    m_Width: 1023
-    m_Height: 1023
-  m_fontInfo:
-    Name: 
-    PointSize: 0
-    Scale: 0
-    CharacterCount: 0
-    LineHeight: 0
-    Baseline: 0
-    Ascender: 0
-    CapHeight: 0
-    Descender: 0
-    CenterLine: 0
-    SuperscriptOffset: 0
-    SubscriptOffset: 0
-    SubSize: 0
-    Underline: 0
-    UnderlineThickness: 0
-    strikethrough: 0
-    strikethroughThickness: 0
-    TabWidth: 0
-    Padding: 0
-    AtlasWidth: 0
-    AtlasHeight: 0
-  atlas: {fileID: 0}
-  m_AtlasWidth: 1024
-  m_AtlasHeight: 1024
-  m_AtlasPadding: 9
-  m_AtlasRenderMode: 4165
-  m_glyphInfoList: []
-  m_KerningTable:
-    kerningPairs: []
-  m_FontFeatureTable:
-    m_GlyphPairAdjustmentRecords: []
-  fallbackFontAssets: []
-  m_FallbackFontAssetTable: []
-  m_CreationSettings:
-    sourceFontFileName: 
-    sourceFontFileGUID: 1c3908e58922cbb4191c86d7a1c6a0da
-    pointSizeSamplingMode: 0
-    pointSize: 90
-    padding: 9
-    packingMode: 0
-    atlasWidth: 1024
-    atlasHeight: 1024
-    characterSetSelectionMode: 7
-    characterSequence: 
-    referencedFontAssetGUID: 
-    referencedTextAssetGUID: 
-    fontStyle: 0
-    fontStyleModifier: 0
-    renderMode: 4165
-    includeFontFeatures: 0
-  m_FontWeightTable:
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  - regularTypeface: {fileID: 0}
-    italicTypeface: {fileID: 0}
-  fontWeights: []
-  normalStyle: 0
-  normalSpacingOffset: 0
-  boldStyle: 0.75
-  boldSpacing: 7
-  italicStyle: 35
-  tabSize: 10
