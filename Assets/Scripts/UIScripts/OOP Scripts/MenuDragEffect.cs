@@ -11,7 +11,7 @@ public class MenuDragEffect : MonoBehaviour
     [SerializeField] private RectTransform shopButton;
 
     [Header("Drag")]
-    [SerializeField] private float maxDragDistance = 400f;
+    [SerializeField] private float maxDragDistance = 100f;
 
     [Header("Animation")]
     [SerializeField] private float outsidePadding = 50f;
@@ -57,18 +57,20 @@ public class MenuDragEffect : MonoBehaviour
 
         if (dragging && Input.GetMouseButton(0))
         {
-            // Only drag DOWN
-            float dragDistance = dragStart.y - Input.mousePosition.y;
+            float deltaX = Mathf.Abs(Input.mousePosition.x - dragStart.x);
+            float deltaY = Mathf.Abs(Input.mousePosition.y - dragStart.y);
 
-            float t = Mathf.Clamp01(dragDistance / maxDragDistance);
+            // Only react if the drag is mostly vertical
+            if (deltaY > deltaX)
+            {
+                float t = Mathf.Clamp01(deltaY / maxDragDistance);
 
-            // Move buttons
-            SetButtonPosition( powerupButton, Mathf.Lerp(powerupStartX, powerupEndX, t));
+                SetButtonPosition(powerupButton, Mathf.Lerp(powerupStartX, powerupEndX, t));
 
-            SetButtonPosition( shopButton, Mathf.Lerp(shopStartX, shopEndX, t));
+                SetButtonPosition(shopButton, Mathf.Lerp(shopStartX, shopEndX, t));
 
-            // Scale Play button
-            playButton.localScale = Vector3.Lerp( playStartScale, Vector3.zero, t);
+                playButton.localScale = Vector3.Lerp( playStartScale, Vector3.zero,t);
+            }
         }
 
         if (dragging && Input.GetMouseButtonUp(0))

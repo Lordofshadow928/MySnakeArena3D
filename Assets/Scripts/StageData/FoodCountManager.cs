@@ -4,12 +4,89 @@ using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//public class FoodCountManager : MonoBehaviour
+//{
+//    [SerializeField] private FoodCountData[] stages;
+//    public static FoodCountManager Instance;
+
+//    public int TotalFruitEaten => PlayerPrefs.GetInt("TotalFruit", 0);
+//    public int HighestUnlockedStage => PlayerPrefs.GetInt("HighestStage", 1);
+
+//    private void Awake()
+//    {
+//        if (Instance == null)
+//        {
+//            Instance = this;
+//            DontDestroyOnLoad(gameObject);
+//            if (!PlayerPrefs.HasKey("HighestStage"))
+//                PlayerPrefs.SetInt("HighestStage", 1);
+//        }
+//        else
+//        {
+//            Destroy(gameObject);
+//        }
+//    }
+//    public int GetBestProgress()
+//    {
+//        string key = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
+//        return PlayerPrefs.GetInt(key, 0);
+//    }
+//    public bool SaveBestProgress(int percent)
+//    {
+//        string key = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
+//        int best = PlayerPrefs.GetInt(key, 0);
+
+//        if (percent > best)
+//        {
+//            PlayerPrefs.SetInt(key, percent);
+//            PlayerPrefs.Save();
+//            return true;
+//        }
+
+//        return false;
+//    }
+
+//    public void AddFruit(int amount)
+//    {
+//        int totalFruit = TotalFruitEaten + amount;
+//        PlayerPrefs.SetInt("TotalFruit", totalFruit);
+//        CheckStageUnlock(totalFruit);
+//    }
+
+//    public void CheckStageUnlock(int totalFruit)
+//    {
+//        int highestUnlocked = HighestUnlockedStage;
+//        foreach (FoodCountData stage in stages)
+//        {
+//            if (totalFruit >= stage.requiredFruit && stage.stageIndex > highestUnlocked)
+//            {
+//                highestUnlocked = stage.stageIndex;
+//            }
+//        }
+//        if (highestUnlocked > HighestUnlockedStage)
+//        {
+//            UnlockStage(highestUnlocked);
+//        }
+//    }
+
+//    private void UnlockStage(int stage)
+//    {
+//        PlayerPrefs.SetInt("HighestStage", stage);
+//        PlayerPrefs.SetInt("PendingUnlockStage", stage);
+//        PlayerPrefs.Save();
+//    }
+//}
+
 public class FoodCountManager : MonoBehaviour
 {
     [SerializeField] private FoodCountData[] stages;
+
     public static FoodCountManager Instance;
 
-    public int TotalFruitEaten => PlayerPrefs.GetInt("TotalFruit", 0);
+    // Progress toward the NEXT stage unlock
+    public int CurrentFruitProgress => PlayerPrefs.GetInt("CurrentFruitProgress", 0);
+
+    // Stage 1 is unlocked by default
     public int HighestUnlockedStage => PlayerPrefs.GetInt("HighestStage", 1);
 
     private void Awake()
@@ -18,19 +95,29 @@ public class FoodCountManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
             if (!PlayerPrefs.HasKey("HighestStage"))
                 PlayerPrefs.SetInt("HighestStage", 1);
+
+            if (!PlayerPrefs.HasKey("CurrentFruitProgress"))
+                PlayerPrefs.SetInt("CurrentFruitProgress", 0);
+
+            PlayerPrefs.Save();
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
+    #region Best Progress
+
     public int GetBestProgress()
     {
         string key = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
         return PlayerPrefs.GetInt(key, 0);
     }
+
     public bool SaveBestProgress(int percent)
     {
         string key = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
@@ -46,33 +133,81 @@ public class FoodCountManager : MonoBehaviour
         return false;
     }
 
+    #endregion
+
     public void AddFruit(int amount)
     {
-        int totalFruit = TotalFruitEaten + amount;
-        PlayerPrefs.SetInt("TotalFruit", totalFruit);
-        CheckStageUnlock(totalFruit);
+        int progress = CurrentFruitProgress + amount;
+
+        PlayerPrefs.SetInt("CurrentFruitProgress", progress);
+
+        CheckStageUnlock();
+
+        PlayerPrefs.Save();
     }
 
-    public void CheckStageUnlock(int totalFruit)
+    private void CheckStageUnlock()
     {
-        int highestUnlocked = HighestUnlockedStage;
+        int nextStage = HighestUnlockedStage + 1;
+
+        FoodCountData stageData = GetStageData(nextStage);
+
+        if (stageData == null)
+            return;
+
+        if (CurrentFruitProgress >= stageData.requiredFruit)
+        {
+            UnlockStage(nextStage);
+        }
+    }
+
+    private FoodCountData GetStageData(int stageIndex)
+    {
         foreach (FoodCountData stage in stages)
         {
-            if (totalFruit >= stage.requiredFruit && stage.stageIndex > highestUnlocked)
-            {
-                highestUnlocked = stage.stageIndex;
-            }
+            if (stage.stageIndex == stageIndex)
+                return stage;
         }
-        if (highestUnlocked > HighestUnlockedStage)
-        {
-            UnlockStage(highestUnlocked);
-        }
+
+        return null;
     }
 
-    private void UnlockStage(int stage)
+    private void UnlockStage(int stageIndex)
     {
-        PlayerPrefs.SetInt("HighestStage", stage);
-        PlayerPrefs.SetInt("PendingUnlockStage", stage);
+        PlayerPrefs.SetInt("HighestStage", stageIndex);
+
+        // Reset progress for the next stage
+        PlayerPrefs.SetInt("CurrentFruitProgress", 0);
+
+        // Menu can use this to play unlock animation
+        PlayerPrefs.SetInt("PendingUnlockStage", stageIndex);
+
         PlayerPrefs.Save();
+
+        Debug.Log($"Stage {stageIndex} Unlocked!");
+    }
+
+    public int GetNextStageRequirement()
+    {
+        FoodCountData stage = GetStageData(HighestUnlockedStage + 1);
+
+        if (stage == null)
+            return 0;
+
+        return stage.requiredFruit;
+    }
+    [ContextMenu("Clear All Progress")]
+    public void ClearAllProgress()
+    {
+        PlayerPrefs.DeleteKey("HighestStage");
+        PlayerPrefs.DeleteKey("CurrentFruitProgress");
+        PlayerPrefs.DeleteKey("PendingUnlockStage");
+
+        // If you still use these elsewhere
+        PlayerPrefs.DeleteKey("TotalFruit");
+
+        PlayerPrefs.Save();
+
+        Debug.Log("All progression data cleared.");
     }
 }

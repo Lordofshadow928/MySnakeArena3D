@@ -6,7 +6,7 @@ public class MenuProgressManager : MonoBehaviour
 
     public int MaxReachableIndex { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
         UpdateProgress();
     }
