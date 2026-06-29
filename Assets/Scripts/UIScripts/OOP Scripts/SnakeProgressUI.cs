@@ -14,15 +14,12 @@ public class SnakeProgressUI : MonoBehaviour
     [SerializeField] private Image fillImage;
     [SerializeField] private ResultHandler result;
     private bool hasWon;
-    private string progressKey;
-    private int bestPercent;
+    private int bestProgress;
 
     private void Start()
     {
-        progressKey = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
-
-        bestPercent = PlayerPrefs.GetInt(progressKey, 0);
-        bestProgressText.text = $"Best {bestPercent}%";
+        bestProgress = FoodCountManager.Instance.GetBestProgress();
+        bestProgressText.text = $"Best {bestProgress}%";
     }
     private void OnEnable()
     {
@@ -40,15 +37,14 @@ public class SnakeProgressUI : MonoBehaviour
 
         fillImage.fillAmount = percent;
 
-        progressText.text = $"{Mathf.RoundToInt(percent * 100)}%";
         int currentPercent = Mathf.RoundToInt(percent * 100);
-        if (currentPercent > bestPercent)
-        {
-            bestPercent = currentPercent;
-            PlayerPrefs.SetInt(progressKey, bestPercent);
-            PlayerPrefs.Save();
 
-            bestProgressText.text = $"Best {bestPercent}%";
+        progressText.text = $"{currentPercent}%";
+
+        if (FoodCountManager.Instance.SaveBestProgress(currentPercent))
+        {
+            bestProgress = currentPercent;
+            bestProgressText.text = $"Best {bestProgress}%";
         }
 
         if (!hasWon && percent >= 1f)
@@ -57,5 +53,5 @@ public class SnakeProgressUI : MonoBehaviour
             result.HandleResult();
         }
     }
-   
+
 }

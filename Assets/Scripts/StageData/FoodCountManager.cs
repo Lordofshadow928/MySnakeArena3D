@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FoodCountManager : MonoBehaviour
 {
@@ -24,6 +25,25 @@ public class FoodCountManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public int GetBestProgress()
+    {
+        string key = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
+        return PlayerPrefs.GetInt(key, 0);
+    }
+    public bool SaveBestProgress(int percent)
+    {
+        string key = $"LevelBest_{SceneManager.GetActiveScene().buildIndex}";
+        int best = PlayerPrefs.GetInt(key, 0);
+
+        if (percent > best)
+        {
+            PlayerPrefs.SetInt(key, percent);
+            PlayerPrefs.Save();
+            return true;
+        }
+
+        return false;
     }
 
     public void AddFruit(int amount)
