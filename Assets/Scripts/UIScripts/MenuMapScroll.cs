@@ -19,6 +19,7 @@ public class MenuMapScroll : MonoBehaviour
 
     private Vector3 lastMousePos;
     private float targetZ;
+    private bool waitingToShowRequirement;
 
     private void Start()
     {
@@ -51,6 +52,13 @@ public class MenuMapScroll : MonoBehaviour
             targetZ = currentLevel * stepSize + snapOffset;
             targetZ = Mathf.Clamp(targetZ, minZ, maxZ);
 
+            // Hide every popup
+            foreach (var island in islands)
+                island.HideRequirement();
+
+            // Wait until scrolling stops
+            waitingToShowRequirement = true;
+
             // Only teleport if level changed
             if (currentLevel != previousLevel)
             {
@@ -64,5 +72,14 @@ public class MenuMapScroll : MonoBehaviour
         Vector3 pos = transform.position;
         pos.z = Mathf.Lerp(pos.z, targetZ, Time.deltaTime * smoothSpeed);
         transform.position = pos;
+        if (waitingToShowRequirement && Mathf.Abs(transform.position.z - targetZ) < 0.05f)
+        {
+            waitingToShowRequirement = false;
+
+            if (islands[currentLevel].IsLocked)
+            {
+                islands[currentLevel].ShowRequirement();
+            }
+        }
     }
 }
