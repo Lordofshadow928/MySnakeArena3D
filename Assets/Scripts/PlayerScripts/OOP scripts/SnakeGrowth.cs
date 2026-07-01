@@ -27,12 +27,12 @@ public class SnakeGrowth : MonoBehaviour
             OnGrow?.Invoke();
         }
     }
-    public void AddFood()
+    public void AddFood(FruitType fruitType)
     {
         foodCounter++;
         foodStorage?.AddFood(1);
         energy?.AddEnergy(1);
-        FoodCountManager.Instance?.AddFruit(1);
+        FoodCountManager.Instance?.AddFruit(fruitType, 1);
         if (foodCounter >= foodsPerGrowth)
         {
             foodCounter = 0;

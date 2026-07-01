@@ -122,33 +122,6 @@ public class SnakeBody : MonoBehaviour
         }
     }
 
-    //private void MoveSegments()
-    //{
-    //    for (int i = 1; i < segments.Count; i++)
-    //    {
-    //        int index = Mathf.RoundToInt(i * segmentLength / distanceBetweenPoints);
-
-    //        if (index >= positionHistory.Count)
-    //            continue;
-
-    //        SnakePart part = segments[i].GetComponent<SnakePart>();
-
-    //        if (part != null)
-    //        {
-    //            part.MoveSpeed = movement.CurrentSpeed;
-    //            part.TargetPosition = positionHistory[index];
-    //            part.TargetLookPosition = segments[i - 1].position;
-    //        }
-    //    }
-
-    //    int maxHistory = segments.Count * Mathf.RoundToInt(segmentLength / distanceBetweenPoints) + 10;
-
-    //    if (positionHistory.Count > maxHistory)
-    //    {
-    //        positionHistory.RemoveAt(positionHistory.Count - 1);
-    //    }
-    //}
-
     public int GetTotalSegmentCount()
     {
         return segments.Count;

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class FoodDemo : MonoBehaviour, IPoolable
 {
+    [SerializeField] private FruitType fruitType;
+    public FruitType FruitType => fruitType;
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 12f;
     [SerializeField] private float maxSpeed = 15f;

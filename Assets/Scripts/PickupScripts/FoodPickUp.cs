@@ -20,9 +20,11 @@ public class FoodPickUp : PickupBase
         SnakeGrowth growth = onpick.GetComponent<SnakeGrowth>();
         SnakeFoodStorage storage = onpick.GetComponent<SnakeFoodStorage>();
 
-        if (growth != null)
+        FoodDemo food = GetComponent<FoodDemo>();
+
+        if (growth != null && food != null)
         {
-            growth.AddFood();
+            growth.AddFood(food.FruitType);
         }
         LeanPool.Despawn(gameObject);
     }

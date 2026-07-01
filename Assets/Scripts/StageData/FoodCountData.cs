@@ -7,9 +7,26 @@ public class FoodCountData : ScriptableObject
 
     [Header("Unlock")]
     public int requiredFruit;
-
+    public FruitType fruitType;
     [Header("Requirement UI")]
-    public Sprite requirementSprite;
-
-    public string stageName;
+    public Sprite fruitSprite;
+    
+}
+public enum FruitType
+{
+    None,
+    Apple,
+    Banana,
+    Cherry,
+    Grape,
+    Orange,
+    Watermelon,
+    Pineapple,
+    Strawberry,
+    Mango,
+    Broccoli,
+    Carrot,
+    Pear,
+    DragonFruit,
+    Pomegranate,
 }

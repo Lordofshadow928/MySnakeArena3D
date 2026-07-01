@@ -13,9 +13,11 @@ public class RequirementUI : MonoBehaviour
     {
         FoodCountData data = island.StageData;
 
-        stageImage.sprite = data.requirementSprite;
+        stageImage.sprite = data.fruitSprite;
 
-        requirementText.text = $"{FoodCountManager.Instance.CurrentFruitProgress}/{data.requiredFruit}";
+        int progress = FoodCountManager.Instance.GetFruitCount(data.fruitType);
+
+        requirementText.text = $"{progress}/{data.requiredFruit}";
 
         transform.position = island.LockController.transform.position + offset;
 

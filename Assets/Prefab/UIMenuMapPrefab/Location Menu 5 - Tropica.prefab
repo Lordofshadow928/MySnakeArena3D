@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7733394537546153388}
   m_Layer: 0
-  m_Name: Fruits Positions
+  m_Name: FruitsPositions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -596,7 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797073c442d0b4747b5e23517551f2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageIndex: 5
+  stageData: {fileID: 11400000, guid: 85dc12492f951754e9546425a6c33f82, type: 2}
+  useAutomaticLock: 1
 --- !u!1 &3722480943765695316
 GameObject:
   m_ObjectHideFlags: 0
