@@ -5,17 +5,18 @@ public class MenuMapScroll : MonoBehaviour
     [SerializeField] private MenuProgressManager progressManager;
     [SerializeField] private SnakeUITeleport snakeTeleportEffect;
     [SerializeField] private MenuIsland[] islands;
+    [SerializeField] private RequirementUI requirementUI;
 
     private int currentLevel;
     private int previousLevel;
 
-    [SerializeField] float scrollSpeed = 0.1f;
-    [SerializeField] float minZ = -5f;
-    [SerializeField] float maxZ = 210f;
-    [SerializeField] float smoothSpeed = 4f;
+    [SerializeField] private float scrollSpeed = 0.1f;
+    [SerializeField] private float minZ = -5f;
+    [SerializeField] private float maxZ = 210f;
+    [SerializeField] private float smoothSpeed = 4f;
 
-    [SerializeField] float stepSize = 15f;
-    [SerializeField] float snapOffset = -5f;
+    [SerializeField] private float stepSize = 15f;
+    [SerializeField] private float snapOffset = -5f;
 
     private Vector3 lastMousePos;
     private float targetZ;
@@ -24,6 +25,9 @@ public class MenuMapScroll : MonoBehaviour
     private void Start()
     {
         targetZ = transform.position.z;
+
+        if (requirementUI != null)
+            requirementUI.Hide();
     }
 
     private void Update()
@@ -31,6 +35,9 @@ public class MenuMapScroll : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             lastMousePos = Input.mousePosition;
+
+            if (requirementUI != null)
+                requirementUI.Hide();
         }
 
         if (Input.GetMouseButton(0))
@@ -43,7 +50,6 @@ public class MenuMapScroll : MonoBehaviour
             lastMousePos = Input.mousePosition;
         }
 
-        // Snap when releasing mouse
         if (Input.GetMouseButtonUp(0))
         {
             float level = Mathf.Round((targetZ - snapOffset) / stepSize);
@@ -52,17 +58,14 @@ public class MenuMapScroll : MonoBehaviour
             targetZ = currentLevel * stepSize + snapOffset;
             targetZ = Mathf.Clamp(targetZ, minZ, maxZ);
 
-            // Hide every popup
-            foreach (var island in islands)
-                island.HideRequirement();
+            if (requirementUI != null)
+                requirementUI.Hide();
 
-            // Wait until scrolling stops
             waitingToShowRequirement = true;
 
-            // Only teleport if level changed
             if (currentLevel != previousLevel)
             {
-                if(snakeTeleportEffect.TeleportTo(islands[currentLevel]))
+                if (snakeTeleportEffect.TeleportTo(islands[currentLevel]))
                 {
                     previousLevel = currentLevel;
                 }
@@ -72,13 +75,19 @@ public class MenuMapScroll : MonoBehaviour
         Vector3 pos = transform.position;
         pos.z = Mathf.Lerp(pos.z, targetZ, Time.deltaTime * smoothSpeed);
         transform.position = pos;
-        if (waitingToShowRequirement && Mathf.Abs(transform.position.z - targetZ) < 0.05f)
+
+        if (waitingToShowRequirement &&
+            Mathf.Abs(transform.position.z - targetZ) < 0.05f)
         {
             waitingToShowRequirement = false;
 
             if (islands[currentLevel].IsLocked)
             {
-                islands[currentLevel].ShowRequirement();
+                requirementUI.Show(islands[currentLevel]);
+            }
+            else
+            {
+                requirementUI.Hide();
             }
         }
     }

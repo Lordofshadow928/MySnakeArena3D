@@ -2547,7 +2547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8459824426438001995
 Transform:
   m_ObjectHideFlags: 0
@@ -2663,8 +2663,6 @@ GameObject:
   - component: {fileID: 3174689671301906698}
   - component: {fileID: 7133297430260850361}
   - component: {fileID: 763358534982787288}
-  - component: {fileID: 7303939760959858855}
-  - component: {fileID: 8434104731234120776}
   - component: {fileID: 3786767425790067407}
   - component: {fileID: 4835634253030118752}
   - component: {fileID: 3961227131394222208}
@@ -2673,6 +2671,7 @@ GameObject:
   - component: {fileID: 1441082951922474256}
   - component: {fileID: 1245442125005396905}
   - component: {fileID: 8383807461826218673}
+  - component: {fileID: 8715879324926378342}
   m_Layer: 0
   m_Name: SnakeAI
   m_TagString: Untagged
@@ -2823,47 +2822,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262d9c794ae91214cab0a180b0cdde8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle:
+  obstacleMask:
     serializedVersion: 2
     m_Bits: 256
-  autoAvoidStrength: 2
-  autoAvoidDecay: 6
-  collisionCooldown: 0.3
---- !u!114 &7303939760959858855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7216615919594575813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87b892ec57abfdc48adc44917a0e20fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle:
-    serializedVersion: 2
-    m_Bits: 256
-  pressureBuildSpeed: 0.5
-  pressureReleaseSpeed: 2
-  maxSlowdown: 1
---- !u!114 &8434104731234120776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7216615919594575813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d71d03c3b734c59468f311edb3d661fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacle:
-    serializedVersion: 2
-    m_Bits: 256
-  stuckTime: 3
-  recoverySteering: 5
+  sensorDistance: 1.5
+  sensorRadius: 0.35
+  sensorHeight: 0.2
+  sideOffset: 0.45
+  sensorAngle: 20
+  maxAvoidSteering: 1
+  steeringSmooth: 10
+  steeringRelease: 6
+  centerWeight: 1
+  sideWeight: 0.45
 --- !u!114 &3786767425790067407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2999,3 +2970,16 @@ MonoBehaviour:
   deathExplosion: {fileID: 198299818774797479, guid: bcb76a51b69ccff4d978441cb0304b25,
     type: 3}
   destroyDelay: 0.5
+--- !u!114 &8715879324926378342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216615919594575813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ff06db378843d47a6b342ec1fed4cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crownHolder: {fileID: 6416422343769521264}

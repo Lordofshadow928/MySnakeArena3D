@@ -13,7 +13,7 @@ public class SnakeCollisionDeath : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("SnakeCollisionDeath: Triggered by " + other.name);
+        //Debug.Log("SnakeCollisionDeath: Triggered by " + other.name);
         SnakePart part = other.GetComponentInParent<SnakePart>();
 
         if (part == null)

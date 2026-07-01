@@ -176,13 +176,19 @@ public class FoodCountManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("HighestStage", stageIndex);
 
-        // Reset progress for the next stage
+        // Reset progress toward the next stage
         PlayerPrefs.SetInt("CurrentFruitProgress", 0);
 
-        // Menu can use this to play unlock animation
+        // Used by menu animation
         PlayerPrefs.SetInt("PendingUnlockStage", stageIndex);
 
         PlayerPrefs.Save();
+
+        // Refresh the menu immediately if it exists
+        if (MenuProgressManager.Instance != null)
+        {
+            MenuProgressManager.Instance.UpdateProgress();
+        }
 
         Debug.Log($"Stage {stageIndex} Unlocked!");
     }
@@ -196,18 +202,19 @@ public class FoodCountManager : MonoBehaviour
 
         return stage.requiredFruit;
     }
+   
     [ContextMenu("Clear All Progress")]
     public void ClearAllProgress()
     {
-        PlayerPrefs.DeleteKey("HighestStage");
-        PlayerPrefs.DeleteKey("CurrentFruitProgress");
-        PlayerPrefs.DeleteKey("PendingUnlockStage");
-
-        // If you still use these elsewhere
-        PlayerPrefs.DeleteKey("TotalFruit");
-
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
 
-        Debug.Log("All progression data cleared.");
+        Debug.Log("DeleteAll called.");
+
+        Debug.Log("HighestStage = " + PlayerPrefs.GetInt("HighestStage", -1));
+        Debug.Log("CurrentFruitProgress = " + PlayerPrefs.GetInt("CurrentFruitProgress", -1));
+        Debug.Log("LevelBest_0 = " + PlayerPrefs.GetInt("LevelBest_0", -1));
+        Debug.Log("LevelBest_1 = " + PlayerPrefs.GetInt("LevelBest_1", -1));
+        Debug.Log("LevelBest_2 = " + PlayerPrefs.GetInt("LevelBest_2", -1));
     }
 }
