@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SnakeBoostPoop : MonoBehaviour
 {
-    [SerializeField] private GameObject poopFoodPrefab;
     [SerializeField] private float poopInterval = 0.3f;
 
     private float timer;
@@ -50,8 +49,8 @@ public class SnakeBoostPoop : MonoBehaviour
         Transform tail = body.TailPoint;
 
         Vector3 pos = tail.position - tail.forward * 0.9f;
-
-        LeanPool.Spawn(poopFoodPrefab, pos, tail.rotation);
+        GameObject foodPrefab = LevelManager.Instance.CurrentLevelData.foodPrefab;
+        LeanPool.Spawn(foodPrefab, pos, tail.rotation);
 
         storage.RemoveFood(1);
         Debug.Log("SPAWN POOP");

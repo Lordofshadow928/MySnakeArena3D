@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private LevelData[] levelDatas;
     [SerializeField] private FoodCountData[] stageDatas;
-
+    private int currentStageIndex = 1;
     private void Awake()
     {
         if (Instance == null)
@@ -19,6 +19,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public LevelData CurrentLevelData => GetLevelData(currentStageIndex);
+
+    public void SetCurrentStage(int stageIndex)
+    {
+        currentStageIndex = stageIndex;
+    }
     public LevelData GetLevelData(int stageIndex)
     {
         if (stageIndex < 1 || stageIndex > levelDatas.Length)
