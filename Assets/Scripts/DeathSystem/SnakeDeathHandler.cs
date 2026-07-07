@@ -7,7 +7,6 @@ public class SnakeDeathHandler : MonoBehaviour
 {
     [SerializeField] private SnakeHealth health;
     [SerializeField] private SnakeBody body;
-    [SerializeField] private GameObject foodPrefab;
     private void Start()
     {
         health.OnDeath.AddListener(HandleDeath);
@@ -15,6 +14,7 @@ public class SnakeDeathHandler : MonoBehaviour
 
     private void HandleDeath(DeathData data)
     {
+        GameObject foodPrefab = LevelManager.Instance.CurrentLevelData.foodPrefab;
         Debug.Log($"Drop {data.foodCount} food");
 
         // Spawn food here
