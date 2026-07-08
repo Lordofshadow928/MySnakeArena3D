@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.PlayerSettings;
 
-public class FoodSpawner2 : MonoBehaviour
+public class FoodSpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform snakeHead;

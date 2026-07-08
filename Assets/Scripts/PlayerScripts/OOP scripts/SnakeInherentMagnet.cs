@@ -11,12 +11,12 @@ public class SnakeInherentMagnet : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [SerializeField] private List<FoodDemo> magnetFoods = new List<FoodDemo>();
-    private FoodSpawner2 spawner;
+    private FoodSpawner spawner;
     private bool isGizmosOn = false;
 
     void Start()
     {
-        spawner = FindObjectOfType<FoodSpawner2>();
+        spawner = FindObjectOfType<FoodSpawner>();
         if (spawner == null)
             Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
 

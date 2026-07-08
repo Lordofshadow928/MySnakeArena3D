@@ -15,12 +15,12 @@ public class FoodDemo : MonoBehaviour, IPoolable
     private Transform target;
     private bool isMovingToTarget = false;
     private SnakeInherentMagnet magnetSystem;
-    private FoodSpawner2 foodSpawner;
+    private FoodSpawner foodSpawner;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        foodSpawner  = FindObjectOfType<FoodSpawner2>();
+        foodSpawner  = FindObjectOfType<FoodSpawner>();
         magnetSystem = FindObjectOfType<SnakeInherentMagnet>();
     }
 
