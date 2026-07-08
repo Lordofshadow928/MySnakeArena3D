@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;
     [SerializeField] private float smoothSpeed = 5f;
-
+    private Transform target;
     private Vector3 offset;
 
-    private void Start()
+    public void Initialize(Transform player)
     {
-        // Save the initial distance and angle between camera and player
+        target = player;
         offset = transform.position - target.position;
     }
 

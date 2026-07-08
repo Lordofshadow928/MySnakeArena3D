@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class ResultFoodUI : MonoBehaviour
 {
-    [SerializeField] private SnakeFoodStorage storage;
-
     [Header("Win")]
     [SerializeField] private TMP_Text winFoodText;
 
     [Header("Lose")]
     [SerializeField] private TMP_Text loseFoodText;
-
+    private SnakeFoodStorage storage;
+    public void Initialize(SnakeFoodStorage playerStorage)
+    {
+        storage = playerStorage;
+    }
     public void ShowWin()
     {
         winFoodText.text = $"{storage.StoredFood}";

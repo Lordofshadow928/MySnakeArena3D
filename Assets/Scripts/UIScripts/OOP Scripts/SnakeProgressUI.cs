@@ -8,27 +8,30 @@ using UnityEngine.UI;
 public class SnakeProgressUI : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private SnakeEnergy energy;
     [SerializeField] private TMP_Text progressText;
     [SerializeField] private TMP_Text bestProgressText;
     [SerializeField] private Image fillImage;
     [SerializeField] private ResultHandler result;
     private bool hasWon;
     private int bestProgress;
+    private SnakeEnergy energy;
 
     private void Start()
     {
+        energy = FindFirstObjectByType<SnakeEnergy>();
+        if (energy != null)
+        {
+            energy.OnEnergyChanged += UpdateUI;
+        }
         bestProgress = FoodCountManager.Instance.GetBestProgress();
         bestProgressText.text = $"Best {bestProgress}%";
     }
-    private void OnEnable()
+    private void OnDestroy()
     {
-        energy.OnEnergyChanged += UpdateUI;
-    }
-
-    private void OnDisable()
-    {
-        energy.OnEnergyChanged -= UpdateUI;
+        if (energy != null)
+        {
+            energy.OnEnergyChanged -= UpdateUI;
+        }
     }
 
     private void UpdateUI(int current, int max)

@@ -11,7 +11,7 @@ public class FoodSpawner : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private float obstacleCheckRadius = 0.4f;
     private Transform snakeHead;
-    private Transform[] spawnPoints;
+    private MapData mapData;
     private GameObject foodPrefab;
     private int foodPerInterval;
     private int maxActiveFood;
@@ -27,9 +27,9 @@ public class FoodSpawner : MonoBehaviour
     private int spawnedFood;
 
     [SerializeField]private List<GameObject> spawnedFoods = new List<GameObject>();
-    public void Initialize(LevelData level, MapData map)
+    public void Initialize(LevelData level, MapData map, Transform player)
     {
-        snakeHead = FindFirstObjectByType<SnakeMovement>().transform;
+        snakeHead = player;
 
         foodPrefab = level.foodPrefab;
 
@@ -45,7 +45,7 @@ public class FoodSpawner : MonoBehaviour
 
         maxSpawnAttempts = level.maxSpawnAttempts;
 
-        spawnPoints = map.SpawnPoints;
+        mapData = map;
 
         CancelInvoke();
 
@@ -56,7 +56,8 @@ public class FoodSpawner : MonoBehaviour
         if (foodPrefab != null)
             return;
 
-        Initialize(LevelManager.Instance.CurrentLevelData, LevelManager.Instance.CurrentMapData);
+        //Initialize(LevelManager.Instance.CurrentLevelData, LevelManager.Instance.CurrentMapData);
+        Initialize(LevelManager.Instance.CurrentLevelData, LevelManager.Instance.CurrentMapData, FindFirstObjectByType<SnakeMovement>()?.transform);
     }
 
     void SpawnFood()
@@ -126,7 +127,7 @@ public class FoodSpawner : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
-        Transform center = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform center = mapData.GetRandomFoodSpawn();
 
         Vector3 pos = center.position + new Vector3(Random.Range(-spawnArea.x, spawnArea.x), 0.5f, Random.Range(-spawnArea.z, spawnArea.z));
 
@@ -163,20 +164,20 @@ public class FoodSpawner : MonoBehaviour
         return closest != null ? closest.transform : null;
     }
 
-    private void OnDrawGizmos()
-    {
-        if (spawnPoints == null) return;
+    //private void OnDrawGizmos()
+    //{
+    //    if (spawnPoints == null) return;
 
-        foreach (Transform point in spawnPoints)
-        {
-            if (point == null) continue;
+    //    foreach (Transform point in spawnPoints)
+    //    {
+    //        if (point == null) continue;
 
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(point.position, 0.5f);
+    //        Gizmos.color = Color.yellow;
+    //        Gizmos.DrawSphere(point.position, 0.5f);
 
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(point.position, new Vector3(spawnArea.x * 2, 0.1f, spawnArea.z * 2));
-        }
-    }
+    //        Gizmos.color = Color.green;
+    //        Gizmos.DrawWireCube(point.position, new Vector3(spawnArea.x * 2, 0.1f, spawnArea.z * 2));
+    //    }
+    //}
 }
 

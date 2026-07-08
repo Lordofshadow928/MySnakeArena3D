@@ -22,3 +22,15 @@ MonoBehaviour:
   spawnArea: {x: 5, y: 1, z: 5}
   minDistanceFromSnake: 3
   maxSpawnAttempts: 3
+  playerPrefab: {fileID: 6551823763182382594, guid: ea7469c767c125d41b542f3238fc5e4e,
+    type: 3}
+  aiSnakePrefab: {fileID: 7216615919594575813, guid: 60f41f754e2320c4c83151c8d88adf50,
+    type: 3}
+  powerupPrefabs:
+  - {fileID: 1286789176227407, guid: 95e178d947997cf48b80759606e5cca4, type: 3}
+  firstSpawnDelay: 0.5
+  aiCount: 7
+  aiSpawnInterval: 0.5
+  aiRespawnDelay: 3
+  powerupSpawnInterval: 15
+  maxPowerups: 3

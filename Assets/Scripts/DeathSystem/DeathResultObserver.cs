@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class DeathResultObserver : MonoBehaviour
 {
-    [SerializeField] private SnakeHealth health;
     [SerializeField] private ResultHandler resultHandler;
-
-    private void Start()
+    private SnakeHealth health;
+    public void Initialize(SnakeHealth snakeHealth)
     {
-        health.OnDeath.AddListener(OnDeath);
+        health = snakeHealth;
+        if (health != null)
+        {
+            health.OnDeath.AddListener(OnDeath);
+        }
     }
 
     private void OnDestroy()
     {
-        health.OnDeath.RemoveListener(OnDeath);
+        if (health != null)
+        {
+            health.OnDeath.RemoveListener(OnDeath);
+        }
     }
 
     private void OnDeath(DeathData data)

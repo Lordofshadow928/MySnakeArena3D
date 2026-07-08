@@ -4,18 +4,29 @@ using UnityEngine.UI;
 public class SnakeBoostUI : MonoBehaviour
 {
     [SerializeField] private SnakeBoost boost;
-    [SerializeField] private Image boostImage;
     [SerializeField] private Sprite activeSprite;
     [SerializeField] private Sprite inactiveSprite;
-
-    private void OnEnable()
+    private Image boostImage;
+    private void Awake()
     {
-        boost.OnBoostChanged += UpdateUI;
+        if (boostImage == null)
+            boostImage = UIManager.Instance.LightningBoostImage;
     }
-
-    private void OnDisable()
+    private void Start()
     {
-        boost.OnBoostChanged -= UpdateUI;
+        if (boost == null)
+            boost = FindFirstObjectByType<SnakeBoost>();
+
+        if (boost != null)
+            boost.OnBoostChanged += UpdateUI;
+
+        if (boost != null)
+            UpdateUI(boost.IsBoosting);
+    }
+    private void OnDestroy()
+    {
+        if (boost != null)
+            boost.OnBoostChanged -= UpdateUI;
     }
 
     private void UpdateUI(bool active)

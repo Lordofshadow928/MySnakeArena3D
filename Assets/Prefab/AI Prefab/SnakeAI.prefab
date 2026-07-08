@@ -2670,6 +2670,7 @@ GameObject:
   - component: {fileID: 4715897725338024760}
   - component: {fileID: 1441082951922474256}
   - component: {fileID: 1245442125005396905}
+  - component: {fileID: 2709628935851715748}
   - component: {fileID: 8383807461826218673}
   - component: {fileID: 8715879324926378342}
   m_Layer: 0
@@ -2927,8 +2928,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 3961227131394222208}
   body: {fileID: 8992971415625369584}
-  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
-    type: 3}
 --- !u!114 &1441082951922474256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,6 +2950,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6124c2f295db9bd429bd0f224a1d6cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2709628935851715748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7216615919594575813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf3a99b84d5d528459bcc1deebe8c76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &8383807461826218673
