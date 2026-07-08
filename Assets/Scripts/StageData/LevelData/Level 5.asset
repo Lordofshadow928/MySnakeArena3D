@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685838cce56a36543a1aafe6ec0fcb28, type: 3}
   m_Name: Level 5
   m_EditorClassIdentifier: 
-  foodPrefab: {fileID: 3850161500004744375, guid: 2c4e8b06b7d854a4092bb21ff9ec3191,
-    type: 3}
   mapPrefab: {fileID: 3575997245085655058, guid: 9ac47b8e006c3cb40b42e69728645d04,
     type: 3}
+  foodPrefab: {fileID: 3850161500004744375, guid: 2c4e8b06b7d854a4092bb21ff9ec3191,
+    type: 3}
+  foodPerInterval: 10
+  maxActiveFood: 500
+  spawnInterval: 2
+  spawnArea: {x: 5, y: 1, z: 5}
+  minDistanceFromSnake: 3
+  maxSpawnAttempts: 3

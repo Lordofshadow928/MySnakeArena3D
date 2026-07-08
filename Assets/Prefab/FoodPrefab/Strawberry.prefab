@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2830779831563721427}
   - component: {fileID: 3448904507081451680}
   - component: {fileID: 2911383763188101958}
+  - component: {fileID: 4606297310939064307}
+  - component: {fileID: -1140666867685189277}
+  - component: {fileID: 8848952543079167619}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Untagged
@@ -133,3 +136,44 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4606297310939064307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5630503723291750442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6d8ba5d8be415449660f44d9d66d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitType: 8
+  moveSpeed: 12
+  maxSpeed: 15
+  eatDistance: 0.3
+--- !u!114 &-1140666867685189277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5630503723291750442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb528128cc88a143af19566fdd01ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupTarget: 0
+--- !u!114 &8848952543079167619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5630503723291750442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47bac80a21a18b4b91b990df1cb4e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

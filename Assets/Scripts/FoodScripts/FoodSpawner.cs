@@ -7,24 +7,19 @@ using static UnityEditor.PlayerSettings;
 
 public class FoodSpawner : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Transform snakeHead;
-
-    [Header("Spawner Settings")]
-    [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private GameObject foodPrefab;
-    [SerializeField] private int foodPerInterval = 4;
-    [SerializeField] private int maxActiveFood = 15;
-    [SerializeField] private Vector3 spawnArea = new Vector3(5, 1, 5);
-    [SerializeField] private float spawnInterval = 5f;
-
-    [Header("Smart Spawn")]
-    [SerializeField] private float minDistanceFromSnake = 3f;
-    [SerializeField] private int maxSpawnAttempts = 3;
-
     [Header("Obstacle Check")]
     [SerializeField] private LayerMask obstacleLayer;
     [SerializeField] private float obstacleCheckRadius = 0.4f;
+    private Transform snakeHead;
+    private Transform[] spawnPoints;
+    private GameObject foodPrefab;
+    private int foodPerInterval;
+    private int maxActiveFood;
+    private float spawnInterval;
+    private Vector3 spawnArea;
+    private float minDistanceFromSnake;
+    private int maxSpawnAttempts;
+  
     bool IsPositionFree(Vector3 pos)
     {
         return !Physics.CheckSphere(pos, obstacleCheckRadius, obstacleLayer);
@@ -32,16 +27,36 @@ public class FoodSpawner : MonoBehaviour
     private int spawnedFood;
 
     [SerializeField]private List<GameObject> spawnedFoods = new List<GameObject>();
+    public void Initialize(LevelData level, MapData map)
+    {
+        snakeHead = FindFirstObjectByType<SnakeMovement>().transform;
+
+        foodPrefab = level.foodPrefab;
+
+        foodPerInterval = level.foodPerInterval;
+
+        maxActiveFood = level.maxActiveFood;
+
+        spawnInterval = level.spawnInterval;
+
+        spawnArea = level.spawnArea;
+
+        minDistanceFromSnake = level.minDistanceFromSnake;
+
+        maxSpawnAttempts = level.maxSpawnAttempts;
+
+        spawnPoints = map.SpawnPoints;
+
+        CancelInvoke();
+
+        InvokeRepeating(nameof(SpawnFood), 2f, spawnInterval);
+    }
     void Start()
     {
-        //Safety check
-        if (foodPrefab == null)
-        {
-            Debug.LogError("FoodSpawner: Missing food prefab!");
+        if (foodPrefab != null)
             return;
-        }
-            //First food spawn after 2 seconds, then repeat every spawnInterval seconds
-            InvokeRepeating(nameof(SpawnFood), 2f, spawnInterval);
+
+        Initialize(LevelManager.Instance.CurrentLevelData, LevelManager.Instance.CurrentMapData);
     }
 
     void SpawnFood()

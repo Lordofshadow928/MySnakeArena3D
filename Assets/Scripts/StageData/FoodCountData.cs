@@ -29,4 +29,6 @@ public enum FruitType
     Pear,
     DragonFruit,
     Pomegranate,
+    Pumpkin,
+    Tomato,
 }

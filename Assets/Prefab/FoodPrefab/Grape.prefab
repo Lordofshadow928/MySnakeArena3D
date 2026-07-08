@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 5720675238088461353}
   - component: {fileID: 8406448726392759771}
   - component: {fileID: 2252260012322059977}
+  - component: {fileID: -1857542200930147793}
+  - component: {fileID: -4787198902314322620}
+  - component: {fileID: -7636960505546009067}
   m_Layer: 0
   m_Name: Grape
   m_TagString: Untagged
@@ -133,3 +136,44 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1857542200930147793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436608442349229641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47bac80a21a18b4b91b990df1cb4e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4787198902314322620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436608442349229641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6d8ba5d8be415449660f44d9d66d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitType: 4
+  moveSpeed: 12
+  maxSpeed: 15
+  eatDistance: 0.3
+--- !u!114 &-7636960505546009067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436608442349229641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb528128cc88a143af19566fdd01ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupTarget: 0

@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 1785161758253678278}
   - component: {fileID: 5043865124347685566}
   - component: {fileID: 5624813432534186314}
+  - component: {fileID: -5248838622985749026}
+  - component: {fileID: 5019308424129739627}
+  - component: {fileID: -2419906023077541264}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Untagged
@@ -133,3 +136,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5248838622985749026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704896494228650971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47bac80a21a18b4b91b990df1cb4e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5019308424129739627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704896494228650971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6d8ba5d8be415449660f44d9d66d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitType: 5
+  moveSpeed: 12
+  maxSpeed: 15
+  eatDistance: 0.3
+--- !u!114 &-2419906023077541264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704896494228650971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb528128cc88a143af19566fdd01ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupTarget: 0
