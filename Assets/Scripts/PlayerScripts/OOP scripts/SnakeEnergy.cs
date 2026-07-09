@@ -15,7 +15,7 @@ public class SnakeEnergy : MonoBehaviour
     {
         CurrentEnergy += amount;
         CurrentEnergy = Mathf.Clamp(CurrentEnergy, 0, maxEnergy);
-
+        
         OnEnergyChanged?.Invoke(CurrentEnergy, maxEnergy);
     }
 

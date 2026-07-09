@@ -14,8 +14,6 @@ public class RainBowPowerUp : MonoBehaviour
     {
         invincible = GetComponentInChildren<SnakeInvincible2>();
         boost = GetComponent<SnakeBoost>();
-        Debug.Log("INVINCIBLE = " + invincible);
-        Debug.Log("BOOST = " + boost);
     }
 
     public void ActivateRainbowMode()

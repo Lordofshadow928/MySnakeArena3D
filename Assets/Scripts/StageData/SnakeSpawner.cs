@@ -7,6 +7,7 @@ public class SnakeSpawner : MonoBehaviour
     [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private DeathResultObserver deathObserver;
     [SerializeField] private ResultFoodUI resultFoodUI;
+    [SerializeField] private SnakeProgressUI progressUI;
     private Transform player;
     private LevelData level;
     private MapData map;
@@ -39,6 +40,7 @@ public class SnakeSpawner : MonoBehaviour
         cameraFollow.Initialize(player);
         deathObserver.Initialize(player.GetComponent<SnakeHealth>());
         resultFoodUI.Initialize(player.GetComponent<SnakeFoodStorage>());
+        progressUI.Initialize(player.GetComponent<SnakeEnergy>());
     }
 
     public void SpawnAI()

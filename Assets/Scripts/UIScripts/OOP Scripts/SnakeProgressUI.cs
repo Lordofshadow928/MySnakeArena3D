@@ -16,9 +16,9 @@ public class SnakeProgressUI : MonoBehaviour
     private int bestProgress;
     private SnakeEnergy energy;
 
-    private void Start()
+    public void Initialize(SnakeEnergy snakeEnergy)
     {
-        energy = FindFirstObjectByType<SnakeEnergy>();
+        energy = snakeEnergy;
         if (energy != null)
         {
             energy.OnEnergyChanged += UpdateUI;
@@ -43,7 +43,6 @@ public class SnakeProgressUI : MonoBehaviour
         int currentPercent = Mathf.RoundToInt(percent * 100);
 
         progressText.text = $"{currentPercent}%";
-
         if (FoodCountManager.Instance.SaveBestProgress(currentPercent))
         {
             bestProgress = currentPercent;

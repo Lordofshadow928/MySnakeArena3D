@@ -8,20 +8,18 @@ public class SnakeInherentMagnet : MonoBehaviour
     [SerializeField] private float magnetRadius = 1f;
     [SerializeField] private LayerMask foodLayer;
     [SerializeField] private Transform mouthPoint;
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     [SerializeField] private List<FoodDemo> magnetFoods = new List<FoodDemo>();
-    private FoodSpawner spawner;
     private bool isGizmosOn = false;
 
-    void Start()
+    private void Awake()
     {
-        spawner = FindObjectOfType<FoodSpawner>();
-        if (spawner == null)
-            Debug.LogError("SnakeInherentMagnet: No FoodSpawner2 found in scene!");
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
 
         if (mouthPoint == null)
-            mouthPoint = transform; 
+            mouthPoint = transform;
     }
     void FixedUpdate()
     {
@@ -73,7 +71,10 @@ public class SnakeInherentMagnet : MonoBehaviour
 
     private void UpdateEatingAnimation()
     {
-        animator?.SetBool("isEating", magnetFoods.Count > 0);
+        if (animator != null)
+        {
+            animator.SetBool("isEating", magnetFoods.Count > 0);
+        }
     }
 
     public void RemoveMagnetFood(FoodDemo food)
