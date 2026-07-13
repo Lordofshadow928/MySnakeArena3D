@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AISnakeSkin : MonoBehaviour
 {
-    [SerializeField] private SnakeSkinData[] skins;
+    [SerializeField] private SnakeSkinDatabase database;
 
     private GameObject currentHead;
 
@@ -10,9 +10,9 @@ public class AISnakeSkin : MonoBehaviour
     {
         SnakeSkinController controller = GetComponent<SnakeSkinController>();
 
-        int randomIndex = Random.Range(0, skins.Length);
+        int randomIndex = Random.Range(0, database.Count);
 
-        SnakeSkinData selectedSkin = skins[randomIndex];
+        SnakeSkinData selectedSkin = database.GetSkin(randomIndex);
 
         controller.ApplySkin(selectedSkin);
 
