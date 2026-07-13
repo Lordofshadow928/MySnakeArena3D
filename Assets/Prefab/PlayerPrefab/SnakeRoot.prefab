@@ -1,113 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2141503760756188275
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2937932223278089462}
-  - component: {fileID: 5943662779454893390}
-  - component: {fileID: 2256448784013967006}
-  m_Layer: 9
-  m_Name: Snake Head
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2937932223278089462
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141503760756188275}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1758128404819284445}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &5943662779454893390
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141503760756188275}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 3
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b8f7aacae0f75c94b9357a6c8d02ace1, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 1
-  m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 629498b623911654f99f99eb85d4e5bf, type: 2}
-  m_Bones: []
-  m_BlendShapeWeights:
-  - 0
-  m_RootBone: {fileID: 0}
-  m_AABB:
-    m_Center: {x: 0.00012663007, y: 0.34944192, z: 0.7230588}
-    m_Extent: {x: 0.56748855, y: 0.7273414, z: 0.723068}
-  m_DirtyAABB: 0
---- !u!95 &2256448784013967006
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141503760756188275}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ea1c961077905684d9b4e44243ace5ac, type: 2}
-  m_Controller: {fileID: 9100000, guid: 537ab149ec540c14792d62bf2c351da4, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4329402533057334064
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +338,7 @@ ParticleSystem:
           m_RotationOrder: 4
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
-    m_SkinnedMeshRenderer: {fileID: 5943662779454893390}
+    m_SkinnedMeshRenderer: {fileID: 0}
     m_Sprite: {fileID: 0}
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
@@ -2461,7 +2353,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   mouthPoint: {fileID: 6652406195626299585}
-  animator: {fileID: 2256448784013967006}
   magnetFoods: []
 --- !u!1 &4771626060196897963
 GameObject:
@@ -2493,7 +2384,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 482839896371289429}
-  - {fileID: 2937932223278089462}
   - {fileID: 8467729985940845086}
   - {fileID: 6652406195626299585}
   - {fileID: 3610463222716741963}
@@ -2700,13 +2590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d347b52079199458fa69f5df2deaab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedSkin:
-    skinName: Snake
-    headPrefab: {fileID: 6551823763182382594}
-    bodyPrefab: {fileID: 756366136975774011, guid: 0d2a307613cb5624f86a999fac69a1e7,
-      type: 3}
-    tailPrefab: {fileID: 6018291062412466636, guid: 8ad8fcc7e8170e2448685ad811c9e477,
-      type: 3}
 --- !u!1 &6551823763182382594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,7 +2599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5498972219986183345}
-  - component: {fileID: 6220414701023902720}
+  - component: {fileID: 2443614519879232749}
   - component: {fileID: 7785394255616571119}
   - component: {fileID: 7974197632432107030}
   - component: {fileID: 6299270509758072363}
@@ -2765,8 +2648,8 @@ Transform:
   - {fileID: 168752226930973185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6220414701023902720
-MeshCollider:
+--- !u!135 &2443614519879232749
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2783,10 +2666,9 @@ MeshCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 629498b623911654f99f99eb85d4e5bf, type: 2}
+  serializedVersion: 3
+  m_Radius: 1.06
+  m_Center: {x: 0, y: 0, z: 0.4482172}
 --- !u!54 &7785394255616571119
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2939,8 +2821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9637728de993e745a9e170a8744d169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poopFoodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
-    type: 3}
   poopInterval: 0.3
 --- !u!114 &2663433265626587531
 MonoBehaviour:
@@ -2969,7 +2849,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boost: {fileID: 2352508175228313679}
-  boostImage: {fileID: 0}
   activeSprite: {fileID: 21300000, guid: a4875663ef0a0634186719277d6f0bdc, type: 2}
   inactiveSprite: {fileID: 21300000, guid: 10d502deab3b6294282c6aaa42cc9f4f, type: 2}
 --- !u!114 &2133393702122055084
@@ -3077,8 +2956,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 966815662855246789}
   body: {fileID: 6299270509758072363}
-  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
-    type: 3}
 --- !u!114 &2925212799976810600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3116,7 +2993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 966815662855246789}
-  animator: {fileID: 2256448784013967006}
+  animator: {fileID: 0}
   deathExplosion: {fileID: 198299818774797479, guid: bcb76a51b69ccff4d978441cb0304b25,
     type: 3}
   destroyDelay: 0.5
@@ -3239,4 +3116,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2fe2eee9e38fa4e9d215a9b17662ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakeHeadCollider: {fileID: 6220414701023902720}
+  snakeHeadCollider: {fileID: 2443614519879232749}
