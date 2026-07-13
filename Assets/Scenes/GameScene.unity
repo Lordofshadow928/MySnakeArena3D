@@ -199,18 +199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102729586}
   m_CullTransparentMesh: 1
---- !u!114 &192163009 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 553610566051941527, guid: ea7469c767c125d41b542f3238fc5e4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 430932444}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 430932445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fe4fa2457e0644eb794eae10c201c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &244322512
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,8 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc870350d9597db458dacfac4dfb9d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy: {fileID: 192163009}
   progressText: {fileID: 2102442425}
+  bestProgressText: {fileID: 0}
   fillImage: {fileID: 768972428}
   result: {fileID: 0}
 --- !u!114 &321088425
@@ -852,8 +840,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 430932454}
   body: {fileID: 430932448}
-  foodPrefab: {fileID: 5094049543623008504, guid: bdb53e5c343a4f840a445b77152f5012,
-    type: 3}
 --- !u!114 &430932453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,12 +893,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262d9c794ae91214cab0a180b0cdde8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle:
+  obstacleMask:
     serializedVersion: 2
-    m_Bits: 256
-  autoAvoidStrength: 2
-  autoAvoidDecay: 6
-  collisionCooldown: 0.3
+    m_Bits: 0
+  sensorDistance: 1.5
+  sensorRadius: 0.35
+  sensorHeight: 0.2
+  sideOffset: 0.45
+  sensorAngle: 20
+  maxAvoidSteering: 1
+  steeringSmooth: 10
+  steeringRelease: 6
+  centerWeight: 1
+  sideWeight: 0.45
 --- !u!1 &512071942
 GameObject:
   m_ObjectHideFlags: 0
