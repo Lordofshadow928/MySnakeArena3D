@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 26786386}
   - component: {fileID: 26786385}
   - component: {fileID: 26786388}
+  - component: {fileID: 26786389}
   m_Layer: 5
   m_Name: BackgroundCanvas
   m_TagString: Untagged
@@ -245,6 +246,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 047f8821c95aba046a0adbf17b9a39a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &26786389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26786383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1d3e86edccdc34bb4bdcd73d0c6483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &78238489
@@ -4157,7 +4170,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2038357753}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 26786389}
+        m_TargetAssemblyTypeName: ShopLoader, Assembly-CSharp
+        m_MethodName: LoadShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2038357753
 MonoBehaviour:
   m_ObjectHideFlags: 0
