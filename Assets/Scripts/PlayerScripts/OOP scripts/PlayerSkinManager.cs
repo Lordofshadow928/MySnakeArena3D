@@ -1,5 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+
+//public class PlayerSkinManager : MonoBehaviour
+//{
+//    public static PlayerSkinManager Instance { get; private set; }
+
+//    [SerializeField] private SnakeSkinDatabase database;
+
+//    private const string EquippedSkinKey = "EquippedSkin";
+
+//    private void Awake()
+//    {
+//        if (Instance == null)
+//        {
+//            Instance = this;
+//            DontDestroyOnLoad(gameObject);
+//        }
+//        else
+//        {
+//            Destroy(gameObject);
+//        }
+//    }
+
+//    public SnakeSkinData EquippedSkin
+//    {
+//        get
+//        {
+//            int index = PlayerPrefs.GetInt(EquippedSkinKey, 0);
+//            return database.GetSkin(index);
+//        }
+//    }
+
+//    public void EquipSkin(int index)
+//    {
+//        PlayerPrefs.SetInt(EquippedSkinKey, index);
+//        PlayerPrefs.Save();
+//    }
+//}
 using UnityEngine;
 
 public class PlayerSkinManager : MonoBehaviour
@@ -9,6 +47,7 @@ public class PlayerSkinManager : MonoBehaviour
     [SerializeField] private SnakeSkinDatabase database;
 
     private const string EquippedSkinKey = "EquippedSkin";
+    private const string FirstLaunchKey = "SkinSystemInitialized";
 
     private void Awake()
     {
@@ -16,6 +55,8 @@ public class PlayerSkinManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            InitializeSave();
         }
         else
         {
@@ -23,18 +64,47 @@ public class PlayerSkinManager : MonoBehaviour
         }
     }
 
+    private void InitializeSave()
+    {
+        if (PlayerPrefs.HasKey(FirstLaunchKey))
+            return;
+
+        // Unlock the default skin
+        UnlockSkin("18");
+
+        // Equip the default skin
+        EquipSkin("18");
+
+        PlayerPrefs.SetInt(FirstLaunchKey, 1);
+        PlayerPrefs.Save();
+    }
+
     public SnakeSkinData EquippedSkin
     {
         get
         {
-            int index = PlayerPrefs.GetInt(EquippedSkinKey, 0);
-            return database.GetSkin(index);
+            string skinID = PlayerPrefs.GetString(EquippedSkinKey, "18");
+            return database.GetSkinByID(skinID);
         }
     }
 
-    public void EquipSkin(int index)
+    public void EquipSkin(string skinID)
     {
-        PlayerPrefs.SetInt(EquippedSkinKey, index);
+        if (!IsUnlocked(skinID))
+            return;
+
+        PlayerPrefs.SetString(EquippedSkinKey, skinID);
+        PlayerPrefs.Save();
+    }
+
+    public bool IsUnlocked(string skinID)
+    {
+        return PlayerPrefs.GetInt("Skin_" + skinID, 0) == 1;
+    }
+
+    public void UnlockSkin(string skinID)
+    {
+        PlayerPrefs.SetInt("Skin_" + skinID, 1);
         PlayerPrefs.Save();
     }
 }

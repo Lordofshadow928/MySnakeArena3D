@@ -4,7 +4,7 @@ using UnityEngine;
 public class SnakeSkinDatabase : ScriptableObject
 {
     public SnakeSkinData[] skins;
-
+    public int Count => skins.Length;
     public SnakeSkinData GetSkin(int index)
     {
         if (skins == null || skins.Length == 0)
@@ -14,6 +14,14 @@ public class SnakeSkinDatabase : ScriptableObject
 
         return skins[index];
     }
+    public SnakeSkinData GetSkinByID(string skinID)
+    {
+        foreach (SnakeSkinData skin in skins)
+        {
+            if (skin.skinID == skinID)
+                return skin;
+        }
 
-    public int Count => skins.Length;
+        return null;
+    }
 }
