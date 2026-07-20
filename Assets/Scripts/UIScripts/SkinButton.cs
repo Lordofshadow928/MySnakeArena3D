@@ -9,6 +9,11 @@ public class SkinButton : MonoBehaviour
 
     public SnakeSkinData SkinData { get; private set; }
     private ShopSelectionManager shopSelectionManager;
+    private void Awake()
+    {
+        shopSelectionManager = FindObjectOfType<ShopSelectionManager>();
+    }
+
     public void Initialize(SnakeSkinData skin)
     {
         SkinData = skin;
