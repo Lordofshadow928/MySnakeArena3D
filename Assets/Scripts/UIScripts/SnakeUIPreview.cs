@@ -8,7 +8,7 @@ public class SnakeUIPreview : MonoBehaviour
     [SerializeField] private Transform headRoot;
     [SerializeField] private Transform bodyRoot;
     [SerializeField] private Transform tailRoot;
-
+    [SerializeField] private LayerMask previewLayer;
     private GameObject currentHead;
     private GameObject currentBody;
     private GameObject currentTail;
@@ -31,9 +31,19 @@ public class SnakeUIPreview : MonoBehaviour
             Destroy(currentTail);
 
         currentHead = Instantiate(skin.headPrefab, headRoot.position, headRoot.rotation, transform);
-
+        SetLayerRecursively(currentHead, LayerMask.NameToLayer("SnakePreview"));
         currentBody = Instantiate(skin.bodyPrefab, bodyRoot.position, bodyRoot.rotation, transform);
-
+        SetLayerRecursively(currentBody, LayerMask.NameToLayer("SnakePreview"));
         currentTail = Instantiate(skin.tailPrefab, tailRoot.position, tailRoot.rotation, transform);
+        SetLayerRecursively(currentTail, LayerMask.NameToLayer("SnakePreview"));
+    }
+    private void SetLayerRecursively(GameObject obj, int layer)
+    {
+        obj.layer = layer;
+
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, layer);
+        }
     }
 }
