@@ -17,6 +17,7 @@ public class SkinButton : MonoBehaviour
     public void Initialize(SnakeSkinData skin)
     {
         SkinData = skin;
+        Debug.Log($"{name} initialized with {skin.skinName}");
     }
 
     public void Click()

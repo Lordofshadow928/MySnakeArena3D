@@ -8,7 +8,7 @@ public class PlayerSkinManager : MonoBehaviour
 
     private const string EquippedSkinKey = "EquippedSkin";
     private const string FirstLaunchKey = "SkinSystemInitialized";
-
+    private const string DefaultSkinID = "18"; 
     private void Awake()
     {
         if (Instance == null)
@@ -30,10 +30,10 @@ public class PlayerSkinManager : MonoBehaviour
             return;
 
         // Unlock the default skin
-        UnlockSkin("18");
+        UnlockSkin(DefaultSkinID);
 
         // Equip the default skin
-        EquipSkin("18");
+        EquipSkin(DefaultSkinID);
 
         PlayerPrefs.SetInt(FirstLaunchKey, 1);
         PlayerPrefs.Save();
@@ -43,7 +43,7 @@ public class PlayerSkinManager : MonoBehaviour
     {
         get
         {
-            string skinID = PlayerPrefs.GetString(EquippedSkinKey, "18");
+            string skinID = PlayerPrefs.GetString(EquippedSkinKey, DefaultSkinID);
             return database.GetSkinByID(skinID);
         }
     }
@@ -66,5 +66,9 @@ public class PlayerSkinManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Skin_" + skinID, 1);
         PlayerPrefs.Save();
+    }
+    public bool IsEquipped(string skinID)
+    {
+        return PlayerPrefs.GetString(EquippedSkinKey, DefaultSkinID) == skinID;
     }
 }
