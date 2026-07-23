@@ -8,7 +8,7 @@ public class PlayerSkinManager : MonoBehaviour
 
     private const string EquippedSkinKey = "EquippedSkin";
     private const string FirstLaunchKey = "SkinSystemInitialized";
-    private const string DefaultSkinID = "18"; 
+    private const string DefaultSkinID = "snake"; 
     private void Awake()
     {
         if (Instance == null)
@@ -43,8 +43,9 @@ public class PlayerSkinManager : MonoBehaviour
     {
         get
         {
-            string skinID = PlayerPrefs.GetString(EquippedSkinKey, DefaultSkinID);
+            string skinID = PlayerPrefs.GetString(EquippedSkinKey, DefaultSkinID); 
             return database.GetSkinByID(skinID);
+            
         }
     }
 
