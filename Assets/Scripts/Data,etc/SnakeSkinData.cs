@@ -22,9 +22,6 @@ public class SnakeSkinData
     public Sprite icon;          
     public Sprite lockedIcon;   
 
-    [Header("Preview")]
-    public GameObject previewPrefab;
-
     [Header("Snake Prefabs")]
     public GameObject headPrefab;
     public GameObject bodyPrefab;

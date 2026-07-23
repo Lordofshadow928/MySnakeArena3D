@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class SkinButton : MonoBehaviour
 {
+    [SerializeField] private string skinID;
     [SerializeField] private Image selectedBorder;
 
+    public string SkinID => skinID;
     public SnakeSkinData SkinData { get; private set; }
     private ShopSelectionManager shopSelectionManager;
     private void Awake()
