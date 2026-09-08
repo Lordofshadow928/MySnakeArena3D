@@ -11,7 +11,7 @@ public class SnakeInherentMagnet : MonoBehaviour
     private Animator animator;
 
     [SerializeField] private List<FoodDemo> magnetFoods = new List<FoodDemo>();
-    private bool isGizmosOn = false;
+    //private bool isGizmosOn = false;
 
     private void Awake()
     {
@@ -60,11 +60,9 @@ public class SnakeInherentMagnet : MonoBehaviour
             if (food != null && !magnetFoods.Contains(food))
             {
                 magnetFoods.Add(food);
-
-                var mr = food.GetComponent<MeshRenderer>();
-                if (mr != null) mr.material.color = Color.green;
-
                 food.MoveToTarget(mouthPoint);
+            //var mr = food.GetComponent<MeshRenderer>();
+            //if (mr != null) mr.material.color = Color.green;
             }
         }
     }
@@ -83,11 +81,11 @@ public class SnakeInherentMagnet : MonoBehaviour
         magnetFoods.Remove(food);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (!isGizmosOn) return;
-        Gizmos.color = Color.cyan;
-        if (mouthPoint != null) Gizmos.DrawWireSphere(mouthPoint.position, magnetRadius);
-        else Gizmos.DrawWireSphere(transform.position, magnetRadius);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    if (!isGizmosOn) return;
+    //    Gizmos.color = Color.cyan;
+    //    if (mouthPoint != null) Gizmos.DrawWireSphere(mouthPoint.position, magnetRadius);
+    //    else Gizmos.DrawWireSphere(transform.position, magnetRadius);
+    //}
 }
