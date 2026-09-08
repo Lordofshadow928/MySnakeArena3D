@@ -118,7 +118,6 @@ Transform:
   m_Children:
   - {fileID: 9041928713841446330}
   - {fileID: 3385708152240444060}
-  - {fileID: 2423747915680085348}
   m_Father: {fileID: 4487614259394130445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3395017936959738977
@@ -258,6 +257,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3221902487798102955}
+  - {fileID: 2423747915680085348}
+  - {fileID: 8549918184218198710}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!114 &6230103691852317087
@@ -420,11 +421,11 @@ Transform:
   m_GameObject: {fileID: 6152577348354586558}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.92, z: -0.26}
+  m_LocalPosition: {x: 0, y: -0.22299999, z: 0.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3221902487798102955}
+  m_Father: {fileID: 4487614259394130445}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!198 &348329520410276665
 ParticleSystem:
@@ -572,7 +573,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2760,3 +2761,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8802788057893191745}
   m_LocalEulerAnglesHint: {x: -89.169685, y: 90, z: 0}
+--- !u!1 &7078974785386129169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8549918184218198710}
+  m_Layer: 10
+  m_Name: TailPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8549918184218198710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078974785386129169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4487614259394130445}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

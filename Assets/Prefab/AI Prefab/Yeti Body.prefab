@@ -528,6 +528,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4844052480876097858}
+  - {fileID: 2037554941832135556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!114 &906890503410611753
@@ -670,7 +671,6 @@ Transform:
   - {fileID: 4714254244111025573}
   - {fileID: 3469153562595279474}
   - {fileID: 3748387747270750169}
-  - {fileID: 2037554941832135556}
   m_Father: {fileID: 2775176732632848613}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6993487983430465673
@@ -785,11 +785,11 @@ Transform:
   m_GameObject: {fileID: 7692508909449772342}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4844052480876097858}
+  m_Father: {fileID: 2775176732632848613}
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
 --- !u!198 &8529282043005957475
 ParticleSystem:
@@ -937,7 +937,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
