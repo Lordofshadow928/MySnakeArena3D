@@ -28,10 +28,8 @@ public class ShopEquipController : MonoBehaviour
         SkinButton selected = selectionManager.CurrentSelection;
 
         if (selected == null)
-        {
-            Debug.Log("CurrentSelection = NULL");
             return;
-        }
+        
 
         SnakeSkinData skin = selected.SkinData;
 
